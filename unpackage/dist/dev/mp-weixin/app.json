@@ -4,6 +4,11 @@
     "pages/release/release",
     "pages/my/my"
   ],
+  "usingComponents": {
+    "van-icon": "/wxcomponents/vant/icon/index",
+    "van-tab": "/wxcomponents/vant/tab/index",
+    "van-tabs": "/wxcomponents/vant/tabs/index"
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "米友社",
@@ -34,6 +39,5 @@
         "selectedIconPath": "static/my-active.png"
       }
     ]
-  },
-  "usingComponents": {}
+  }
 }

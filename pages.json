@@ -27,8 +27,7 @@
 		"backgroundColor": "#fff",
 		"selectedColor": "#1296db",
 		"color": "#999",
-		"list": [
-			{
+		"list": [{
 				"text": "首页",
 				"pagePath": "pages/home/home",
 				"iconPath": "/static/首页.png",
@@ -52,7 +51,14 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "米友社",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+			// 图标
+			"van-icon": "/wxcomponents/vant/icon/index",
+			// Tab 标签页
+			"van-tab": "/wxcomponents/vant/tab/index",
+			"van-tabs": "/wxcomponents/vant/tabs/index"
+		}
 	},
 	"uniIdRouter": {}
 }
