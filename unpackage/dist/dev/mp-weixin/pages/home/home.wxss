@@ -145,6 +145,6 @@
 }
 .cart-item .explore .banner .banner-item {
   display: flex;
-  width: 80%;
-  background-color: red;
+  width: 2000rpx;
+  font-size: 60rpx;
 }

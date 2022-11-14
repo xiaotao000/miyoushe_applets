@@ -64,9 +64,9 @@
 							<van-icon name="arrow" />
 						</view>
 					</view>
-					<scroll-view scroll-x="true" class="banner" >
-						<view v-for="item in 5" :key="item" class="banner-item">
-							111
+					<scroll-view scroll-x class="banner" >
+						<view class="banner-item" >
+							擦肩。部分绿卡女款本节课好可爱不卡了技术部分老家伙i联合覅了了冰淇淋好快   幻灯片哇哈覅了    
 						</view>
 					</scroll-view>
 				</view>
@@ -250,8 +250,8 @@ const { bannerList } = toRefs(state)
 			display: flex;
 			.banner-item {
 				display: flex;
-				width: 80%;
-				background-color: red;
+				width: 2000rpx;
+				font-size: 60rpx;
 			}
 		}
 	}

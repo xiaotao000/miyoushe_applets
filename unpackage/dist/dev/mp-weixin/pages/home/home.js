@@ -81,16 +81,11 @@ const _sfc_main = {
         }),
         m: common_vendor.p({
           name: "arrow"
-        }),
-        n: common_vendor.f(5, (item, k0, i0) => {
-          return {
-            a: item
-          };
         })
       };
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/pages/home/home.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/home/home.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);
