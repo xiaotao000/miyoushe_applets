@@ -1,13 +1,13 @@
 <template>
 	<view>
-		
+		<homograph></homograph>
 	</view>
 </template>
 
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
-
+import homograph from '../../components/homograph/homograph.vue';
 // 页面加载
 onLoad((message) => {
 	

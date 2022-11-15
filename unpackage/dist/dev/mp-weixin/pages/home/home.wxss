@@ -23,6 +23,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+/* 搜索 */
 .search {
   height: 120rpx;
   padding: 0 24rpx;
@@ -56,12 +57,25 @@
   width: 90%;
   height: 100%;
 }
+
+/* tab换 */
 .tab .van-tabs {
   border-bottom: 1rpx solid #F2F2F2;
 }
 .tab .cart-item {
   padding: 24rpx;
   box-sizing: border-box;
+}
+
+/* 内容 */
+.cart-item {
+  /* 轮播 */
+  /* 宫图 */
+  /* 热门推荐 */
+  /* 玩法搜索 */
+  /* 最新内容 */
+  /* 专题推荐 */
+  /* 索引分类 */
 }
 .cart-item .banner {
   height: 200rpx;
@@ -164,6 +178,7 @@
   justify-content: space-between;
   align-items: center;
   width: 220rpx;
+  /* // height: 30rpx; */
   padding: 8rpx;
   background: #EBE4D4;
   color: #9E7F75;

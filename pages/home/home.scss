@@ -1,10 +1,10 @@
-// 搜索
+/* 搜索 */
 .search {
 	height: 120rpx;
 	padding: 0 24rpx;
 	box-sizing: border-box;
 	width: 100%;
-	background-image: url("../../static/image/home.jpg");
+	background-image: url("/static/home.jpg");
 	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
@@ -32,7 +32,8 @@
 		}
 	}
 }
-// tab换
+
+/* tab换 */
 .tab {
 	.van-tabs {
 		border-bottom: 1rpx solid #F2F2F2;
@@ -42,9 +43,9 @@
 		box-sizing: border-box;
 	}
 }
-// 内容
+/* 内容 */
 .cart-item {
-	// 轮播
+	/* 轮播 */
 	.banner {	
 		height: 200rpx;
 		margin-bottom: 20rpx;
@@ -54,7 +55,7 @@
 		}
 	}
 	
-	// 宫图
+	/* 宫图 */
 	.gird {
 		display: flex;
 		flex-wrap: wrap;
@@ -76,7 +77,7 @@
 		}
 	}
 	
-	// 热门推荐
+	/* 热门推荐 */
 	.hot {
 		.title {
 			display: flex;
@@ -105,7 +106,7 @@
 		}
 	}
 	
-	// 玩法搜索
+	/* 玩法搜索 */
 	.explore {
 		.title {
 			display: flex;
@@ -154,7 +155,7 @@
 						justify-content: space-between;
 						align-items: center;
 						width: 220rpx;
-						// height: 30rpx;
+						/* // height: 30rpx; */
 						padding: 8rpx;
 						background: #EBE4D4;
 						color: #9E7F75;
@@ -182,7 +183,7 @@
 		}
 	}
 	
-	// 最新内容
+	/* 最新内容 */
 	.newest-center {
 		.title {
 			display: flex;
@@ -250,7 +251,7 @@
 		}
 	}
 	
-	// 专题推荐
+	/* 专题推荐 */
 	.special-view {
 		.title {
 			display: flex;
@@ -306,7 +307,7 @@
 		}
 	}
 
-	// 索引分类
+	/* 索引分类 */
 	.Indexes {
 		.title {
 			display: flex;

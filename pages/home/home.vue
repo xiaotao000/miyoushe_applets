@@ -162,6 +162,7 @@ import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
 import { reactive, toRefs } from "vue";
 import { bannerApi } from '../../api/modules/home';
 import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
+import './home.scss'
 
 const state = reactive({ bannerList: [] })
 
@@ -195,5 +196,5 @@ const { bannerList } = toRefs(state)
 </script>
 
 <style lang="scss">
-@import url("../../style/home.css");
+
 </style>
