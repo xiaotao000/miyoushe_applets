@@ -1,0 +1,159 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.l {
+  float: left;
+}
+.r {
+  float: right;
+}
+.n {
+  width: 100%;
+  height: 20rpx;
+  background-color: #f4f4f4;
+}
+.aboes {
+  margin: 20rpx;
+  background-color: #fff;
+}
+.aboes .masto {
+  margin: 20rpx;
+}
+.aboes .masto .modvis {
+  height: 80rpx;
+}
+.aboes .masto .modvis .aose {
+  margin-top: 5rpx;
+  margin-left: 5rpx;
+  font-size: 12px;
+  color: #d2cccc;
+}
+.aboes .masto .modvis .modvis1-img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 40rpx;
+}
+.aboes .masto .modvis .modvis1-img .modvis1-img1 {
+  width: 100%;
+  height: 100%;
+}
+.aboes .masto .modvis .modvis1 {
+  margin-top: 20rpx;
+  padding: 0 10rpx;
+  border-radius: 4rpx;
+  font-size: 13px;
+  background-color: #f4f4f4;
+  color: #999;
+}
+.aboes .masto .abion1 {
+  height: 300rpx;
+  margin: 20rpx 0;
+}
+.aboes .masto .abion1 .abion2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
+.aboes .masto .abion {
+  font-size: 13px;
+  line-height: 18px;
+  margin-top: 8px;
+  color: #999;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.aboes .zhu {
+  color: #d2cccc;
+  font-size: 20px;
+}
+.aboes .taoto {
+  height: 80rpx;
+}
+.aboes .guan {
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  color: #4141f5;
+  font-size: 14px;
+  padding: 0 10rpx;
+  border: 2rpx solid #4141f5;
+  border-radius: 4px;
+}
+.aboes .modes {
+  font-size: 11px;
+}
+.aboes .modes .vines {
+  color: #d2cccc;
+}
+.aboes .abo {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
+.clion {
+  background-color: #f4f4f4;
+  border-radius: 7px;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+.clion .conice {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.clion .conice .clion1 {
+  float: left;
+  font-weight: 700;
+}
+.clion .conice .clion2 {
+  float: right;
+  font-size: 12px;
+  color: #ccc;
+}
+.clion .abond {
+  margin: 20rpx 0;
+  display: flex;
+  font-size: 12px;
+}
+.clion .abond .abond1 {
+  color: #fff;
+  width: 10%;
+  height: 40rpx;
+  font-size: 12px;
+  padding: 0 10rpx;
+  background-color: #4141f5;
+  border-radius: 3px;
+}
+.clion .abond .abond2 {
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clion .abond .abond3 {
+  font-size: 11px;
+  margin-left: 10rpx;
+  color: #d2cccc;
+}

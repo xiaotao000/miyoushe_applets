@@ -1,4 +1,20 @@
 {
+<<<<<<< HEAD
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "fainse/jioguan/jioguan",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+=======
     "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
     "projectname": "miyoushe",
     "setting": {
@@ -17,4 +33,5 @@
             ]
         }
     }
+>>>>>>> 38dad1713466f1e37cd857b3ebd9b37bc42b458e
 }

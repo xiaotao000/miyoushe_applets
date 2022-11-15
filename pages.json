@@ -22,6 +22,7 @@
 			}
 
 		}
+<<<<<<< HEAD
 	],
 	"subPackages": [
 		{
@@ -40,6 +41,27 @@
             ]
 		}
 	],
+=======
+	    ,{
+            "path" : "fainse/sfines/sfines",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "fainse/jioguan/jioguan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+>>>>>>> c088c651929d0578b68b217f9eb4a8f69a6cdd6e
 	"tabBar": {
 		"backgroundColor": "#fff",
 		"selectedColor": "#1296db",
