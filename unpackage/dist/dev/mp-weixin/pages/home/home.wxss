@@ -63,3 +63,88 @@
   padding: 24rpx;
   box-sizing: border-box;
 }
+.cart-item .banner {
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+.cart-item .banner swiper, .cart-item .banner image {
+  width: 100%;
+  height: 100%;
+}
+.cart-item .gird {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cart-item .gird .gird-item {
+  width: 25%;
+  padding: 15rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.cart-item .gird .gird-item image {
+  width: 84rpx;
+  height: 84rpx;
+}
+.cart-item .gird .gird-item text {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.cart-item .hot .title {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 16rpx;
+}
+.cart-item .hot .title image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.cart-item .hot .hot-tag {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cart-item .hot .hot-tag .tag-item {
+  width: 44%;
+  padding: 10rpx 18rpx;
+  background-color: #F2F2F2;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.cart-item .explore .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-item .explore .title .left {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 16rpx;
+}
+.cart-item .explore .title .left image {
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 10rpx;
+  margin-top: 6rpx;
+}
+.cart-item .explore .title .right {
+  font-size: 24rpx;
+}
+.cart-item .explore .title .right text {
+  margin-right: 10rpx;
+}
+.cart-item .explore .banner {
+  display: flex;
+}
+.cart-item .explore .banner .banner-item {
+  display: flex;
+  width: 2000rpx;
+  font-size: 60rpx;
+}

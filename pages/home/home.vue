@@ -8,8 +8,10 @@
 				<input class="serch-input" placeholder="虚空鼓动，劫火高扬" type="text">
 			</view>
 		</view>
+		
 		<!-- 分类 -->
 		<view class="tab">
+			<!-- tab栏 -->
 			<van-tabs title-active-color="#1B1B1D" title-inactive-color="#C1C1C3" color="#3FA6F3">
 			  <van-tab title="观测枢"></van-tab>
 			  <van-tab title="发现"></van-tab>
@@ -19,7 +21,56 @@
 			  <van-tab title="cos"></van-tab>
 			  <van-tab title="硬核"></van-tab>
 			</van-tabs>
-			<view class="cart-item">11</view>
+			
+			<!-- 内容 -->
+			<view class="cart-item">
+				<!-- 轮播图 -->
+				<view class="banner">
+					<swiper :indicator-dots="true" :circular="true" :autoplay="true" :interval="2000" :duration="500">
+						<swiper-item v-for="item in bannerList" :key="item.id">
+							<image :src="item.imgUrl" mode=""></image>
+						</swiper-item>
+					</swiper>
+				</view>
+				
+				<!-- 宫图 -->
+				<view class="gird">
+					<view class="gird-item" v-for="item in gridData" :key="item.gridId">
+						<image :src="item.imgUrl" mode=""></image>
+						<text>{{ item.name }}</text>
+					</view>
+				</view>
+				
+				<!-- 热门推荐 -->
+				<view class="hot">
+					<view class="title">
+						<image src="../../static/image/hot.png" mode=""></image>
+						<text>热门推荐</text>
+					</view>
+					<view class="hot-tag">
+						<view v-for="item in hotData" :key="item.hotId" class="tag-item">{{ item.name }}</view>
+					</view>
+				</view>
+				
+				<!-- 玩法探索 -->
+				<view class="explore">
+					<view class="title">
+						<view class="left">
+							<image src="../../static/image/explore.png" mode=""></image>
+							<text>玩法探索</text>
+						</view>
+						<view class="right">
+							<text>更多</text>
+							<van-icon name="arrow" />
+						</view>
+					</view>
+					<scroll-view scroll-x class="banner" >
+						<view class="banner-item" >
+							擦肩。部分绿卡女款本节课好可爱不卡了技术部分老家伙i联合覅了了冰淇淋好快   幻灯片哇哈覅了    
+						</view>
+					</scroll-view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -27,10 +78,21 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
+import { reactive, toRefs } from "vue";
+import { bannerApi } from '../../api/modules/home';
+import { gridData, hotData } from '../../utils/type_data';
+
+const state = reactive({ bannerList: [] })
+
+// 获取轮播图数据
+const getBanner = async () => {
+	 const { data } = await bannerApi()
+	 state.bannerList = data
+}
 
 // 页面加载
 onLoad((message) => {
-	
+	getBanner()
 })
 
 // 页面显示
@@ -47,6 +109,8 @@ onHide(() => {
 onShareAppMessage(() => {
 	
 })
+
+const { bannerList } = toRefs(state)
 </script>
 
 <style lang="scss">
@@ -56,7 +120,7 @@ onShareAppMessage(() => {
 	padding: 0 24rpx;
 	box-sizing: border-box;
 	width: 100%;
-	background-image: url('../../static/home.jpg');
+	background-image: url("../../static/image/home.jpg");
 	background-repeat: no-repeat;
 	display: flex;
 	justify-content: center;
@@ -92,6 +156,104 @@ onShareAppMessage(() => {
 	.cart-item {
 		padding: 24rpx;
 		box-sizing: border-box;
+	}
+}
+// 内容
+.cart-item {
+	// 轮播
+	.banner {
+		height: 200rpx;
+		margin-bottom: 20rpx;
+		swiper, image {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	// 宫图
+	.gird {
+		display: flex;
+		flex-wrap: wrap;
+		.gird-item {
+			width: 25%;
+			padding: 15rpx 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			box-sizing: border-box;
+			image {
+				width: 84rpx;
+				height: 84rpx;
+			}
+			text {
+				margin-top: 10rpx;
+				font-size: 24rpx;
+			}
+		}
+	}
+	
+	// 热门推荐
+	.hot {
+		.title {
+			display: flex;
+			align-items: center;
+			font-size: 30rpx;
+			margin-top: 10rpx;
+			margin-bottom: 16rpx;
+			image {
+				width: 50rpx;
+				height: 50rpx;
+				margin-right: 10rpx;
+			}
+		}
+		.hot-tag {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.tag-item {
+				width: 44%;
+				padding: 10rpx 18rpx;
+				background-color: #F2F2F2;
+				border-radius: 10rpx;
+				font-size: 28rpx;
+				margin-bottom: 20rpx;
+			}
+		}
+	}
+	
+	// 玩法搜索
+	.explore {
+		.title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.left{
+				display: flex;
+				align-items: center;
+				font-size: 30rpx;
+				margin-top: 10rpx;
+				margin-bottom: 16rpx;
+				image {
+					width: 58rpx;
+					height: 58rpx;
+					margin-right: 10rpx;
+					margin-top: 6rpx;
+				}
+			}
+			.right {
+				font-size: 24rpx;
+				text {
+					margin-right: 10rpx;
+				}
+			}
+		}
+		.banner {
+			display: flex;
+			.banner-item {
+				display: flex;
+				width: 2000rpx;
+				font-size: 60rpx;
+			}
+		}
 	}
 }
 </style>

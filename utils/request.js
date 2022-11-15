@@ -1,4 +1,4 @@
-import { UserStore } from "../store/user"
+// import { UserStore } from "../store/user"
 class Request {
 	constructor(options = {}) {
 		// 请求的根路径
@@ -62,9 +62,9 @@ class Request {
 				header: this.header,
 				success: (res) => {
 					// 响应成功  处理响应结果
-					const { data, resultCode, message } = res.data
+					const { data, status, message } = res.data
 					// 状态码不为0 则错误
-					if (resultCode !== 0) {
+					if (status !== 0) {
 						uni.showToast({ title: message || '网络出现了问题', icon: 'none' })
 					}
 					resolve(res.data)

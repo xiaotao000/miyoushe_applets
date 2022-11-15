@@ -1,5 +1,9 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
+var api_modules_home = require("../../api/modules/home.js");
+var utils_type_data = require("../../utils/type_data.js");
+require("../../api/index.js");
+require("../../utils/request.js");
 if (!Array) {
   const _component_van_icon = common_vendor.resolveComponent("van-icon");
   const _component_van_tab = common_vendor.resolveComponent("van-tab");
@@ -9,7 +13,13 @@ if (!Array) {
 const _sfc_main = {
   __name: "home",
   setup(__props) {
+    const state = common_vendor.reactive({ bannerList: [] });
+    const getBanner = async () => {
+      const { data } = await api_modules_home.bannerApi();
+      state.bannerList = data;
+    };
     common_vendor.onLoad((message) => {
+      getBanner();
     });
     common_vendor.onShow(() => {
     });
@@ -17,6 +27,7 @@ const _sfc_main = {
     });
     common_vendor.onShareAppMessage(() => {
     });
+    const { bannerList } = common_vendor.toRefs(state);
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
@@ -48,6 +59,28 @@ const _sfc_main = {
           titleActiveColor: "#1B1B1D",
           titleInactiveColor: "#C1C1C3",
           color: "#3FA6F3"
+        }),
+        j: common_vendor.f(common_vendor.unref(bannerList), (item, k0, i0) => {
+          return {
+            a: item.imgUrl,
+            b: item.id
+          };
+        }),
+        k: common_vendor.f(common_vendor.unref(utils_type_data.gridData), (item, k0, i0) => {
+          return {
+            a: item.imgUrl,
+            b: common_vendor.t(item.name),
+            c: item.gridId
+          };
+        }),
+        l: common_vendor.f(common_vendor.unref(utils_type_data.hotData), (item, k0, i0) => {
+          return {
+            a: common_vendor.t(item.name),
+            b: item.hotId
+          };
+        }),
+        m: common_vendor.p({
+          name: "arrow"
         })
       };
     };
