@@ -6,6 +6,8 @@ if (!Math) {
   "./pages/home/home.js";
   "./pages/release/release.js";
   "./pages/my/my.js";
+  "./fainse/sfines/sfines.js";
+  "./fainse/jioguan/jioguan.js";
   "./subpkg/article-details/article-details.js";
 }
 const _sfc_main = {
