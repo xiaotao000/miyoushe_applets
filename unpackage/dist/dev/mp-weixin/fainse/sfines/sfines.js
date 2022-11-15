@@ -1,7 +1,7 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
-  __name: "release",
+  __name: "sfines",
   setup(__props) {
     common_vendor.onLoad((message) => {
     });
@@ -16,6 +16,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/pages/release/release.vue"]]);
-_sfc_main.__runtimeHooks = 2;
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/fainse/sfines/sfines.vue"]]);
 wx.createPage(MiniProgramPage);

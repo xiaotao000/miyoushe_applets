@@ -2,7 +2,9 @@
   "pages": [
     "pages/home/home",
     "pages/release/release",
-    "pages/my/my"
+    "pages/my/my",
+    "fainse/sfines/sfines",
+    "fainse/jioguan/jioguan"
   ],
   "usingComponents": {
     "van-icon": "/wxcomponents/vant/icon/index",

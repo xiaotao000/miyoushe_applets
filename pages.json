@@ -22,7 +22,25 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "fainse/sfines/sfines",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "fainse/jioguan/jioguan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 		"backgroundColor": "#fff",
 		"selectedColor": "#1296db",
