@@ -64,12 +64,93 @@
 							<van-icon name="arrow" />
 						</view>
 					</view>
-					<scroll-view scroll-x class="banner" >
-						<view class="banner-item" >
-							擦肩。部分绿卡女款本节课好可爱不卡了技术部分老家伙i联合覅了了冰淇淋好快   幻灯片哇哈覅了    
+					<scroll-view scroll-x="true" enable-flex="true" class="banner" >
+						<view v-for="item in exploreData" :key="item.id" class="banner-item">
+							<!-- 左边 -->
+							<image class="img" :src="item.imgUrl" mode=""></image>
+							<!-- 右边 -->
+							<view class="right">
+								<view class="banner-title">
+									<image src="../../static/image/download4.png" mode=""></image>
+									<text>{{ item.title }}</text>
+									<image src="../../static/image/download4.png" mode=""></image>
+								</view>
+								<view class="center" v-for="item2 in item.itemData" :key="item2.itemId">
+									<image src="../../static/image/download6.png" mode=""></image>
+									<text>{{ item2.name }}</text>
+								</view>
+							</view>
 						</view>
 					</scroll-view>
 				</view>
+				
+				<!-- 最新内容 -->
+				<view class="newest-center">
+					<view class="title">
+						<view class="left">
+							<image src="../../static/image/newest.png" mode=""></image>
+							<text>最新内容</text>
+						</view>
+						<view class="right">
+							<text>更多</text>
+							<van-icon name="arrow" />
+						</view>
+					</view>
+					<view class="newest-item" v-for="item in newestData" :key="item.newestId">
+						<!-- 左 -->
+						<image :src="item.imgUrl" mode=""></image>
+						<!-- 右 -->
+						<view class="newest-right">
+							<view class="right-title">{{ item.title }}</view>
+							<view class="info">
+								<view class="left">
+									<image :src="item.headImag" mode=""></image>
+									<text>{{ item.author }}</text>
+								</view>
+								<view class="time">{{ item.time }}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				
+				<!-- 专题推荐 -->
+				<view class="special-view">
+					<view class="title">
+						<image src="../../static/image/special.png" mode=""></image>
+						<text>专题推荐</text>
+					</view>
+					<view class="special-tag">
+						<view v-for="item in specialData" :key="item.specialId" class="tag-item">
+							<image :src="item.imgUrl" mode="aspectFill"></image>
+							<view class="tag-center">
+								<view class="tag-title">{{ item.title }}</view>
+								<view class="tag-desc">{{ item.desc }}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				
+				<!-- 索引分类 -->
+				<view class="Indexes">
+					<view class="title">
+						<image src="/static/image/Indexes.png" mode=""></image>
+						<text>索引分类</text>
+					</view>
+					<view class="Indexes-tag">
+						<view v-for="item in IndexesData" :key="item.id" class="tag-item">
+							<image :src="item.imgUrl" mode="aspectFill"></image>
+							<text>{{ item.name }}</text>
+						</view>
+					</view>
+				</view>
+				
+				<!-- 提示 -->
+				<view class="tips">
+					申请观测枢编辑 | 关于观测区 | 建议与反馈
+				</view>
+				
+				<!-- 公众号 -->
+				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
 		</view>
 	</view>
@@ -80,7 +161,8 @@
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
 import { reactive, toRefs } from "vue";
 import { bannerApi } from '../../api/modules/home';
-import { gridData, hotData } from '../../utils/type_data';
+import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
+import './home.scss'
 
 const state = reactive({ bannerList: [] })
 
@@ -114,146 +196,5 @@ const { bannerList } = toRefs(state)
 </script>
 
 <style lang="scss">
-	// 搜索
-.search {
-	height: 120rpx;
-	padding: 0 24rpx;
-	box-sizing: border-box;
-	width: 100%;
-	background-image: url("../../static/image/home.jpg");
-	background-repeat: no-repeat;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	image {
-		width: 64rpx;
-		height: 64rpx;
-		border-radius: 50%;
-	}
-	.serch-right {
-		width: 90%;
-		height: 84rpx;
-		margin-left: 24rpx;
-		background-color: #111;
-		opacity: 0.5;
-		display: flex;
-		color: #fff;
-		padding: 0 24rpx;
-		justify-content: center;
-		border-radius: 24rpx;
-		.serch-input {
-			padding-left: 24rpx;
-			width: 90%;
-			height: 100%;
-		}
-	}
-}
-// tab换
-.tab {
-	.van-tabs {
-		border-bottom: 1rpx solid #F2F2F2;
-	}
-	.cart-item {
-		padding: 24rpx;
-		box-sizing: border-box;
-	}
-}
-// 内容
-.cart-item {
-	// 轮播
-	.banner {
-		height: 200rpx;
-		margin-bottom: 20rpx;
-		swiper, image {
-			width: 100%;
-			height: 100%;
-		}
-	}
-	// 宫图
-	.gird {
-		display: flex;
-		flex-wrap: wrap;
-		.gird-item {
-			width: 25%;
-			padding: 15rpx 0;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			box-sizing: border-box;
-			image {
-				width: 84rpx;
-				height: 84rpx;
-			}
-			text {
-				margin-top: 10rpx;
-				font-size: 24rpx;
-			}
-		}
-	}
-	
-	// 热门推荐
-	.hot {
-		.title {
-			display: flex;
-			align-items: center;
-			font-size: 30rpx;
-			margin-top: 10rpx;
-			margin-bottom: 16rpx;
-			image {
-				width: 50rpx;
-				height: 50rpx;
-				margin-right: 10rpx;
-			}
-		}
-		.hot-tag {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			.tag-item {
-				width: 44%;
-				padding: 10rpx 18rpx;
-				background-color: #F2F2F2;
-				border-radius: 10rpx;
-				font-size: 28rpx;
-				margin-bottom: 20rpx;
-			}
-		}
-	}
-	
-	// 玩法搜索
-	.explore {
-		.title {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			.left{
-				display: flex;
-				align-items: center;
-				font-size: 30rpx;
-				margin-top: 10rpx;
-				margin-bottom: 16rpx;
-				image {
-					width: 58rpx;
-					height: 58rpx;
-					margin-right: 10rpx;
-					margin-top: 6rpx;
-				}
-			}
-			.right {
-				font-size: 24rpx;
-				text {
-					margin-right: 10rpx;
-				}
-			}
-		}
-		.banner {
-			display: flex;
-			.banner-item {
-				display: flex;
-				width: 2000rpx;
-				font-size: 60rpx;
-			}
-		}
-	}
-}
+
 </style>

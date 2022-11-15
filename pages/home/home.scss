@@ -1,0 +1,370 @@
+/* 搜索 */
+.search {
+	height: 120rpx;
+	padding: 0 24rpx;
+	box-sizing: border-box;
+	width: 100%;
+	background-image: url("/static/home.jpg");
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	image {
+		width: 64rpx;
+		height: 64rpx;
+		border-radius: 50%;
+	}
+	.serch-right {
+		width: 90%;
+		height: 84rpx;
+		margin-left: 24rpx;
+		background-color: #111;
+		opacity: 0.5;
+		display: flex;
+		color: #fff;
+		padding: 0 24rpx;
+		justify-content: center;
+		border-radius: 24rpx;
+		.serch-input {
+			padding-left: 24rpx;
+			width: 90%;
+			height: 100%;
+		}
+	}
+}
+
+/* tab换 */
+.tab {
+	.van-tabs {
+		border-bottom: 1rpx solid #F2F2F2;
+	}
+	.cart-item {
+		padding: 24rpx;
+		box-sizing: border-box;
+	}
+}
+/* 内容 */
+.cart-item {
+	/* 轮播 */
+	.banner {	
+		height: 200rpx;
+		margin-bottom: 20rpx;
+		swiper, image {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	
+	/* 宫图 */
+	.gird {
+		display: flex;
+		flex-wrap: wrap;
+		.gird-item {
+			width: 25%;
+			padding: 15rpx 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			box-sizing: border-box;
+			image {
+				width: 84rpx;
+				height: 84rpx;
+			}
+			text {
+				margin-top: 10rpx;
+				font-size: 24rpx;
+			}
+		}
+	}
+	
+	/* 热门推荐 */
+	.hot {
+		.title {
+			display: flex;
+			align-items: center;
+			font-size: 30rpx;
+			margin-top: 10rpx;
+			margin-bottom: 16rpx;
+			image {
+				width: 50rpx;
+				height: 50rpx;
+				margin-right: 10rpx;
+			}
+		}
+		.hot-tag {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.tag-item {
+				width: 44%;
+				padding: 10rpx 18rpx;
+				background-color: #F6F6F6;
+				border-radius: 10rpx;
+				font-size: 28rpx;
+				margin-bottom: 20rpx;
+			}
+		}
+	}
+	
+	/* 玩法搜索 */
+	.explore {
+		.title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.left{
+				display: flex;
+				align-items: center;
+				font-size: 30rpx;
+				margin-top: 10rpx;
+				margin-bottom: 16rpx;
+				image {
+					width: 58rpx;
+					height:58rpx;
+					margin-right: 10rpx;
+					margin-top: 6rpx;
+				}
+			}
+			.right {
+				color: #9E7F75;
+				font-size: 24rpx;
+				text {
+					margin-right: 10rpx;
+				}
+			}
+		}
+		.banner {
+			display: flex;
+			height: 250rpx;
+			.banner-item {
+				width: 450rpx;
+				display: flex;
+				flex-shrink: 0;
+				margin-right: 20rpx;
+				padding: 20rpx;
+				border-radius: 20rpx;
+				background-color: #F6F6F6;
+				.img {
+					width: 200rpx;
+					height: 210rpx;
+					padding-right: 20rpx;
+				}
+				.right {
+					.banner-title {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						width: 220rpx;
+						/* // height: 30rpx; */
+						padding: 8rpx;
+						background: #EBE4D4;
+						color: #9E7F75;
+						font-size: 24rpx;
+						border-radius: 40rpx;
+						image {
+							width: 30rpx;
+							height: 30rpx;
+						}
+					}
+					
+					.center {
+						display: flex;
+						align-items: center;
+						margin-top: 20rpx;
+						font-size: 24rpx;
+						image {
+							width: 30rpx;
+							height: 30rpx;
+							margin-right: 10rpx;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	/* 最新内容 */
+	.newest-center {
+		.title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.left{
+				display: flex;
+				align-items: center;
+				font-size: 30rpx;
+				margin-top: 10rpx;
+				margin-bottom: 16rpx;
+				image {
+					width: 58rpx;
+					height: 58rpx;
+					margin-right: 10rpx;
+					margin-top: 6rpx;
+				}
+			}
+			.right {
+				color: #9E7F75;
+				font-size: 24rpx;
+				text {
+					margin-right: 10rpx;
+				}
+			}
+		}
+		.newest-item {
+			display: flex;
+			margin-bottom: 20rpx;
+			image {
+				width: 280rpx;
+				height: 180rpx;
+				border-radius: 14rpx;
+			}
+			.newest-right {
+				flex: 1;
+				margin-left: 20rpx;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				.right-title {
+					font-size: 28rpx;
+				}
+				.info {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					color: #999;
+					.left {
+						display: flex;
+						align-items: center;
+						font-size: 26rpx;
+						image {
+							width: 50rpx;
+							height: 50rpx;
+							border-radius: 20rpx;
+							margin-right: 20rpx;
+						}
+					}
+					.time {
+						font-size: 22rpx;
+					}
+				}
+			}
+		}
+	}
+	
+	/* 专题推荐 */
+	.special-view {
+		.title {
+			display: flex;
+			align-items: center;
+			font-size: 30rpx;
+			margin-top: 10rpx;
+			margin-bottom: 16rpx;
+			image {
+				width: 58rpx;
+				height: 58rpx;
+				margin-right: 10rpx;
+			}
+		}
+		.special-tag {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.tag-item {
+				width: 44%;
+				padding: 16rpx 16rpx 6rpx 16rpx;
+				background-color: #F6F6F6;
+				border-radius: 10rpx;
+				font-size: 28rpx;
+				margin-bottom: 20rpx;
+				display: flex;
+				image {
+					width: 96rpx;
+					height: 96rpx;
+					margin-right: 20rpx;
+					border-radius: 10rpx;
+				}
+				.tag-center {
+					flex: 1;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					.tag-title {
+						font-size: 28rpx;
+						margin-bottom: 14rpx;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+					.tag-desc {
+						color: #999;
+						font-size: 24rpx;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+	}
+
+	/* 索引分类 */
+	.Indexes {
+		.title {
+			display: flex;
+			align-items: center;
+			font-size: 30rpx;
+			margin-top: 10rpx;
+			margin-bottom: 16rpx;
+			image {
+				width: 50rpx;
+				height: 50rpx;
+				margin-right: 10rpx;
+			}
+		}
+		.Indexes-tag {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.tag-item {
+				width: 44%;
+				padding: 10rpx 18rpx;
+				background-color: #F6F6F6;
+				border-radius: 10rpx;
+				font-size: 28rpx;
+				margin-bottom: 20rpx;
+				display: flex;
+				align-items: center;
+				image {
+					width: 40rpx;
+					height: 40rpx;
+					border-radius: 6rpx;
+					margin-right: 10rpx;
+				}
+				text {
+					flex: 1;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+	
+	.tips {
+		display: flex;
+		justify-content: center;
+		margin-top: 20rpx;
+		margin-bottom: 40rpx;
+		font-size: 28rpx;
+		color: #4696db;
+	}
+	
+	.image {
+		width: 100%;
+		height: 200rpx;
+		image {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
