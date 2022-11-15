@@ -81,6 +81,47 @@ const _sfc_main = {
         }),
         m: common_vendor.p({
           name: "arrow"
+        }),
+        n: common_vendor.f(common_vendor.unref(utils_type_data.exploreData), (item, k0, i0) => {
+          return {
+            a: item.imgUrl,
+            b: common_vendor.t(item.title),
+            c: common_vendor.f(item.itemData, (item2, k1, i1) => {
+              return {
+                a: common_vendor.t(item2.name),
+                b: item2.itemId
+              };
+            }),
+            d: item.id
+          };
+        }),
+        o: common_vendor.p({
+          name: "arrow"
+        }),
+        p: common_vendor.f(common_vendor.unref(utils_type_data.newestData), (item, k0, i0) => {
+          return {
+            a: item.imgUrl,
+            b: common_vendor.t(item.title),
+            c: item.headImag,
+            d: common_vendor.t(item.author),
+            e: common_vendor.t(item.time),
+            f: item.newestId
+          };
+        }),
+        q: common_vendor.f(common_vendor.unref(utils_type_data.specialData), (item, k0, i0) => {
+          return {
+            a: item.imgUrl,
+            b: common_vendor.t(item.title),
+            c: common_vendor.t(item.desc),
+            d: item.specialId
+          };
+        }),
+        r: common_vendor.f(common_vendor.unref(utils_type_data.IndexesData), (item, k0, i0) => {
+          return {
+            a: item.imgUrl,
+            b: common_vendor.t(item.name),
+            c: item.id
+          };
         })
       };
     };
