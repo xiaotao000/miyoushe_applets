@@ -23,6 +23,23 @@
 
 		}
 	],
+	"subPackages": [
+		{
+			"root": "subpkg",
+			"pages": [
+				
+			{
+                    "path" : "article-details/article-details",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		}
+	],
 	"tabBar": {
 		"backgroundColor": "#fff",
 		"selectedColor": "#1296db",
