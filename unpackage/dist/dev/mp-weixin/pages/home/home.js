@@ -1,6 +1,7 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
 var api_modules_home = require("../../api/modules/home.js");
+var store_article = require("../../store/article.js");
 var utils_type_data = require("../../utils/type_data.js");
 require("../../api/index.js");
 require("../../utils/request.js");
@@ -10,13 +11,22 @@ if (!Array) {
   const _component_van_tabs = common_vendor.resolveComponent("van-tabs");
   (_component_van_icon + _component_van_tab + _component_van_tabs)();
 }
+if (!Math) {
+  homograph();
+}
+const homograph = () => "../../components/homograph/homograph.js";
 const _sfc_main = {
   __name: "home",
   setup(__props) {
     const state = common_vendor.reactive({ bannerList: [] });
+    const articleStore = store_article.ArticleStore();
     const getBanner = async () => {
       const { data } = await api_modules_home.bannerApi();
       state.bannerList = data;
+    };
+    const tabChage = (e) => {
+      const { name } = e.detail;
+      articleStore.card = name;
     };
     common_vendor.onLoad((message) => {
       getBanner();
@@ -28,61 +38,72 @@ const _sfc_main = {
     common_vendor.onShareAppMessage(() => {
     });
     const { bannerList } = common_vendor.toRefs(state);
+    const { card } = common_vendor.storeToRefs(articleStore);
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_vendor.p({
           size: "32rpx",
           name: "search"
         }),
         b: common_vendor.p({
-          title: "\u89C2\u6D4B\u67A2"
+          title: "\u89C2\u6D4B\u67A2",
+          name: "\u89C2\u6D4B\u67A2"
         }),
         c: common_vendor.p({
-          title: "\u53D1\u73B0"
+          title: "\u53D1\u73B0",
+          name: "\u53D1\u73B0"
         }),
         d: common_vendor.p({
-          title: "\u9152\u9986"
+          title: "\u9152\u9986",
+          name: "\u9152\u9986"
         }),
         e: common_vendor.p({
-          title: "\u653B\u7565"
+          title: "\u653B\u7565",
+          name: "\u653B\u7565"
         }),
         f: common_vendor.p({
-          title: "\u540C\u4EBA\u56FE"
+          title: "\u540C\u4EBA\u56FE",
+          name: "\u540C\u4EBA\u56FE"
         }),
         g: common_vendor.p({
-          title: "cos"
+          title: "cos",
+          name: "cos"
         }),
         h: common_vendor.p({
-          title: "\u786C\u6838"
+          title: "\u786C\u6838",
+          name: "\u786C\u6838"
         }),
-        i: common_vendor.p({
+        i: common_vendor.o(tabChage),
+        j: common_vendor.p({
           titleActiveColor: "#1B1B1D",
           titleInactiveColor: "#C1C1C3",
           color: "#3FA6F3"
         }),
-        j: common_vendor.f(common_vendor.unref(bannerList), (item, k0, i0) => {
+        k: common_vendor.unref(card) === "\u89C2\u6D4B\u67A2"
+      }, common_vendor.unref(card) === "\u89C2\u6D4B\u67A2" ? {
+        l: common_vendor.f(common_vendor.unref(bannerList), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: item.id
           };
         }),
-        k: common_vendor.f(common_vendor.unref(utils_type_data.gridData), (item, k0, i0) => {
+        m: common_vendor.f(common_vendor.unref(utils_type_data.gridData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.name),
             c: item.gridId
           };
         }),
-        l: common_vendor.f(common_vendor.unref(utils_type_data.hotData), (item, k0, i0) => {
+        n: common_vendor.f(common_vendor.unref(utils_type_data.hotData), (item, k0, i0) => {
           return {
             a: common_vendor.t(item.name),
             b: item.hotId
           };
         }),
-        m: common_vendor.p({
+        o: common_vendor.p({
           name: "arrow"
         }),
-        n: common_vendor.f(common_vendor.unref(utils_type_data.exploreData), (item, k0, i0) => {
+        p: common_vendor.f(common_vendor.unref(utils_type_data.exploreData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.title),
@@ -95,10 +116,10 @@ const _sfc_main = {
             d: item.id
           };
         }),
-        o: common_vendor.p({
+        q: common_vendor.p({
           name: "arrow"
         }),
-        p: common_vendor.f(common_vendor.unref(utils_type_data.newestData), (item, k0, i0) => {
+        r: common_vendor.f(common_vendor.unref(utils_type_data.newestData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.title),
@@ -108,7 +129,7 @@ const _sfc_main = {
             f: item.newestId
           };
         }),
-        q: common_vendor.f(common_vendor.unref(utils_type_data.specialData), (item, k0, i0) => {
+        s: common_vendor.f(common_vendor.unref(utils_type_data.specialData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.title),
@@ -116,17 +137,19 @@ const _sfc_main = {
             d: item.specialId
           };
         }),
-        r: common_vendor.f(common_vendor.unref(utils_type_data.IndexesData), (item, k0, i0) => {
+        t: common_vendor.f(common_vendor.unref(utils_type_data.IndexesData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.name),
             c: item.id
           };
         })
-      };
+      } : {}, {
+        v: common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "COS"
+      }, common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "COS" ? {} : {});
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/pages/home/home.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/home/home.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

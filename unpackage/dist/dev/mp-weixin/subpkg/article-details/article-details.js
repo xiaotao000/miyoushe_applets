@@ -14,11 +14,14 @@ const _sfc_main = {
         current: index
       });
     };
-    common_vendor.onLoad(async (message) => {
+    const init = async () => {
       const { data } = await utils_request.$http.get("/api/home/articledDetails?id=345");
       data[0].introduce = utils_index.imgTagAddStyle(data[0].introduce, "color: #111 !important; margin-bottom: 24rpx;");
       state.article = data[0];
       console.log(data[0]);
+    };
+    common_vendor.onLoad((message) => {
+      init();
     });
     common_vendor.onShow(() => {
     });
@@ -51,6 +54,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/subpkg/article-details/article-details.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/subpkg/article-details/article-details.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

@@ -46,9 +46,7 @@ const previewImage = (index) => {
 		current: index
 	})
 }
-
-// 页面加载
-onLoad(async message => {
+const init = async() => {
 	const { data } = await http.get('/api/home/articledDetails?id=345')
 	data[0].introduce = imgTagAddStyle(
 		data[0].introduce,
@@ -56,6 +54,10 @@ onLoad(async message => {
 	)
 	state.article = data[0]
 	console.log(data[0])
+}
+// 页面加载
+onLoad( message => {
+	init()
 })
 
 // 页面显示

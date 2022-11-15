@@ -12,18 +12,18 @@
 		<!-- 分类 -->
 		<view class="tab">
 			<!-- tab栏 -->
-			<van-tabs title-active-color="#1B1B1D" title-inactive-color="#C1C1C3" color="#3FA6F3">
-			  <van-tab title="观测枢"></van-tab>
-			  <van-tab title="发现"></van-tab>
-			  <van-tab title="酒馆"></van-tab>
-			  <van-tab title="攻略"></van-tab>
-			  <van-tab title="同人图"></van-tab>
-			  <van-tab title="cos"></van-tab>
-			  <van-tab title="硬核"></van-tab>
+			<van-tabs @click="tabChage" title-active-color="#1B1B1D" title-inactive-color="#C1C1C3" color="#3FA6F3">
+			  <van-tab title="观测枢" name="观测枢"></van-tab>
+			  <van-tab title="发现" name="发现"></van-tab>
+			  <van-tab title="酒馆" name="酒馆"></van-tab>
+			  <van-tab title="攻略" name="攻略"></van-tab>
+			  <van-tab title="同人图" name="同人图"></van-tab>
+			  <van-tab title="cos" name="cos"></van-tab>
+			  <van-tab title="硬核" name="硬核"></van-tab>
 			</van-tabs>
 			
 			<!-- 内容 -->
-			<view class="cart-item">
+			<view v-if="card === '观测枢'" class="cart-item">
 				<!-- 轮播图 -->
 				<view class="banner">
 					<swiper :indicator-dots="true" :circular="true" :autoplay="true" :interval="2000" :duration="500">
@@ -152,6 +152,7 @@
 				<!-- 公众号 -->
 				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
+			<homograph v-if="card === '同人图' || card === 'COS'"></homograph>
 		</view>
 	</view>
 </template>
@@ -161,17 +162,23 @@
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
 import { reactive, toRefs } from "vue";
 import { bannerApi } from '../../api/modules/home';
+import homograph from '../../components/homograph/homograph.vue';
+import { ArticleStore } from '../../store/article';
+import { storeToRefs } from 'pinia';
+
 import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
 import './home.scss'
-
 const state = reactive({ bannerList: [] })
-
+const articleStore = ArticleStore()
 // 获取轮播图数据
 const getBanner = async () => {
 	 const { data } = await bannerApi()
 	 state.bannerList = data
 }
-
+const tabChage = (e) => {
+	const { name } = e.detail
+	articleStore.card = name
+}
 // 页面加载
 onLoad((message) => {
 	getBanner()
@@ -193,6 +200,7 @@ onShareAppMessage(() => {
 })
 
 const { bannerList } = toRefs(state)
+const { card } =  storeToRefs(articleStore)
 </script>
 
 <style lang="scss">

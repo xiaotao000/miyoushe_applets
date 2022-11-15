@@ -20,6 +20,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/pages/my/my.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/my/my.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

@@ -31,17 +31,17 @@
 			</view>
 		</view>
 		<view class="artice">
-			<view class="artice-item" v-for="item in 10" :key="item">
-				<image class="cover" src="../../static/0.jpg" mode=""></image>
-				<view class="title">[荧四格]452</view>
+			<view class="artice-item" v-for="item in artilceList" :key="item.id">
+				<image class="cover" :src="'http://172.19.10.136:3000'+item.cover[0].imgUrl" mode="scaleToFill"></image>
+				<view class="title">{{item.title}}</view>
 				<view class="info">
 					<view class="left">
-						<image class="head" src="../../static/0.jpg" mode=""></image>
-						<text class="author">雷肾老司机</text>
+						<image class="head" :src="'http://172.19.10.136:3000'+ item.avatar" mode=""></image>
+						<text class="author">{{item.author}}</text>
 					</view>
 					<view class="right">
 						<image class="give" src="../../static/image/icon_like_gray_60.png" mode=""></image>
-						<text class="count">11</text>
+						<text class="count">{{item.count}}</text>
 					</view>
 				</view>
 			</view>
@@ -52,7 +52,11 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
-
+import { ArticleStore } from '../../store/article';
+import { cardArticleApi } from '../../api/modules/home.js'
+import {onMounted, reactive, toRefs} from 'vue'
+const articleStore = ArticleStore()
+const state = reactive({ artilceList: [] })
 // 页面加载
 onLoad((message) => {
 	
@@ -61,6 +65,16 @@ onLoad((message) => {
 // 页面显示
 onShow(() => {
 	
+})
+
+const init = async() => {
+	const { data } = await cardArticleApi({category: articleStore.card, pagenum: 1})
+	state.artilceList = data.data
+	console.log(data)
+}
+
+onMounted(() => {
+	init()
 })
 
 // 页面隐藏
@@ -72,6 +86,7 @@ onHide(() => {
 onShareAppMessage(() => {
 	
 })
+const { artilceList } =  toRefs(state)
 </script>
 
 <style lang="scss">
