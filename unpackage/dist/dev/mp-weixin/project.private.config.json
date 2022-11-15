@@ -16,6 +16,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "subpkg/article-details/article-details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

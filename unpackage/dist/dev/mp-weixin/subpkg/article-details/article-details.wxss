@@ -50,12 +50,12 @@
 }
 .info-box .info .author-box .introduce {
   font-size: 28rpx;
-  color: #7D7D7D;
+  color: #7d7d7d;
 }
 .info-box .follow {
   padding: 6rpx 12rpx;
-  border: 2rpx solid #00A3FF;
-  color: #00A3FF;
+  border: 2rpx solid #00a3ff;
+  color: #00a3ff;
   border-radius: 6rpx;
   font-size: 24rpx;
 }
@@ -63,9 +63,36 @@
   padding: 0 24rpx;
   font-size: 42rpx;
   font-weight: 600;
+  margin-bottom: 24rpx;
 }
 .time {
   text-align: center;
   font-size: 32rpx;
-  color: #E4E5E8;
+  color: #e4e5e8;
+  margin-bottom: 24rpx;
+}
+.details {
+  font-size: 32rpx;
+  padding: 0 24rpx;
+  margin-bottom: 24rpx;
+}
+.details .cover {
+  width: 100%;
+}
+.browse {
+  color: #e4e5e8;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+}
+.talk {
+  font-size: 28rpx;
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.talk text {
+  display: inline-block;
+  border-radius: 8rpx;
+  background-color: #F0F1F5;
+  padding: 0 12rpx;
 }
