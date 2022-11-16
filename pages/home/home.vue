@@ -211,6 +211,8 @@ const { bannerList } = toRefs(state)
 const { card } =  storeToRefs(articleStore)
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.scroll-center {
+	// height: calc(100vh - 120rpx - 44rpx);
+}
 </style>
