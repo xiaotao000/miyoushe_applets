@@ -8,6 +8,9 @@ if (!Array) {
 const _sfc_main = {
   __name: "my",
   setup(__props) {
+    const admin = () => {
+      common_vendor.index.navigateTo({ url: "/fainse/jioguan/jioguan" });
+    };
     common_vendor.onLoad((message) => {
     });
     common_vendor.onShow(() => {
@@ -18,7 +21,7 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o((...args) => _ctx.admin && _ctx.admin(...args)),
+        a: common_vendor.o(admin),
         b: common_vendor.p({
           title: "\u53D1\u5E03"
         }),

@@ -80,7 +80,9 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
-
+const admin = () => {
+	uni.navigateTo({ url: '/fainse/jioguan/jioguan' })
+}
 // 页面加载
 onLoad((message) => {
 	

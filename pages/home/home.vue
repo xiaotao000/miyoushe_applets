@@ -21,7 +21,9 @@
 			  <van-tab title="cos" name="cos"></van-tab>
 			  <van-tab title="硬核" name="硬核"></van-tab>
 			</van-tabs>
-			
+		</view>	
+		
+		<scroll-view scroll-y="true" class="scroll-center">
 			<!-- 内容 -->
 			<view v-if="card === '观测枢'" class="cart-item">
 				<!-- 轮播图 -->
@@ -152,9 +154,12 @@
 				<!-- 公众号 -->
 				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
-			<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
-			<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
-		</view>
+		</scroll-view>
+		
+		
+		
+		<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
+		<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
 	</view>
 </template>
 
@@ -169,8 +174,10 @@ import { storeToRefs } from 'pinia';
 import jioguanVue from '../../components/jioguan/jioguan.vue';
 import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
 import './home.scss'
+
 const state = reactive({ bannerList: [] })
 const articleStore = ArticleStore()
+
 // 获取轮播图数据
 const getBanner = async () => {
 	 const { data } = await bannerApi()
@@ -204,6 +211,8 @@ const { bannerList } = toRefs(state)
 const { card } =  storeToRefs(articleStore)
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.scroll-center {
+	// height: calc(100vh - 120rpx - 44rpx);
+}
 </style>

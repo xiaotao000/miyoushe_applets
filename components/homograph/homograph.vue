@@ -1,92 +1,94 @@
 <template>
-	<view class="homograph-view">
-		<view class="ranking">
-			<view class="top">
-				<view class="top-left">同人榜</view>
-				<view class="top-right">全部 ></view>
-			</view>
-			<view class="bottom">
-				<view class="first">
-					<image
-						class="cover"
-						src="https://upload-bbs.mihoyo.com/upload/2022/11/13/107650746/758f388b9095740b1a128073410b68e6_9201839867160409392.jpg?x-oss-process=image/resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg"
-						mode=""
-					></image>
-					<image
-						class="one"
-						src="../../static/image/icon_forum_1.png"
-						mode=""
-					></image>
+	<scroll-view scroll-y="true" class="homograph-scroll" refresher-enabled @scrolltolower="loadMore" @refresherrefresh="refresh" :refresher-triggered="isRefresh">
+		<view class="homograph-view">
+			<view class="ranking">
+				<view class="top">
+					<view class="top-left">同人榜</view>
+					<view class="top-right">全部 ></view>
 				</view>
-				<view class="second">
-					<image
-						class="cover"
-						src="https://upload-bbs.mihoyo.com/upload/2022/11/13/107613873/498084101089faed65cd9dc2c718b1fe_2838086025727462986.jpg?x-oss-process=image/resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg"
-						mode=""
-					></image>
-					<image
-						class="two"
-						src="../../static/image/icon_forum_2.png"
-						mode=""
-					></image>
-				</view>
-				<view class="third">
-					<image
-						class="cover"
-						src="https://upload-bbs.mihoyo.com/upload/2022/11/12/275505388/f098dd111c7f85ca5466c09aa44fec03_3367594016310446206.jpg?x-oss-process=image/resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg"
-						mode=""
-					></image>
-					<image
-						class="three"
-						src="../../static/image/icon_forum_3.png"
-						mode=""
-					></image>
-				</view>
-			</view>
-		</view>
-		<view class="new">
-			<view class="top">
-				<view class="top-left">排序</view>
-				<view class="top-right">最新回复</view>
-			</view>
-			<view class="bottom">
-				<view class="text">置顶</view>
-				<view class="notice">[公告]图区版规</view>
-			</view>
-		</view>
-		<view class="artice">
-			<view
-				class="artice-item"
-				v-for="item in artilceList"
-				:key="item.id"
-			>
-				<image
-					class="cover"
-					:src="'http://172.19.10.161:3000' + item.cover[0].imgUrl"
-					mode=""
-				></image>
-				<view class="title">{{ item.title }}</view>
-				<view class="info">
-					<view class="left">
+				<view class="bottom">
+					<view class="first">
 						<image
-							class="head"
-							:src="'http://172.19.10.161:3000' + item.avatar"
+							class="cover"
+							src="https://upload-bbs.mihoyo.com/upload/2022/11/13/107650746/758f388b9095740b1a128073410b68e6_9201839867160409392.jpg?x-oss-process=image/resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg"
 							mode=""
 						></image>
-						<text class="author">{{ item.author }}</text>
+						<image
+							class="one"
+							src="../../static/image/icon_forum_1.png"
+							mode=""
+						></image>
 					</view>
-					<view class="right">
+					<view class="second">
 						<image
-							class="give"
-							src="../../static/image/icon_like_gray_60.png"
+							class="cover"
+							src="https://upload-bbs.mihoyo.com/upload/2022/11/13/107613873/498084101089faed65cd9dc2c718b1fe_2838086025727462986.jpg?x-oss-process=image/resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg"
 							mode=""
 						></image>
-						<text class="count">{{ item.count }}</text>
+						<image
+							class="two"
+							src="../../static/image/icon_forum_2.png"
+							mode=""
+						></image>
+					</view>
+					<view class="third">
+						<image
+							class="cover"
+							src="https://upload-bbs.mihoyo.com/upload/2022/11/12/275505388/f098dd111c7f85ca5466c09aa44fec03_3367594016310446206.jpg?x-oss-process=image/resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg"
+							mode=""
+						></image>
+						<image
+							class="three"
+							src="../../static/image/icon_forum_3.png"
+							mode=""
+						></image>
 					</view>
 				</view>
 			</view>
+			<view class="new">
+				<view class="top">
+					<view class="top-left">排序</view>
+					<view class="top-right">最新回复</view>
+				</view>
+				<view class="bottom">
+					<view class="text">置顶</view>
+					<view class="notice">[公告]图区版规</view>
+				</view>
+			</view>
+			<view class="artice">
+				<view
+					class="artice-item"
+					v-for="item in artilceList"
+					:key="item.id"
+				>
+					<image
+						class="cover"
+						:src="'http://172.19.10.192:3000' + item.cover[0].imgUrl"
+						mode=""
+					></image>
+					<view class="title">{{ item.title }}</view>
+					<view class="info">
+						<view class="left">
+							<image
+								class="head"
+								:src="'http://172.19.10.192:3000' + item.avatar"
+								mode=""
+							></image>
+							<text class="author">{{ item.author }}</text>
+						</view>
+						<view class="right">
+							<image
+								class="give"
+								src="../../static/image/icon_like_gray_60.png"
+								mode=""
+							></image>
+							<text class="count">{{ item.count }}</text>
+						</view>
+					</view>
+				</view>
+			</view>
 		</view>
-	</view>
+	</scroll-view>
 </template>
 
 <script setup>
@@ -96,7 +98,7 @@ import { ArticleStore } from '../../store/article'
 import { cardArticleApi } from '../../api/modules/home.js'
 import { onMounted, reactive, toRefs, watch } from 'vue'
 const articleStore = ArticleStore()
-const state = reactive({ artilceList: [] })
+const state = reactive({ artilceList: [], page: 1, isRefresh: false, hasMore: true })
 watch(
 	() => articleStore.card,
 	() => {
@@ -113,11 +115,29 @@ const init = async () => {
 	if (articleStore.card == '同人图' || articleStore.card == 'cos') {
 		const { data } = await cardArticleApi({
 			category: articleStore.card,
-			pagenum: 1
+			pagenum: state.page
 		})
-		state.artilceList = data.data
+		state.artilceList = state.artilceList.concat(data.data)
 		console.log(data)
+		if (state.page >= data.totalPage) {
+			state.hasMore = false
+		}
 	}
+}
+
+// 下拉刷新
+const refresh = () => {
+	state.isRefresh = true
+	state.page = 1
+	state.artilceList = []
+	init()
+}
+
+// 上拉加载
+const loadMore = () => {
+	if (!state.hasMore) return
+	state.page += 1
+	init()
 }
 
 onMounted(() => {
@@ -129,12 +149,15 @@ onHide(() => {})
 
 // 页面分享(不定义该函数 页面将无法分享)
 onShareAppMessage(() => {})
-const { artilceList } = toRefs(state)
+const { artilceList, isRefresh } = toRefs(state)
 </script>
 
 <style lang="scss">
 page {
 	background-color: #f8f8f8;
+}
+.homograph-scroll {
+	height: calc(100vh - 120rpx - 44rpx);
 }
 .ranking {
 	padding: 12rpx 24rpx;
