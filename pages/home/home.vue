@@ -155,18 +155,15 @@
 				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
 		</scroll-view>
-		
-		
-		
 		<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
-		<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
+		<jioguanVue  ref="jioguan" v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
 	</view>
 </template>
 
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
-import { reactive, toRefs } from "vue";
+import { reactive, ref, toRefs } from "vue";
 import { bannerApi } from '../../api/modules/home';
 import homograph from '../../components/homograph/homograph.vue';
 import { ArticleStore } from '../../store/article';
@@ -177,6 +174,7 @@ import './home.scss'
 
 const state = reactive({ bannerList: [] })
 const articleStore = ArticleStore()
+const jioguan = ref()
 
 // 获取轮播图数据
 const getBanner = async () => {

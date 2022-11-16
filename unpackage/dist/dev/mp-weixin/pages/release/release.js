@@ -1,9 +1,5 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
-if (!Math) {
-  homograph();
-}
-const homograph = () => "../../components/homograph/homograph.js";
 const _sfc_main = {
   __name: "release",
   setup(__props) {

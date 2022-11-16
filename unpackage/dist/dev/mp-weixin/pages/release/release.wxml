@@ -1,1 +1,1 @@
-<view><homograph u-i="beb77fd6-0" bind:__l="__l"></homograph></view>
+<view class="reease-view"><view class="upload"><view class="posts"><image src="/static/icon_add_mix_post.png" mode=""></image><view class="info"><view class="title">帖子</view><view class="text">图片创作</view></view></view><view class="posts"><image src="/static/icon_add_image_post.png" mode=""></image><view class="info"><view class="title">图片创作</view><view class="text">绘画 COS手工 表情包</view></view></view></view></view>

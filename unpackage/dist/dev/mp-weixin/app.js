@@ -9,6 +9,7 @@ if (!Math) {
   "./fainse/sfines/sfines.js";
   "./fainse/jioguan/jioguan.js";
   "./subpkg/article-details/article-details.js";
+  "./subpkg/upload-posts/upload-posts.js";
 }
 const _sfc_main = {
   onLaunch: function() {
