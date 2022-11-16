@@ -156,7 +156,7 @@
 			</view>
 		</scroll-view>
 		<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
-		<jioguanVue  ref="jioguan" v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
+		<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
 	</view>
 </template>
 
@@ -174,7 +174,6 @@ import './home.scss'
 
 const state = reactive({ bannerList: [] })
 const articleStore = ArticleStore()
-const jioguan = ref()
 
 // 获取轮播图数据
 const getBanner = async () => {

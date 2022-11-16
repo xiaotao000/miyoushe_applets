@@ -137,7 +137,8 @@ const state = reactive({
 watch(
 	() => articleStore.card,
 	() => {
-		init()
+		console.log(articleStore.card);
+		refresh()
 	}
 )
 
