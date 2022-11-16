@@ -21,7 +21,6 @@ const _sfc_main = {
   setup(__props) {
     const state = common_vendor.reactive({ bannerList: [] });
     const articleStore = store_article.ArticleStore();
-    const jioguan = common_vendor.ref();
     const getBanner = async () => {
       const { data } = await api_modules_home.bannerApi();
       state.bannerList = data;
@@ -150,11 +149,7 @@ const _sfc_main = {
         v: common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos"
       }, common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos" ? {} : {}, {
         w: common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565"
-      }, common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565" ? {
-        x: common_vendor.sr(jioguan, "92bb8f34-12", {
-          "k": "jioguan"
-        })
-      } : {});
+      }, common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565" ? {} : {});
     };
   }
 };

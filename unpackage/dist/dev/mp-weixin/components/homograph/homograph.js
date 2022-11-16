@@ -8,9 +8,9 @@ const _sfc_main = {
   __name: "homograph",
   setup(__props) {
     const articleStore = store_article.ArticleStore();
-    const state = common_vendor.reactive({ artilceList: [], page: 1, isRefresh: false, hasMore: true });
+    const state = common_vendor.reactive({ artilceList: [], page: 1, loading: false, isRefresh: false, hasMore: true });
     common_vendor.watch(() => articleStore.card, () => {
-      init();
+      refresh();
     });
     common_vendor.onLoad((message) => {
     });
@@ -18,24 +18,29 @@ const _sfc_main = {
     });
     const init = async () => {
       if (articleStore.card == "\u540C\u4EBA\u56FE" || articleStore.card == "cos") {
+        state.loading = true;
         const { data } = await api_modules_home.cardArticleApi({
           category: articleStore.card,
           pagenum: state.page
         });
         state.artilceList = state.artilceList.concat(data.data);
-        console.log(data);
+        state.isRefresh = false;
+        state.loading = false;
         if (state.page >= data.totalPage) {
           state.hasMore = false;
         }
       }
     };
     const refresh = () => {
+      state.hasMore = true;
       state.isRefresh = true;
       state.page = 1;
       state.artilceList = [];
       init();
     };
     const loadMore = () => {
+      if (state.loading)
+        return;
       if (!state.hasMore)
         return;
       state.page += 1;
