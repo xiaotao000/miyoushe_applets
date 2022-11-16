@@ -18,20 +18,22 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.p({
+        a: common_vendor.o((...args) => _ctx.admin && _ctx.admin(...args)),
+        b: common_vendor.p({
           title: "\u53D1\u5E03"
         }),
-        b: common_vendor.p({
+        c: common_vendor.p({
           title: "\u8BC4\u8BBA"
         }),
-        c: common_vendor.p({
+        d: common_vendor.p({
           title: "\u6536\u85CF"
         }),
-        d: common_vendor.p({
+        e: common_vendor.p({
           title: "\u5408\u96C6"
         }),
-        e: common_vendor.p({
-          sticky: true
+        f: common_vendor.p({
+          sticky: true,
+          animated: true
         })
       };
     };

@@ -11,7 +11,7 @@
 					<image class="maines1-img" src="../../static/0.jpg"></image>
 				</view>
 			</view>
-			<view class="miond r">
+			<view class="miond r" @click="admin">
 				<image class="miond1" src="../../static/icon_user_info_edit.png"></image>
 				编辑
 			</view>
@@ -28,13 +28,50 @@
 					ip属地：湖南
 			</view>
 		</view>
+		<!-- 粉丝数 -->
+		<view class="finrse">
+			<view class="finrse1 l">
+				<view class="l fbg">386</view>
+				<view class="l">粉丝</view>
+			</view>
+			<view class="finrse1 l">
+				<view class="l fbg">0</view>
+				<view class="l">关注</view>
+			</view>
+			<view class="finrse1 l">
+				<view class="l fbg">1386</view>
+				<view class="l">获赞</view>
+			</view>
+		</view>
+		<!-- 分割线 -->
+		<view class="n"></view>
 		<!-- tabs -->
 		<view class="dmxia">
-			<van-tabs sticky>
-			  <van-tab title="发布">内容 1</van-tab>
-			  <van-tab title="评论">内容 2</van-tab>
-			  <van-tab title="收藏">内容 3</van-tab>
-			  <van-tab title="合集">内容 4</van-tab>
+			<van-tabs sticky animated>
+			  <van-tab title="发布">
+				  <view class="faobu">
+					  <view class="njh"><image class="faobu1" src="../../static/noData.png"></image></view>
+					  <view class="faobu2">空空如也</view>
+				  </view>
+			  </van-tab>
+			  <van-tab title="评论">
+				  <view class="faobu">
+				  		<view class="njh"><image class="faobu1" src="../../static/noData.png"></image></view>
+				  		<view class="faobu2">你暂时没有评论</view>
+				  </view>
+			  </van-tab>
+			  <van-tab title="收藏">
+				  <view class="faobu">
+				  		<view class="njh"><image class="faobu1" src="../../static/noData.png"></image></view>
+				  		<view class="faobu2">暂无收藏</view>
+				  </view>
+			  </van-tab>
+			  <van-tab title="合集">
+				  <view class="faobu">
+				  		<view class="njh"><image class="faobu1" src="/static/icon_status_collection_no_content.png"></image></view>
+				  		<view class="faobu2">暂无合集</view>
+				  </view>
+			  </van-tab>
 			</van-tabs>
 		</view>
 	</view>
@@ -43,6 +80,7 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
+
 // 页面加载
 onLoad((message) => {
 	
@@ -71,8 +109,32 @@ onShareAppMessage(() => {
 .r{
 	float: right;
 }
+.n{
+	width: 100%;
+	height: 20rpx;
+	background-color: #f4f4f4;
+}
+.finrse{
+	height: 80rpx;
+	margin: 20rpx;
+	padding: 10rpx;
+	font-size: 12px;
+	color: #ccc;
+	.finrse1{
+		margin-right: 40rpx;
+		height: 100%;
+		line-height: 80rpx;
+		.fbg{
+			font-size: 14px;
+			color: #000;
+			margin-right: 10rpx;
+		}
+	}
+}
 .name{
 	margin: 20rpx;
+	padding-bottom: 40rpx;
+	border-bottom: 1px solid #f4f4f4;
 	.name2{
 		font-size: 12px;
 		margin: 10rpx 0;
@@ -92,6 +154,25 @@ onShareAppMessage(() => {
 }
 .dmxia{
 	margin: 20rpx;
+	.faobu{
+		height: 800rpx;
+		margin: 0 auto;
+		.njh{
+			padding-top: 60rpx;
+			width: 300rpx;
+			margin: 0 auto;
+			.faobu1{
+				width: 300rpx;
+				height: 300rpx;
+				margin: 0 auto;
+			}
+		}
+		.faobu2{
+			margin: 0 auto;
+			text-align:center;
+			color: #ccc;
+		}
+	}
 	.van-tabs__wrap{
 		border-bottom: 1px solid #f4f4f4;
 	}
