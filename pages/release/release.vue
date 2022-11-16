@@ -1,34 +1,74 @@
 <template>
-	<view>
-		<homograph></homograph>
+	<view class="reease-view">
+		<view class="upload">
+			<view class="posts">
+				<image src="/static/icon_add_mix_post.png" mode=""></image>
+				<view class="info">
+					<view class="title">帖子</view>
+					<view class="text">图片创作</view>
+				</view>
+			</view>
+			<view class="posts">
+				<image src="/static/icon_add_image_post.png" mode=""></image>
+				<view class="info">
+					<view class="title">图片创作</view>
+					<view class="text">绘画 COS手工 表情包</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script setup>
 // vue3小程序生命周期函数
-import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
-import homograph from '../../components/homograph/homograph.vue';
+import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
+
 // 页面加载
-onLoad((message) => {
-	
-})
+onLoad(message => {})
 
 // 页面显示
-onShow(() => {
-	
-})
+onShow(() => {})
 
 // 页面隐藏
-onHide(() => {
-	
-})
+onHide(() => {})
 
 // 页面分享(不定义该函数 页面将无法分享)
-onShareAppMessage(() => {
-	
-})
+onShareAppMessage(() => {})
 </script>
 
 <style lang="scss">
-
+page {
+	background-color: #f8f8f8;
+}
+.upload {
+	margin: 100rpx auto;
+	height: 480rpx;
+	background: #fff;
+	width: 90%;
+	border-radius: 32rpx;
+	.posts {
+		padding: 24rpx;
+		box-sizing: border-box;
+		display: flex;
+		margin-left: 120rpx;
+		align-items: center;
+		margin-bottom: 48rpx;
+		image {
+			width: 64rpx;
+			height: 64rpx;
+		}
+		.info {
+			margin-left: 24rpx;
+			.title {
+				color: #161616;
+				font-size: 36rpx;
+				margin-bottom: 12rpx;
+			}
+			.text {
+				font-size: 28rpx;
+				color: #B8B8B8;
+			}
+		}
+	}
+}
 </style>

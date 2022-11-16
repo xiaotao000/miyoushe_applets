@@ -48,7 +48,16 @@
 					"enablePullDownRefresh": false
 				}
 			}
-		]
+		    ,{
+                    "path" : "upload-posts/upload-posts",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 	}],
 	"tabBar": {
 		"backgroundColor": "#fff",
@@ -88,8 +97,14 @@
 			// 宫图
 			"van-grid": "/wxcomponents/vant/grid/index",
 			"van-grid-item": "/wxcomponents/vant/grid-item/index",
-			"van-tab": "/wxcomponents/vant/tab/index",
-			  "van-tabs": "/wxcomponents/vant/tabs/index"
+			// 输入框
+			"van-field": "/wxcomponents/vant/field/index",
+			// 单元格
+			"van-cell-group": "/wxcomponents/vant/cell-group/index",
+			// 按钮
+			"van-button": "/wxcomponents/vant/button/index",
+			// 上传
+			"van-uploader": "/wxcomponents/vant/uploader/index"
 		}
 	},
 	"uniIdRouter": {}
