@@ -1,72 +1,75 @@
 <template>
 	<view>
-		<view class="admin">
-			<image class="admin1 l" src="../../static/icon_add_mix_post.png"></image>
-			<view class="l admin2">参与讨论</view>
-			<view class="r admin3">旅行者游戏日常分享 ></view>
-		</view>
-		<view class="minub">
-			<view class="minub1">
-				<view class="l admin3">排序</view>
-				<view class="r admin3">热门</view>
+		<scroll-view scroll-y="true" class="scroll-view" refresher-enabled @scrolltolower="loadMore" @refresherrefresh="refresh" :refresher-triggered="isRefresh">
+			<view class="admin">
+				<image class="admin1 l" src="../../static/icon_add_mix_post.png"></image>
+				<view class="l admin2">参与讨论</view>
+				<view class="r admin3">旅行者游戏日常分享 ></view>
 			</view>
-			<view class="minub2">
-				<view class="l minub2-huyo">置顶</view>
-				<view class="l minub2-huyo1">【公告】米游社原神社区版规（11月17日更新）</view>
+			
+			<view class="minub">
+				<view class="minub1">
+					<view class="l admin3">排序</view>
+					<view class="r admin3">热门</view>
+				</view>
+				<view class="minub2">
+					<view class="l minub2-huyo">置顶</view>
+					<view class="l minub2-huyo1">【公告】米游社原神社区版规（11月17日更新）</view>
+				</view>
+				<view class="minub2">
+					<view class="l minub2-huyo">置顶</view>
+					<view class="l minub2-huyo1">【持续更新】原神米游社导航楼</view>
+				</view>
+				<view class="minub2">
+					<view class="l minub2-huyo">置顶</view>
+					<view class="l minub2-huyo1">【公告】米游社原神社区版规（11月17日更新）</view>
+				</view>
 			</view>
-			<view class="minub2">
-				<view class="l minub2-huyo">置顶</view>
-				<view class="l minub2-huyo1">【持续更新】原神米游社导航楼</view>
-			</view>
-			<view class="minub2">
-				<view class="l minub2-huyo">置顶</view>
-				<view class="l minub2-huyo1">【公告】米游社原神社区版规（11月17日更新）</view>
-			</view>
-		</view>
-		<!-- 内容 -->
-		
-		<view class="article-item" v-for="item in artilceList" :key="item.id">
-			<view class="aboes">
-				<!-- 头像 -->
-				<view class="taoto">
-					<view class="l">
-						<img class="l abo" :src="'http://172.19.10.161:3000' + item.avatar" alt="">
-						<view class="l modes">
-							<view>{{item.author}}</view>
-							<view class="vines">{{item.time}}</view>
+			
+			<!-- 内容 -->
+			<view class="article-item" v-for="item in artilceList" :key="item.id">
+				<view class="aboes">
+					<!-- 头像 -->
+					<view class="taoto">
+						<view class="l">
+							<img class="l abo" :src="'http://172.19.10.192:3000' + item.avatar" alt="">
+							<view class="l modes">
+								<view>{{item.author}}</view>
+								<view class="vines">{{item.time}}</view>
+							</view>
+						</view>
+					</view>
+					<!-- 内容 -->
+					<view class="masto">
+						<view>{{item.title}}</view>
+						<view class="abion van-ellipsis">
+							<rich-text :nodes="item.introduce"></rich-text>
+						</view>
+						<view class="abion1">
+							<img v-if="item.cover[0].imgUrl" class="abion2" :src="'http://172.19.10.192:3000' + item.cover[0].imgUrl" alt="">
+						</view>
+						<view class="modvis">
+							<view class="l modvis1">{{item.section}}</view>
+							<view class="r">
+								<p class="r aose">{{item.browse}}万</p>
+								<p class="modvis1-img r">
+									<image class="modvis1-img1" src="/static/mihoyoimg/icon_like_gray_60.png" mode="" ></image>
+								</p>
+								<p class="r aose">{{item.count}}</p>
+								<p class="modvis1-img r">
+									<image class="modvis1-img1" src="/static/mihoyoimg/ic_post_comment_60.png" mode="" ></image>
+								</p>
+								<p class="r aose">{{item.comment}}</p>
+								<p class="modvis1-img r">
+									<image class="modvis1-img1" src="/static/mihoyoimg/icon_post_card_view48.png" mode="" ></image>
+								</p>
+							</view>
 						</view>
 					</view>
 				</view>
-				<!-- 内容 -->
-				<view class="masto">
-					<view>{{item.title}}</view>
-					<view class="abion van-ellipsis">
-						<rich-text :nodes="item.introduce"></rich-text>
-					</view>
-					<view class="abion1">
-						<img v-if="item.cover[0].imgUrl" class="abion2" :src="'http://172.19.10.161:3000' + item.cover[0].imgUrl" alt="">
-					</view>
-					<view class="modvis">
-						<view class="l modvis1">{{item.section}}</view>
-						<view class="r">
-							<p class="r aose">{{item.browse}}万</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/icon_like_gray_60.png" mode="" ></image>
-							</p>
-							<p class="r aose">{{item.count}}</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/ic_post_comment_60.png" mode="" ></image>
-							</p>
-							<p class="r aose">{{item.comment}}</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/icon_post_card_view48.png" mode="" ></image>
-							</p>
-						</view>
-					</view>
-				</view>
+				<view class="n"></view>
 			</view>
-			<view class="n"></view>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 
@@ -76,8 +79,15 @@ import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
 import { ArticleStore } from '../../store/article'
 import { cardArticleApi } from '../../api/modules/home.js'
 import { onMounted, reactive, toRefs, watch } from 'vue'
+
 const articleStore = ArticleStore()
-const state = reactive({ artilceList: [] })
+const state = reactive({
+	artilceList: [], 
+	page: 1,
+	isRefresh: false,
+	hasMore: true
+})
+
 watch(
 	() => articleStore.card,
 	() => {
@@ -89,11 +99,30 @@ const init = async () => {
 	if (articleStore.card == '酒馆' || articleStore.card == '攻略' || articleStore.card === '硬核') {
 		const { data } = await cardArticleApi({
 			category: articleStore.card,
-			pagenum: 1
+			pagenum: state.page
 		})
-		state.artilceList = data.data
+		state.artilceList = state.artilceList.concat(data.data)
 		console.log(data)
+		// 判断是否还有数据
+		if (state.page >= data.totalPage) {
+			state.hasMore = false
+		}
 	}
+}
+
+// 下拉刷新
+const refresh = () => {
+	state.isRefresh = true
+	state.page = 1
+	state.artilceList = []
+	init()
+}
+
+// 上拉加载
+const loadMore = () => {
+	if (!state.hasMore) return
+	state.page += 1
+	init()
 }
 
 onMounted(() => {
@@ -119,10 +148,13 @@ onShareAppMessage(() => {
 	
 })
 
-const { artilceList } = toRefs(state)
+const { artilceList, isRefresh } = toRefs(state)
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.scroll-view {
+	height: calc(100vh - 120rpx - 44rpx);
+}
 .l{
 	align-items: center;
 	display: flex;
