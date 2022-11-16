@@ -17,7 +17,26 @@
 			</view>
 		</view>
 		<!-- 姓名 -->
-		<view class=""></view>
+		<view class="name">
+			<view class="name1">八块腹肌的老头</view>
+			<view class="name2">
+					<image class="name2-img l" src="../../static/icon_user_home_desc_icon.png"></image>
+					快乐 啪！没了
+			</view>
+			<view class="name2">
+					<image class="name2-img l" src="/static/icon_user_ip.png"></image>
+					ip属地：湖南
+			</view>
+		</view>
+		<!-- tabs -->
+		<view class="dmxia">
+			<van-tabs sticky>
+			  <van-tab title="发布">内容 1</van-tab>
+			  <van-tab title="评论">内容 2</van-tab>
+			  <van-tab title="收藏">内容 3</van-tab>
+			  <van-tab title="合集">内容 4</van-tab>
+			</van-tabs>
+		</view>
 	</view>
 </template>
 
@@ -51,6 +70,42 @@ onShareAppMessage(() => {
 }
 .r{
 	float: right;
+}
+.name{
+	margin: 20rpx;
+	.name2{
+		font-size: 12px;
+		margin: 10rpx 0;
+		color: #ccc;
+		height: 40rpx;
+		.name2-img{
+			margin-top: 4rpx;
+			margin-right: 10rpx;
+			width: 40rpx;
+			height: 40rpx;
+		}
+	}
+	.name1{
+		font-size: 15px;
+		font-weight: 600;
+	}
+}
+.dmxia{
+	margin: 20rpx;
+	.van-tabs__wrap{
+		border-bottom: 1px solid #f4f4f4;
+	}
+	.van-tabs__line{
+		background-color: #1aa3ff;
+		margin: 0 auto;
+		left: -2rpx;
+		width: 50rpx !important;
+		border-bottom:  1px solid #1aa3ff;
+	}
+	.van-tab--active {
+		font-weight: 600;
+		border-bottom:  1px solid #1aa3ff;
+	}
 }
 .maines{
 	margin: 20rpx 20rpx 60rpx 20rpx;

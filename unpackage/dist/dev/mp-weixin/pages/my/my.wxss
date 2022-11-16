@@ -29,6 +29,42 @@
 .r {
   float: right;
 }
+.name {
+  margin: 20rpx;
+}
+.name .name2 {
+  font-size: 12px;
+  margin: 10rpx 0;
+  color: #ccc;
+  height: 40rpx;
+}
+.name .name2 .name2-img {
+  margin-top: 4rpx;
+  margin-right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.name .name1 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.dmxia {
+  margin: 20rpx;
+}
+.dmxia .van-tabs__wrap {
+  border-bottom: 1px solid #f4f4f4;
+}
+.dmxia .van-tabs__line {
+  background-color: #1aa3ff;
+  margin: 0 auto;
+  left: -2rpx;
+  width: 50rpx !important;
+  border-bottom: 1px solid #1aa3ff;
+}
+.dmxia .van-tab--active {
+  font-weight: 600;
+  border-bottom: 1px solid #1aa3ff;
+}
 .maines {
   margin: 20rpx 20rpx 60rpx 20rpx;
   height: 80rpx;
