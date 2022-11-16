@@ -24,13 +24,13 @@
 /* 透明度 */
 /* 文章场景相关 */
 page {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 .ranking {
   padding: 12rpx 24rpx;
   box-sizing: border-box;
   background-color: #fff;
-  border-bottom: 2rpx solid #FAF9F9;
+  border-bottom: 2rpx solid #faf9f9;
 }
 .ranking .top {
   display: flex;
@@ -130,7 +130,7 @@ page {
   padding: 6rpx;
   font-size: 24rpx;
   border-radius: 12rpx;
-  background-color: #19A3FF;
+  background-color: #19a3ff;
   color: #fff;
 }
 .new .bottom .notice {
@@ -173,7 +173,7 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #CACACA;
+  color: #cacaca;
 }
 .artice .artice-item .info .left {
   display: flex;

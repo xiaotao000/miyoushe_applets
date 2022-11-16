@@ -2,26 +2,63 @@
 	<view class="artice-view">
 		<view class="info-box">
 			<view class="info">
-				<image class="portrait" src="../../static/0.jpg" mode=""></image>
+				<image
+					class="portrait"
+					:src="'http://172.19.10.161:3000' + article.avatar"
+					mode=""
+				></image>
 				<view class="author-box">
-					<view class="author">提瓦特徒步团</view>
-					<view class="introduce">梦想是环游世界</view>
+					<view class="author">{{ article.author }}</view>
+					<view class="introduce">{{ article.autograph }}</view>
 				</view>
 			</view>
 			<view class="follow"> + 关注</view>
 		</view>
-		<view class="title">【绮思晚星】·莱依拉登场 参与活动赢周边~</view>
-		<view class="time">文章发表: 11-11</view>
-		<view class="details"></view>
+		<view class="title">{{ article.title }}</view>
+		<view class="time">文章发表: {{ article.time }}</view>
+		<view class="details">
+			<rich-text :nodes="article.introduce"></rich-text>
+			<template v-if="article.category === '同人图' || article.category === 'COS'">
+				<image @click="previewImage(i)" class="cover" v-for="item, i in article.cover" :src="'http://172.19.10.161:3000' + item.imgUrl" :key="i" mode=""></image>
+			</template>
+		</view>
+		<view class="browse">浏览量：{{ article.browse }}</view>
+		<view class="talk">
+			<text>{{ article.section }}</text>
+		</view>
 	</view>
 </template>
 
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
+import { reactive, toRefs } from 'vue'
+import { imgTagAddStyle } from '../../utils/index.js'
 
+const state = reactive({ article: {} })
+
+import http from '../../api/index.js'
+
+const previewImage = (index) => {
+	const imageList = state.article.cover.map(item => 'http://172.19.10.161:3000'+ item.imgUrl)
+	uni.previewImage({
+		urls: imageList,
+		current: index
+	})
+}
+const init = async() => {
+	const { data } = await http.get('/api/home/articledDetails?id=345')
+	data[0].introduce = imgTagAddStyle(
+		data[0].introduce,
+		'color: #111 !important; margin-bottom: 24rpx;'
+	)
+	state.article = data[0]
+	console.log(data[0])
+}
 // 页面加载
-onLoad(message => {})
+onLoad( message => {
+	init()
+})
 
 // 页面显示
 onShow(() => {})
@@ -31,6 +68,7 @@ onHide(() => {})
 
 // 页面分享(不定义该函数 页面将无法分享)
 onShareAppMessage(() => {})
+const { article } = toRefs(state)
 </script>
 
 <style lang="scss">
@@ -58,14 +96,14 @@ onShareAppMessage(() => {})
 			}
 			.introduce {
 				font-size: 28rpx;
-				color: #7D7D7D;
+				color: #7d7d7d;
 			}
 		}
 	}
 	.follow {
 		padding: 6rpx 12rpx;
-		border: 2rpx solid #00A3FF;
-		color: #00A3FF;
+		border: 2rpx solid #00a3ff;
+		color: #00a3ff;
 		border-radius: 6rpx;
 		font-size: 24rpx;
 	}
@@ -74,10 +112,37 @@ onShareAppMessage(() => {})
 	padding: 0 24rpx;
 	font-size: 42rpx;
 	font-weight: 600;
+	margin-bottom: 24rpx;
 }
 .time {
 	text-align: center;
 	font-size: 32rpx;
-	color: #E4E5E8;
+	color: #e4e5e8;
+	margin-bottom: 24rpx;
+}
+.details {
+	font-size: 32rpx;
+	padding: 0 24rpx;
+	margin-bottom: 24rpx;
+	.cover {
+		width: 100%;
+	}
+}
+.browse {
+	color: #e4e5e8;
+	padding: 0 24rpx;
+	font-size: 28rpx;
+}
+.talk {
+	font-size: 28rpx;
+	margin-bottom: 24rpx;
+	padding: 24rpx;
+	box-sizing: border-box;
+	text {
+		display: inline-block;
+		border-radius: 8rpx;
+		background-color: #F0F1F5;
+		padding: 0 12rpx;
+	}
 }
 </style>
