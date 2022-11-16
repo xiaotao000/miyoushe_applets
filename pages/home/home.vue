@@ -21,7 +21,9 @@
 			  <van-tab title="cos" name="cos"></van-tab>
 			  <van-tab title="硬核" name="硬核"></van-tab>
 			</van-tabs>
-			
+		</view>	
+		
+		<scroll-view scroll-y="true" class="scroll-center">
 			<!-- 内容 -->
 			<view v-if="card === '观测枢'" class="cart-item">
 				<!-- 轮播图 -->
@@ -152,16 +154,16 @@
 				<!-- 公众号 -->
 				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
-			<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
-			<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
-		</view>
+		</scroll-view>
+		<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
+		<jioguanVue  ref="jioguan" v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
 	</view>
 </template>
 
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
-import { reactive, toRefs } from "vue";
+import { reactive, ref, toRefs } from "vue";
 import { bannerApi } from '../../api/modules/home';
 import homograph from '../../components/homograph/homograph.vue';
 import { ArticleStore } from '../../store/article';
@@ -169,8 +171,11 @@ import { storeToRefs } from 'pinia';
 import jioguanVue from '../../components/jioguan/jioguan.vue';
 import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
 import './home.scss'
+
 const state = reactive({ bannerList: [] })
 const articleStore = ArticleStore()
+const jioguan = ref()
+
 // 获取轮播图数据
 const getBanner = async () => {
 	 const { data } = await bannerApi()

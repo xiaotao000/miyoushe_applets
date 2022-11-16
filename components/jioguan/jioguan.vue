@@ -1,83 +1,139 @@
 <template>
 	<view>
-		<view class="admin">
-			<image class="admin1 l" src="../../static/icon_add_mix_post.png"></image>
-			<view class="l admin2">参与讨论</view>
-			<view class="r admin3">旅行者游戏日常分享 ></view>
-		</view>
-		<view class="minub">
-			<view class="minub1">
-				<view class="l admin3">排序</view>
-				<view class="r admin3">热门</view>
+		<scroll-view
+			scroll-y="true"
+			class="scroll-view"
+			refresher-enabled
+			@scrolltolower="loadMore"
+			@refresherrefresh="refresh"
+			:refresher-triggered="isRefresh"
+		>
+			<view class="admin">
+				<image
+					class="admin1 l"
+					src="../../static/icon_add_mix_post.png"
+				></image>
+				<view class="l admin2">参与讨论</view>
+				<view class="r admin3">旅行者游戏日常分享 ></view>
 			</view>
-			<view class="minub2">
-				<view class="l minub2-huyo">置顶</view>
-				<view class="l minub2-huyo1">【公告】米游社原神社区版规（11月17日更新）</view>
+
+			<view class="minub">
+				<view class="minub1">
+					<view class="l admin3">排序</view>
+					<view class="r admin3">热门</view>
+				</view>
+				<view class="minub2">
+					<view class="l minub2-huyo">置顶</view>
+					<view class="l minub2-huyo1"
+						>【公告】米游社原神社区版规（11月17日更新）</view
+					>
+				</view>
+				<view class="minub2">
+					<view class="l minub2-huyo">置顶</view>
+					<view class="l minub2-huyo1"
+						>【持续更新】原神米游社导航楼</view
+					>
+				</view>
+				<view class="minub2">
+					<view class="l minub2-huyo">置顶</view>
+					<view class="l minub2-huyo1"
+						>【公告】米游社原神社区版规（11月17日更新）</view
+					>
+				</view>
 			</view>
-			<view class="minub2">
-				<view class="l minub2-huyo">置顶</view>
-				<view class="l minub2-huyo1">【持续更新】原神米游社导航楼</view>
-			</view>
-			<view class="minub2">
-				<view class="l minub2-huyo">置顶</view>
-				<view class="l minub2-huyo1">【公告】米游社原神社区版规（11月17日更新）</view>
-			</view>
-		</view>
-		<!-- 内容 -->
-		
-		<view class="article-item" v-for="item in artilceList" :key="item.id">
-			<view class="aboes">
-				<!-- 头像 -->
-				<view class="taoto">
-					<view class="l">
-						<img class="l abo" :src="'http://172.19.10.161:3000' + item.avatar" alt="">
-						<view class="l modes">
-							<view>{{item.author}}</view>
-							<view class="vines">{{item.time}}</view>
+
+			<!-- 内容 -->
+			<view
+				class="article-item"
+				v-for="item in artilceList"
+				:key="item.id"
+			>
+				<view class="aboes">
+					<!-- 头像 -->
+					<view class="taoto">
+						<view class="l">
+							<img
+								class="l abo"
+								:src="'http://172.19.10.192:3000' + item.avatar"
+								alt=""
+							/>
+							<view class="l modes">
+								<view>{{ item.author }}</view>
+								<view class="vines">{{ item.time }}</view>
+							</view>
+						</view>
+					</view>
+					<!-- 内容 -->
+					<view class="masto">
+						<view>{{ item.title }}</view>
+						<view class="abion van-ellipsis">
+							<rich-text :nodes="item.introduce"></rich-text>
+						</view>
+						<view class="abion1">
+							<img
+								v-if="item.cover[0].imgUrl"
+								class="abion2"
+								:src="
+									'http://172.19.10.192:3000' +
+										item.cover[0].imgUrl
+								"
+								alt=""
+							/>
+						</view>
+						<view class="modvis">
+							<view class="l modvis1">{{ item.section }}</view>
+							<view class="r">
+								<p class="r aose">{{ item.browse }}万</p>
+								<p class="modvis1-img r">
+									<image
+										class="modvis1-img1"
+										src="/static/mihoyoimg/icon_like_gray_60.png"
+										mode=""
+									></image>
+								</p>
+								<p class="r aose">{{ item.count }}</p>
+								<p class="modvis1-img r">
+									<image
+										class="modvis1-img1"
+										src="/static/mihoyoimg/ic_post_comment_60.png"
+										mode=""
+									></image>
+								</p>
+								<p class="r aose">{{ item.comment }}</p>
+								<p class="modvis1-img r">
+									<image
+										class="modvis1-img1"
+										src="/static/mihoyoimg/icon_post_card_view48.png"
+										mode=""
+									></image>
+								</p>
+							</view>
 						</view>
 					</view>
 				</view>
-				<!-- 内容 -->
-				<view class="masto">
-					<view>{{item.title}}</view>
-					<view class="abion van-ellipsis">
-						<rich-text :nodes="item.introduce"></rich-text>
-					</view>
-					<view class="abion1">
-						<img v-if="item.cover[0].imgUrl" class="abion2" :src="'http://172.19.10.161:3000' + item.cover[0].imgUrl" alt="">
-					</view>
-					<view class="modvis">
-						<view class="l modvis1">{{item.section}}</view>
-						<view class="r">
-							<p class="r aose">{{item.browse}}万</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/icon_like_gray_60.png" mode="" ></image>
-							</p>
-							<p class="r aose">{{item.count}}</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/ic_post_comment_60.png" mode="" ></image>
-							</p>
-							<p class="r aose">{{item.comment}}</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/icon_post_card_view48.png" mode="" ></image>
-							</p>
-						</view>
-					</view>
-				</view>
+				<view class="n"></view>
 			</view>
-			<view class="n"></view>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 
 <script setup>
 // vue3小程序生命周期函数
-import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
+import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 import { ArticleStore } from '../../store/article'
 import { cardArticleApi } from '../../api/modules/home.js'
-import { onMounted, reactive, toRefs, watch } from 'vue'
+import { onMounted, reactive, toRefs, watch, defineExpose } from 'vue'
+
 const articleStore = ArticleStore()
-const state = reactive({ artilceList: [] })
+const state = reactive({
+	artilceList: [],
+	page: 1,
+	isRefresh: false,
+	hasMore: true,
+	loading: false,
+	category: '酒馆'
+})
+
 watch(
 	() => articleStore.card,
 	() => {
@@ -86,23 +142,51 @@ watch(
 )
 
 const init = async () => {
-	if (articleStore.card == '酒馆' || articleStore.card == '攻略' || articleStore.card === '硬核') {
+	if (
+		articleStore.card == '酒馆' ||
+		articleStore.card == '攻略' ||
+		articleStore.card === '硬核'
+	) {
+		state.loading = true
 		const { data } = await cardArticleApi({
 			category: articleStore.card,
-			pagenum: 1
+			pagenum: state.page
 		})
-		state.artilceList = data.data
 		console.log(data)
+		state.artilceList = state.artilceList.concat(data.data)
+		// 关闭上拉刷新
+		state.isRefresh = false
+		state.loading = false
+		// 判断是否还有数据
+		if (state.page >= data.totalPage) {
+			console.log(state.hasMore)
+			state.hasMore = false
+		}
 	}
+}
+
+// 下拉刷新
+const refresh = () => {
+	state.isRefresh = true
+	state.hasMore = true
+	state.page = 1
+	state.artilceList = []
+	init()
+}
+
+// 上拉加载
+const loadMore = () => {
+	if (state.loading) return
+	if (!state.hasMore) return
+	state.page += 1
+	init()
 }
 
 onMounted(() => {
 	init()
 })
 // 页面加载
-onLoad((message) => {
-	
-})
+onLoad(message => {})
 
 // 页面显示
 onShow(() => {
@@ -110,45 +194,45 @@ onShow(() => {
 })
 
 // 页面隐藏
-onHide(() => {
-	
-})
+onHide(() => {})
 
 // 页面分享(不定义该函数 页面将无法分享)
-onShareAppMessage(() => {
-	
-})
+onShareAppMessage(() => {})
 
-const { artilceList } = toRefs(state)
+defineExpose(refresh)
+const { artilceList, isRefresh } = toRefs(state)
 </script>
 
-<style lang="scss">
-.l{
+<style lang="scss" scoped>
+.scroll-view {
+	height: calc(100vh - 120rpx - 44rpx);
+}
+.l {
 	align-items: center;
 	display: flex;
 	float: left;
 }
-.r{
+.r {
 	float: right;
 }
-.n{
+.n {
 	width: 100%;
 	height: 20rpx;
 	background-color: #f4f4f4;
 }
-.minub{
+.minub {
 	margin: 20rpx;
-	.minub2{
+	.minub2 {
 		height: 60rpx;
 		margin: 20rpx 0;
-		.minub2-huyo1{
+		.minub2-huyo1 {
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
 			font-size: 13px;
 			width: 560rpx;
 		}
-		.minub2-huyo{
+		.minub2-huyo {
 			border: 1px solid #00c3ff;
 			text-align: center;
 			font-weight: 600;
@@ -158,59 +242,59 @@ const { artilceList } = toRefs(state)
 			margin-right: 40rpx;
 		}
 	}
-	.minub1{
+	.minub1 {
 		height: 80rpx;
 	}
-	.admin3{
+	.admin3 {
 		line-height: 80rpx;
 		font-size: 13px;
-		color:#908484;
+		color: #908484;
 	}
 }
-.admin{
+.admin {
 	margin: 20rpx;
 	background-color: #f4f4f4;
 	height: 80rpx;
 	border-radius: 4px;
 	padding: 5rpx;
-	.admin3{
+	.admin3 {
 		line-height: 80rpx;
 		font-size: 13px;
-		color:#908484;
+		color: #908484;
 	}
-	.admin2{
+	.admin2 {
 		line-height: 80rpx;
 		font-size: 14px;
 		font-weight: 600;
 	}
-	.admin1{
+	.admin1 {
 		width: 80rpx;
 		height: 80rpx;
 	}
 }
-.aboes{
+.aboes {
 	margin: 20rpx;
 	background-color: #fff;
-	.masto{
+	.masto {
 		margin: 20rpx;
-		.modvis{
+		.modvis {
 			height: 80rpx;
-			.aose{
+			.aose {
 				margin-top: 5rpx;
 				margin-left: 5rpx;
 				font-size: 12px;
 				color: #d2cccc;
 			}
-			.modvis1-img{
+			.modvis1-img {
 				width: 50rpx;
 				height: 50rpx;
 				margin-left: 40rpx;
-				.modvis1-img1{
+				.modvis1-img1 {
 					width: 100%;
 					height: 100%;
 				}
 			}
-			.modvis1{
+			.modvis1 {
 				margin-top: 20rpx;
 				padding: 0 10rpx;
 				border-radius: 4rpx;
@@ -219,79 +303,79 @@ const { artilceList } = toRefs(state)
 				color: #999;
 			}
 		}
-		.abion1{
+		.abion1 {
 			height: 300rpx;
 			margin: 20rpx 0;
-			.abion2{
+			.abion2 {
 				width: 100%;
 				height: 100%;
 				border-radius: 7px;
 			}
 		}
-		.abion{
+		.abion {
 			font-size: 13px;
 			line-height: 18px;
-		    margin-top: 8px;
+			margin-top: 8px;
 			color: #999;
 			text-overflow: ellipsis;
 			overflow: hidden;
 			white-space: nowrap;
 		}
 	}
-	.taoto{
+	.taoto {
 		height: 80rpx;
 	}
-	.modes{
+	.modes {
 		font-size: 11px;
-		.vines{
+		.vines {
 			color: #d2cccc;
 		}
 	}
-	.abo{
+	.abo {
 		width: 80rpx;
 		height: 80rpx;
 		margin-right: 10rpx;
 		border-radius: 50%;
 	}
 }
-.clion{
+.clion {
 	background-color: #f4f4f4;
 	border-radius: 7px;
 	margin: 20rpx;
 	padding: 20rpx;
-	.conice{
+	.conice {
 		height: 80rpx;
 		line-height: 80rpx;
-		.clion1{
+		.clion1 {
 			float: left;
 			font-weight: 700;
 		}
-		.clion2{
+		.clion2 {
 			float: right;
 			font-size: 12px;
 			color: #ccc;
 		}
 	}
-	.abond{
+	.abond {
 		margin: 20rpx 0;
 		display: flex;
 		font-size: 12px;
-		.abond1{
+		.abond1 {
 			color: #fff;
 			width: 10%;
 			height: 40rpx;
 			font-size: 12px;
-			padding: 0 10rpx ;
+			padding: 0 10rpx;
 			background-color: #4141f5;
 			border-radius: 3px;
 		}
-		.abond2{
+		.abond2 {
 			width: 70%;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-		.abond3{
+		.abond3 {
 			font-size: 11px;
 			margin-left: 10rpx;
 			color: #d2cccc;
