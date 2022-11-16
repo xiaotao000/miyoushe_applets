@@ -26,6 +26,9 @@
 page {
   background-color: #f8f8f8;
 }
+.homograph-scroll {
+  height: calc(100vh - 120rpx - 44rpx);
+}
 .ranking {
   padding: 12rpx 24rpx;
   box-sizing: border-box;
