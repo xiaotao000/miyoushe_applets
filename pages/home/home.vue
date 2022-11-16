@@ -152,7 +152,8 @@
 				<!-- 公众号 -->
 				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
-			<homograph v-if="card === '同人图' || card === 'COS'"></homograph>
+			<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
+			<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
 		</view>
 	</view>
 </template>
@@ -165,7 +166,7 @@ import { bannerApi } from '../../api/modules/home';
 import homograph from '../../components/homograph/homograph.vue';
 import { ArticleStore } from '../../store/article';
 import { storeToRefs } from 'pinia';
-
+import jioguanVue from '../../components/jioguan/jioguan.vue';
 import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
 import './home.scss'
 const state = reactive({ bannerList: [] })

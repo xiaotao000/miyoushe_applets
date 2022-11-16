@@ -1,5 +1,5 @@
 import { $http } from '../utils/request.js'
-$http.baseUrl = 'http://172.19.10.136:3000'
+$http.baseUrl = 'http://172.19.10.161:3000'
 
 $http.beforeRequest = function(res) {
 	console.log('拦截前');

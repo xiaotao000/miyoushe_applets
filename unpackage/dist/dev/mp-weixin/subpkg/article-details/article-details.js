@@ -8,7 +8,7 @@ const _sfc_main = {
   setup(__props) {
     const state = common_vendor.reactive({ article: {} });
     const previewImage = (index) => {
-      const imageList = state.article.cover.map((item) => "http://172.19.10.136:3000" + item.imgUrl);
+      const imageList = state.article.cover.map((item) => "http://172.19.10.161:3000" + item.imgUrl);
       common_vendor.index.previewImage({
         urls: imageList,
         current: index
@@ -32,7 +32,7 @@ const _sfc_main = {
     const { article } = common_vendor.toRefs(state);
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: "http://172.19.10.136:3000" + common_vendor.unref(article).avatar,
+        a: "http://172.19.10.161:3000" + common_vendor.unref(article).avatar,
         b: common_vendor.t(common_vendor.unref(article).author),
         c: common_vendor.t(common_vendor.unref(article).autograph),
         d: common_vendor.t(common_vendor.unref(article).title),
@@ -43,7 +43,7 @@ const _sfc_main = {
         h: common_vendor.f(common_vendor.unref(article).cover, (item, i, i0) => {
           return {
             a: common_vendor.o(($event) => previewImage(i), i),
-            b: "http://172.19.10.136:3000" + item.imgUrl,
+            b: "http://172.19.10.161:3000" + item.imgUrl,
             c: i
           };
         })

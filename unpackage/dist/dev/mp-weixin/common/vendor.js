@@ -6647,3 +6647,4 @@ exports.storeToRefs = storeToRefs;
 exports.t = t;
 exports.toRefs = toRefs;
 exports.unref = unref;
+exports.watch = watch;

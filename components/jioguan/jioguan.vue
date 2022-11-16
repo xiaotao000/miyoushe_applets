@@ -24,77 +24,40 @@
 			</view>
 		</view>
 		<!-- 内容 -->
-		<view>
+		
+		<view class="article-item" v-for="item in artilceList" :key="item.id">
 			<view class="aboes">
 				<!-- 头像 -->
 				<view class="taoto">
 					<view class="l">
-						<img class="l abo" src="https://img-static.mihoyo.com/communityweb/upload/82b1971538505baa318d7f9bc7bc8efe.png" alt="">
+						<img class="l abo" :src="'http://172.19.10.161:3000' + item.avatar" alt="">
 						<view class="l modes">
-							<view>苏超越</view>
-							<view class="vines">11-10</view>
+							<view>{{item.author}}</view>
+							<view class="vines">{{item.time}}</view>
 						</view>
 					</view>
 				</view>
 				<!-- 内容 -->
 				<view class="masto">
-					<view>【投票】女角色受欢迎度（43名角色）</view>
-					<view class="abion">一个简易的汇总投票。！提示！如果你还没有做完某角色的相关任务，可能会被轻度剧透。！提示！觉得长可以适当跳过。#1～5【3.x角色】佣兵“炽鬃之狮”，黑皮/金色挑染/伪兽耳/披风，莽撞，飒爽，</view>
+					<view>{{item.title}}</view>
+					<view class="abion van-ellipsis">
+						<rich-text :nodes="item.introduce"></rich-text>
+					</view>
 					<view class="abion1">
-						<img class="abion2" src="https://upload-bbs.mihoyo.com/upload/2022/11/14/3c265b221bb5e8e3edbbdf39f09fe4bf_4997314291190074779.jpg" alt="">
+						<img v-if="item.cover[0].imgUrl" class="abion2" :src="'http://172.19.10.161:3000' + item.cover[0].imgUrl" alt="">
 					</view>
 					<view class="modvis">
-						<view class="l modvis1">原神同人</view>
+						<view class="l modvis1">{{item.section}}</view>
 						<view class="r">
-							<p class="r aose">10万</p>
+							<p class="r aose">{{item.browse}}万</p>
 							<p class="modvis1-img r">
 								<image class="modvis1-img1" src="/static/mihoyoimg/icon_like_gray_60.png" mode="" ></image>
 							</p>
-							<p class="r aose">47</p>
+							<p class="r aose">{{item.count}}</p>
 							<p class="modvis1-img r">
 								<image class="modvis1-img1" src="/static/mihoyoimg/ic_post_comment_60.png" mode="" ></image>
 							</p>
-							<p class="r aose">10</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/icon_post_card_view48.png" mode="" ></image>
-							</p>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="n"></view>
-		</view>
-		<view>
-			<view class="aboes">
-				<!-- 头像 -->
-				<view class="taoto">
-					<view class="l">
-						<img class="l abo" src="https://img-static.mihoyo.com/communityweb/upload/82b1971538505baa318d7f9bc7bc8efe.png" alt="">
-						<view class="l modes">
-							<view>苏超越</view>
-							<view class="vines">11-10</view>
-						</view>
-					</view>
-				</view>
-				<!-- 内容 -->
-				<view class="masto">
-					<view>【投票】女角色受欢迎度（43名角色）</view>
-					<view class="abion">一个简易的汇总投票。！提示！如果你还没有做完某角色的相关任务，可能会被轻度剧透。！提示！觉得长可以适当跳过。#1～5【3.x角色】佣兵“炽鬃之狮”，黑皮/金色挑染/伪兽耳/披风，莽撞，飒爽，</view>
-					<view class="abion1">
-						<img class="abion2" src="https://upload-bbs.mihoyo.com/upload/2022/11/14/3c265b221bb5e8e3edbbdf39f09fe4bf_4997314291190074779.jpg" alt="">
-					</view>
-					<view class="modvis">
-						<view class="l modvis1">原神同人</view>
-						<view class="r">
-							<p class="r aose">10万</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/icon_like_gray_60.png" mode="" ></image>
-							</p>
-							<p class="r aose">47</p>
-							<p class="modvis1-img r">
-								<image class="modvis1-img1" src="/static/mihoyoimg/ic_post_comment_60.png" mode="" ></image>
-							</p>
-							<p class="r aose">10</p>
+							<p class="r aose">{{item.comment}}</p>
 							<p class="modvis1-img r">
 								<image class="modvis1-img1" src="/static/mihoyoimg/icon_post_card_view48.png" mode="" ></image>
 							</p>
@@ -110,7 +73,32 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
+import { ArticleStore } from '../../store/article'
+import { cardArticleApi } from '../../api/modules/home.js'
+import { onMounted, reactive, toRefs, watch } from 'vue'
+const articleStore = ArticleStore()
+const state = reactive({ artilceList: [] })
+watch(
+	() => articleStore.card,
+	() => {
+		init()
+	}
+)
 
+const init = async () => {
+	if (articleStore.card == '酒馆' || articleStore.card == '攻略' || articleStore.card === '硬核') {
+		const { data } = await cardArticleApi({
+			category: articleStore.card,
+			pagenum: 1
+		})
+		state.artilceList = data.data
+		console.log(data)
+	}
+}
+
+onMounted(() => {
+	init()
+})
 // 页面加载
 onLoad((message) => {
 	
@@ -130,10 +118,14 @@ onHide(() => {
 onShareAppMessage(() => {
 	
 })
+
+const { artilceList } = toRefs(state)
 </script>
 
 <style lang="scss">
 .l{
+	align-items: center;
+	display: flex;
 	float: left;
 }
 .r{

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "发布",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "homograph": "../../components/homograph/homograph"
+  }
 }
