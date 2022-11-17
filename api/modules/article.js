@@ -1,4 +1,4 @@
 import http from '@/api'
 
-// 图片上传
-export const coverApi = (data) => http.post('/api/cover', data)
+// 帖子发布
+const uploadArticleApi = (data) => http.post('/my/user/addArticle', data)

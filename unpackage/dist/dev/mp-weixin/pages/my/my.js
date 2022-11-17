@@ -35,7 +35,8 @@ const _sfc_main = {
           title: "\u5408\u96C6"
         }),
         f: common_vendor.p({
-          sticky: true
+          sticky: true,
+          animated: true
         })
       };
     };

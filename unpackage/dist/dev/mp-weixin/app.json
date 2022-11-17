@@ -4,7 +4,8 @@
     "pages/release/release",
     "pages/my/my",
     "fainse/sfines/sfines",
-    "fainse/jioguan/jioguan"
+    "fainse/jioguan/jioguan",
+    "fainse/bjtpes/bjtpes"
   ],
   "subPackages": [
     {
@@ -26,7 +27,9 @@
     "van-cell-group": "/wxcomponents/vant/cell-group/index",
     "van-button": "/wxcomponents/vant/button/index",
     "van-uploader": "/wxcomponents/vant/uploader/index",
-    "van-checkbox": "/wxcomponents/vant/checkbox/index"
+    "van-checkbox": "/wxcomponents/vant/checkbox/index",
+    "van-radio": "/wxcomponents/vant/radio/index",
+    "van-radio-group": "/wxcomponents/vant/radio-group/index"
   },
   "window": {
     "navigationBarTextStyle": "black",
