@@ -24,7 +24,9 @@
     "van-field": "/wxcomponents/vant/field/index",
     "van-cell-group": "/wxcomponents/vant/cell-group/index",
     "van-button": "/wxcomponents/vant/button/index",
-    "van-uploader": "/wxcomponents/vant/uploader/index"
+    "van-uploader": "/wxcomponents/vant/uploader/index",
+    "van-radio": "/wxcomponents/vant/radio/index",
+    "van-radio-group": "/wxcomponents/vant/radio-group/index"
   },
   "window": {
     "navigationBarTextStyle": "black",

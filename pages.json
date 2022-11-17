@@ -26,7 +26,7 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-		
+
 		},
 		{
 			"path": "fainse/jioguan/jioguan",
@@ -34,7 +34,7 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-		
+
 		}
 	],
 	"subPackages": [{
@@ -47,17 +47,15 @@
 					"navigationBarTitleText": "",
 					"enablePullDownRefresh": false
 				}
+			}, {
+				"path": "upload-posts/upload-posts",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
 			}
-		    ,{
-                    "path" : "upload-posts/upload-posts",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+		]
 	}],
 	"tabBar": {
 		"backgroundColor": "#fff",
@@ -104,7 +102,10 @@
 			// 按钮
 			"van-button": "/wxcomponents/vant/button/index",
 			// 上传
-			"van-uploader": "/wxcomponents/vant/uploader/index"
+			"van-uploader": "/wxcomponents/vant/uploader/index",
+			// 单选框
+			"van-radio": "/wxcomponents/vant/radio/index",
+			"van-radio-group": "/wxcomponents/vant/radio-group/index"
 		}
 	},
 	"uniIdRouter": {}

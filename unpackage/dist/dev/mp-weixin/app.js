@@ -23,6 +23,9 @@ const _sfc_main = {
   }
 };
 var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/App.vue"]]);
+common_vendor.index.$Toast = function(title) {
+  common_vendor.index.showToast({ title, icon: "none" });
+};
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   app.use(common_vendor.createPinia());
