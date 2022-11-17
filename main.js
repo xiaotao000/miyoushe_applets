@@ -1,5 +1,9 @@
 import App from './App'
 
+uni.$Toast = function(title) {
+	uni.showToast({ title, icon: 'none' })
+}
+
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
