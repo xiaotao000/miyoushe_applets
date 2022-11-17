@@ -11,6 +11,7 @@ if (!Math) {
   "./fainse/bjtpes/bjtpes.js";
   "./subpkg/article-details/article-details.js";
   "./subpkg/upload-posts/upload-posts.js";
+  "./subpkg/login/login.js";
 }
 const _sfc_main = {
   onLaunch: function() {

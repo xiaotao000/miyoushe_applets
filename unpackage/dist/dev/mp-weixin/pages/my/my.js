@@ -8,8 +8,8 @@ if (!Array) {
 const _sfc_main = {
   __name: "my",
   setup(__props) {
-    const admin = () => {
-      common_vendor.index.navigateTo({ url: "/fainse/bjtpes/bjtpes" });
+    const goLogin = () => {
+      common_vendor.index.navigateTo({ url: "/subpkg/login/login" });
     };
     common_vendor.onLoad((message) => {
     });
@@ -21,7 +21,7 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(admin),
+        a: common_vendor.o(goLogin),
         b: common_vendor.p({
           title: "\u53D1\u5E03"
         }),

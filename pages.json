@@ -63,8 +63,14 @@
 					"enablePullDownRefresh": false
 				}
 
-			}
-		]
+			},{
+					"path" : "login/login",
+					"style" : {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}
+			]
 	}],
 	"tabBar": {
 		"backgroundColor": "#fff",
@@ -112,6 +118,8 @@
 			"van-button": "/wxcomponents/vant/button/index",
 			// 上传
 			"van-uploader": "/wxcomponents/vant/uploader/index",
+			// 复选框
+			"van-checkbox": "/wxcomponents/vant/checkbox/index",
 			// 单选框
 			"van-radio": "/wxcomponents/vant/radio/index",
 			"van-radio-group": "/wxcomponents/vant/radio-group/index"
