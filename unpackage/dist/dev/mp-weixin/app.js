@@ -8,6 +8,7 @@ if (!Math) {
   "./pages/my/my.js";
   "./fainse/sfines/sfines.js";
   "./fainse/jioguan/jioguan.js";
+  "./fainse/bjtpes/bjtpes.js";
   "./subpkg/article-details/article-details.js";
   "./subpkg/upload-posts/upload-posts.js";
 }

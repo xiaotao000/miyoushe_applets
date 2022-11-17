@@ -36,7 +36,16 @@
 			}
 		
 		}
-	],
+	    ,{
+            "path" : "fainse/bjtpes/bjtpes",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"subPackages": [{
 		"root": "subpkg",
 		"pages": [

@@ -9,7 +9,7 @@ const _sfc_main = {
   __name: "my",
   setup(__props) {
     const admin = () => {
-      common_vendor.index.navigateTo({ url: "/fainse/jioguan/jioguan" });
+      common_vendor.index.navigateTo({ url: "/fainse/bjtpes/bjtpes" });
     };
     common_vendor.onLoad((message) => {
     });
