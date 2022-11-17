@@ -122,7 +122,7 @@
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 import { ArticleStore } from '../../store/article'
 import { cardArticleApi } from '../../api/modules/home.js'
-import { onMounted, reactive, toRefs, watch, defineExpose } from 'vue'
+import { onMounted, reactive, toRefs, watch } from 'vue'
 
 const articleStore = ArticleStore()
 const state = reactive({
@@ -200,7 +200,7 @@ onHide(() => {})
 // 页面分享(不定义该函数 页面将无法分享)
 onShareAppMessage(() => {})
 
-defineExpose(refresh)
+
 const { artilceList, isRefresh } = toRefs(state)
 </script>
 

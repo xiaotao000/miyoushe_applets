@@ -8,6 +8,7 @@ if (!Math) {
   "./pages/my/my.js";
   "./fainse/sfines/sfines.js";
   "./fainse/jioguan/jioguan.js";
+  "./fainse/bjtpes/bjtpes.js";
   "./subpkg/article-details/article-details.js";
   "./subpkg/upload-posts/upload-posts.js";
 }
@@ -22,7 +23,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/App.vue"]]);
 common_vendor.index.$Toast = function(title) {
   common_vendor.index.showToast({ title, icon: "none" });
 };
