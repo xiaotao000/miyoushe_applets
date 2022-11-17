@@ -70,7 +70,6 @@
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 import { reactive, ref } from 'vue'
-import { coverApi } from '../../api/modules/article'
 const fileList = ref([])
 const state = reactive({ title: '', introduce: '', section: '', category: '酒馆', cover:[] })
 
