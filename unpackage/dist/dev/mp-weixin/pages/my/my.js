@@ -8,6 +8,9 @@ if (!Array) {
 const _sfc_main = {
   __name: "my",
   setup(__props) {
+    const goLogin = () => {
+      common_vendor.index.navigateTo({ url: "/subpkg/login/login" });
+    };
     common_vendor.onLoad((message) => {
     });
     common_vendor.onShow(() => {
@@ -18,25 +21,26 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.p({
+        a: common_vendor.o(goLogin),
+        b: common_vendor.p({
           title: "\u53D1\u5E03"
         }),
-        b: common_vendor.p({
+        c: common_vendor.p({
           title: "\u8BC4\u8BBA"
         }),
-        c: common_vendor.p({
+        d: common_vendor.p({
           title: "\u6536\u85CF"
         }),
-        d: common_vendor.p({
+        e: common_vendor.p({
           title: "\u5408\u96C6"
         }),
-        e: common_vendor.p({
+        f: common_vendor.p({
           sticky: true
         })
       };
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/my/my.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/pages/my/my.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

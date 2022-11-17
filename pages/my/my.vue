@@ -4,30 +4,44 @@
 		<view class="mihuyo">
 			<image class="mihuyo1" src="../../static/bg_user_center_header.png"></image>
 		</view>
-		<!-- 头像 -->
-		<view class="maines">
-			<view class="maines3">
-				<view class="maines1">
-					<image class="maines1-img" src="../../static/0.jpg"></image>
+		
+		<template>
+			<!-- 头像 -->
+			<!-- <view class="maines">
+				<view class="maines3">
+					<view class="maines1">
+						<image class="maines1-img" src="../../static/0.jpg"></image>
+					</view>
 				</view>
+				<view class="miond r">
+					<image class="miond1" src="../../static/icon_user_info_edit.png"></image>
+					编辑
+				</view>
+			</view> -->
+			
+			<!-- 姓名 -->
+			<!-- <view class="name">
+				<view class="name1">八块腹肌的老头</view>
+				<view class="name2">
+						<image class="name2-img l" src="../../static/icon_user_home_desc_icon.png"></image>
+						快乐 啪！没了
+				</view>
+				<view class="name2">
+						<image class="name2-img l" src="/static/icon_user_ip.png"></image>
+						ip属地：湖南
+				</view>
+			</view> -->
+		</template>
+		
+		<!-- 没登录状态 -->
+		<view class="no-login" @click="goLogin">
+			<view class="info">
+				<image src="/static/image/no-login.png" mode=""></image>
+				<view class="btn">点击登录</view>
 			</view>
-			<view class="miond r">
-				<image class="miond1" src="../../static/icon_user_info_edit.png"></image>
-				编辑
-			</view>
+			<view class="desc">登录解锁更多精彩内容</view>
 		</view>
-		<!-- 姓名 -->
-		<view class="name">
-			<view class="name1">八块腹肌的老头</view>
-			<view class="name2">
-					<image class="name2-img l" src="../../static/icon_user_home_desc_icon.png"></image>
-					快乐 啪！没了
-			</view>
-			<view class="name2">
-					<image class="name2-img l" src="/static/icon_user_ip.png"></image>
-					ip属地：湖南
-			</view>
-		</view>
+		
 		<!-- tabs -->
 		<view class="dmxia">
 			<van-tabs sticky>
@@ -43,6 +57,12 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app';
+
+// 跳转登录
+const goLogin = () => {
+	uni.navigateTo({ url: '/subpkg/login/login' })
+}
+
 // 页面加载
 onLoad((message) => {
 	
@@ -90,6 +110,7 @@ onShareAppMessage(() => {
 		font-weight: 600;
 	}
 }
+
 .dmxia{
 	margin: 20rpx;
 	.van-tabs__wrap{
@@ -148,6 +169,32 @@ onShareAppMessage(() => {
 	.mihuyo1{
 		width: 100%;
 		height: 100%;
+	}
+}
+
+// 没登录
+.no-login {
+	margin: 20rpx 20rpx 60rpx 20rpx;
+	position: relative;
+	.info {
+		width: 180rpx;
+		image {
+			width: 180rpx;
+			height: 180rpx;
+			position: absolute;
+			top: -80rpx;
+			border: 2rpx solid #efefef;
+			border-radius: 50%;
+		}
+		.btn {
+			padding-top: 120rpx;
+			text-align: center;
+			font-size: 44rpx;
+			margin-bottom: 10rpx;
+		}
+	}
+	.desc {
+		font-size: 30rpx;
 	}
 }
 </style>

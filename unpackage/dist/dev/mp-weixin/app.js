@@ -10,6 +10,7 @@ if (!Math) {
   "./fainse/jioguan/jioguan.js";
   "./subpkg/article-details/article-details.js";
   "./subpkg/upload-posts/upload-posts.js";
+  "./subpkg/login/login.js";
 }
 const _sfc_main = {
   onLaunch: function() {
@@ -22,7 +23,7 @@ const _sfc_main = {
     console.log("App Hide");
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/App.vue"]]);
+var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/App.vue"]]);
 function createApp() {
   const app = common_vendor.createSSRApp(App);
   app.use(common_vendor.createPinia());

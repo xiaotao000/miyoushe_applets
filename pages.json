@@ -57,6 +57,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "login/login",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 	}],
 	"tabBar": {
@@ -104,7 +113,11 @@
 			// 按钮
 			"van-button": "/wxcomponents/vant/button/index",
 			// 上传
-			"van-uploader": "/wxcomponents/vant/uploader/index"
+			"van-uploader": "/wxcomponents/vant/uploader/index",
+			// 输入框
+			"van-field": "/wxcomponents/vant/field/index",
+			// 复选框
+			"van-checkbox": "/wxcomponents/vant/checkbox/index"
 		}
 	},
 	"uniIdRouter": {}
