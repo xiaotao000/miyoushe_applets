@@ -8,8 +8,8 @@ if (!Array) {
 const _sfc_main = {
   __name: "my",
   setup(__props) {
-    const admin = () => {
-      common_vendor.index.navigateTo({ url: "/fainse/bjtpes/bjtpes" });
+    const goLogin = () => {
+      common_vendor.index.navigateTo({ url: "/subpkg/login/login" });
     };
     common_vendor.onLoad((message) => {
     });
@@ -21,7 +21,7 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(admin),
+        a: common_vendor.o(goLogin),
         b: common_vendor.p({
           title: "\u53D1\u5E03"
         }),
@@ -42,6 +42,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/pages/my/my.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/my/my.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

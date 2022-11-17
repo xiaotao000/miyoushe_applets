@@ -12,7 +12,8 @@
       "root": "subpkg",
       "pages": [
         "article-details/article-details",
-        "upload-posts/upload-posts"
+        "upload-posts/upload-posts",
+        "login/login"
       ]
     }
   ],
@@ -26,6 +27,7 @@
     "van-cell-group": "/wxcomponents/vant/cell-group/index",
     "van-button": "/wxcomponents/vant/button/index",
     "van-uploader": "/wxcomponents/vant/uploader/index",
+    "van-checkbox": "/wxcomponents/vant/checkbox/index",
     "van-radio": "/wxcomponents/vant/radio/index",
     "van-radio-group": "/wxcomponents/vant/radio-group/index"
   },
