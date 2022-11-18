@@ -87,7 +87,7 @@ const openImagePage = e => {
 		success: res => {
 			const preview = res.tempFilePaths[0]
 			wx.uploadFile({
-				url: ':3000/api/cover', // 仅为示例，非真实的接口地址
+				url: 'http://172.19.10.138:3000/api/cover', // 仅为示例，非真实的接口地址
 				filePath: preview,
 				name: 'cover',
 				formData: { user: 'test' },
@@ -95,7 +95,7 @@ const openImagePage = e => {
 					const { data } = JSON.parse(res.data)
 					state.cover.push(data)
 					fileList.value.push(
-						':3000' + data[0].imgUrl
+						'http://172.19.10.138:3000' + data[0].imgUrl
 					)
 				}
 			})
