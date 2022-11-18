@@ -8,37 +8,33 @@
 			@refresherrefresh="refresh"
 			:refresher-triggered="isRefresh"
 		>
-			<view class="admin">
-				<image
-					class="admin1 l"
-					src="../../static/icon_add_mix_post.png"
-				></image>
-				<view class="l admin2">参与讨论</view>
-				<view class="r admin3">旅行者游戏日常分享 ></view>
-			</view>
-
-			<view class="minub">
-				<view class="minub1">
-					<view class="l admin3">排序</view>
-					<view class="r admin3">热门</view>
+			<view class="clion">
+				<view class="conice">
+					<view class="clion1">官方资讯</view>
+					<view class="clion2">全部 ></view>
 				</view>
-				<view class="minub2">
-					<view class="l minub2-huyo">置顶</view>
-					<view class="l minub2-huyo1"
-						>【公告】米游社原神社区版规（11月17日更新）</view
-					>
-				</view>
-				<view class="minub2">
-					<view class="l minub2-huyo">置顶</view>
-					<view class="l minub2-huyo1"
-						>【持续更新】原神米游社导航楼</view
-					>
-				</view>
-				<view class="minub2">
-					<view class="l minub2-huyo">置顶</view>
-					<view class="l minub2-huyo1"
-						>【公告】米游社原神社区版规（11月17日更新）</view
-					>
+				<view>
+					<view class="abond">
+						<view class="abond1">公告</view>
+						<view class="abond2"
+							>【公告】米游社原神社区版规（11月17日更新</view
+						>
+						<view class="abond3">今天</view>
+					</view>
+					<view class="abond">
+						<view class="abond1">资讯</view>
+						<view class="abond2"
+							>【公告】米游社原神社区版规（11月17日更新</view
+						>
+						<view class="abond3">今天</view>
+					</view>
+					<view class="abond">
+						<view class="abond1">活动</view>
+						<view class="abond2"
+							>【公告】米游社原神社区版规（11月17日更新</view
+						>
+						<view class="abond3">今天</view>
+					</view>
 				</view>
 			</view>
 
@@ -130,44 +126,34 @@ const state = reactive({
 	page: 1,
 	isRefresh: false,
 	hasMore: true,
-	loading: false,
-	category: '酒馆'
+	loading: false
 })
 
 watch(
 	() => articleStore.card,
 	() => {
-		console.log(articleStore.card);
 		refresh()
 	}
 )
 
 const init = async () => {
-	if (
-		articleStore.card == '酒馆' ||
-		articleStore.card == '攻略' ||
-		articleStore.card === '硬核'
-	) {
-		state.loading = true
-		const { data } = await cardArticleApi({
-			category: articleStore.card,
-			pagenum: state.page
-		})
-		console.log(data)
-		state.artilceList = state.artilceList.concat(data.data)
-		// 关闭上拉刷新
-		state.isRefresh = false
-		state.loading = false
-		// 判断是否还有数据
-		if (state.page >= data.totalPage) {
-			console.log(state.hasMore)
-			state.hasMore = false
-		}
+	state.loading = true
+	const { data } = await cardArticleApi({ pagenum: state.page })
+	console.log(data)
+	state.artilceList = state.artilceList.concat(data.data)
+	// 关闭上拉刷新
+	state.isRefresh = false
+	state.loading = false
+	// 判断是否还有数据
+	if (state.page >= data.totalPage) {
+		console.log(state.hasMore)
+		state.hasMore = false
 	}
 }
 
 // 下拉刷新
 const refresh = () => {
+	console.log(11)
 	state.isRefresh = true
 	state.hasMore = true
 	state.page = 1
@@ -177,6 +163,7 @@ const refresh = () => {
 
 // 上拉加载
 const loadMore = () => {
+	console.log(11)
 	if (state.loading) return
 	if (!state.hasMore) return
 	state.page += 1
@@ -190,9 +177,7 @@ onMounted(() => {
 onLoad(message => {})
 
 // 页面显示
-onShow(() => {
-	
-})
+onShow(() => {})
 
 // 页面隐藏
 onHide(() => {})
@@ -200,17 +185,14 @@ onHide(() => {})
 // 页面分享(不定义该函数 页面将无法分享)
 onShareAppMessage(() => {})
 
-
 const { artilceList, isRefresh } = toRefs(state)
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .scroll-view {
 	height: calc(100vh - 120rpx - 44rpx);
 }
 .l {
-	align-items: center;
-	display: flex;
 	float: left;
 }
 .r {
@@ -220,58 +202,6 @@ const { artilceList, isRefresh } = toRefs(state)
 	width: 100%;
 	height: 20rpx;
 	background-color: #f4f4f4;
-}
-.minub {
-	margin: 20rpx;
-	.minub2 {
-		height: 60rpx;
-		margin: 20rpx 0;
-		.minub2-huyo1 {
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			overflow: hidden;
-			font-size: 13px;
-			width: 560rpx;
-		}
-		.minub2-huyo {
-			border: 1px solid #00c3ff;
-			text-align: center;
-			font-weight: 600;
-			color: #00c3ff;
-			font-size: 13px;
-			width: 76rpx;
-			margin-right: 40rpx;
-		}
-	}
-	.minub1 {
-		height: 80rpx;
-	}
-	.admin3 {
-		line-height: 80rpx;
-		font-size: 13px;
-		color: #908484;
-	}
-}
-.admin {
-	margin: 20rpx;
-	background-color: #f4f4f4;
-	height: 80rpx;
-	border-radius: 4px;
-	padding: 5rpx;
-	.admin3 {
-		line-height: 80rpx;
-		font-size: 13px;
-		color: #908484;
-	}
-	.admin2 {
-		line-height: 80rpx;
-		font-size: 14px;
-		font-weight: 600;
-	}
-	.admin1 {
-		width: 80rpx;
-		height: 80rpx;
-	}
 }
 .aboes {
 	margin: 20rpx;
@@ -314,6 +244,7 @@ const { artilceList, isRefresh } = toRefs(state)
 			}
 		}
 		.abion {
+			height: 320rpx;
 			font-size: 13px;
 			line-height: 18px;
 			margin-top: 8px;
@@ -323,8 +254,21 @@ const { artilceList, isRefresh } = toRefs(state)
 			white-space: nowrap;
 		}
 	}
+	.zhu {
+		color: #d2cccc;
+		font-size: 20px;
+	}
 	.taoto {
 		height: 80rpx;
+	}
+	.guan {
+		margin-right: 20rpx;
+		margin-top: 20rpx;
+		color: #4141f5;
+		font-size: 14px;
+		padding: 0 10rpx;
+		border: 2rpx solid #4141f5;
+		border-radius: 4px;
 	}
 	.modes {
 		font-size: 11px;

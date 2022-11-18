@@ -12,10 +12,11 @@ if (!Array) {
   (_component_van_icon + _component_van_tab + _component_van_tabs)();
 }
 if (!Math) {
-  (homograph + jioguanVue)();
+  (sfinesVue + homograph + jioguanVue)();
 }
 const homograph = () => "../../components/homograph/homograph.js";
 const jioguanVue = () => "../../components/jioguan/jioguan.js";
+const sfinesVue = () => "../../components/sfines/sfines.js";
 const _sfc_main = {
   __name: "home",
   setup(__props) {
@@ -146,9 +147,11 @@ const _sfc_main = {
           };
         })
       } : {}, {
-        v: common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos"
+        v: common_vendor.unref(card) === "\u53D1\u73B0"
+      }, common_vendor.unref(card) === "\u53D1\u73B0" ? {} : {}, {
+        w: common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos"
       }, common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos" ? {} : {}, {
-        w: common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565"
+        x: common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565"
       }, common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565" ? {} : {});
     };
   }

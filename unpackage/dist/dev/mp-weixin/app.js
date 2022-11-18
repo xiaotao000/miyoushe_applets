@@ -10,6 +10,7 @@ if (!Math) {
   "./fainse/jioguan/jioguan.js";
   "./fainse/bjtpes/bjtpes.js";
   "./subpkg/article-details/article-details.js";
+  "./subpkg/upload-picture/upload-picture.js";
   "./subpkg/upload-posts/upload-posts.js";
   "./subpkg/login/login.js";
 }

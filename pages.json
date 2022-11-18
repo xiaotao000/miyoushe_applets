@@ -35,17 +35,15 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "fainse/bjtpes/bjtpes",
+			"style": {
+				"navigationBarTitleText": "修改信息",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	    ,{
-            "path" : "fainse/bjtpes/bjtpes",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "修改信息",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"subPackages": [{
 		"root": "subpkg",
 		"pages": [
@@ -57,20 +55,28 @@
 					"enablePullDownRefresh": false
 				}
 			}, {
+				"path": "upload-picture/upload-picture",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
 				"path": "upload-posts/upload-posts",
 				"style": {
 					"navigationBarTitleText": "",
 					"enablePullDownRefresh": false
 				}
 
-			},{
-					"path" : "login/login",
-					"style" : {
-						"navigationBarTitleText": "",
-						"enablePullDownRefresh": false
-					}
+			},
+			{
+				"path": "login/login",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
 				}
-			]
+			}
+		]
 	}],
 	"tabBar": {
 		"backgroundColor": "#fff",
