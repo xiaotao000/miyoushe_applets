@@ -47,9 +47,8 @@
 				<view class="category">
 					<view class="title">发布版块：</view>
 					<van-radio-group :value="state.category" @change="selectChage">
-						<van-radio name="酒馆">酒馆</van-radio>
-						<van-radio name="攻略">攻略</van-radio>
-						<van-radio name="硬核">硬核</van-radio>
+						<van-radio name="COS">COS</van-radio>
+						<van-radio name="同人图">同人图</van-radio>
 					</van-radio-group>
 				</view>
 				<van-field

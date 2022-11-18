@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "homograph": "../../components/homograph/homograph",
-    "jioguan-vue": "../../components/jioguan/jioguan"
+    "jioguan-vue": "../../components/jioguan/jioguan",
+    "sfines-vue": "../../components/sfines/sfines"
   }
 }

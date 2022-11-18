@@ -12,6 +12,7 @@
       "root": "subpkg",
       "pages": [
         "article-details/article-details",
+        "upload-picture/upload-picture",
         "upload-posts/upload-posts",
         "login/login"
       ]

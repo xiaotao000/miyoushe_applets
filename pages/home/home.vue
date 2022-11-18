@@ -155,6 +155,7 @@
 				<view class="image"> <image src="/static/image/36fdebe.png" mode=""></image> </view>
 			</view>
 		</scroll-view>
+		<sfinesVue v-if="card === '发现'"></sfinesVue>
 		<homograph v-if="card === '同人图' || card === 'cos'"></homograph>
 		<jioguanVue v-if="card === '酒馆' || card === '硬核' || card === '攻略'"></jioguanVue>
 	</view>
@@ -169,6 +170,7 @@ import homograph from '../../components/homograph/homograph.vue';
 import { ArticleStore } from '../../store/article';
 import { storeToRefs } from 'pinia';
 import jioguanVue from '../../components/jioguan/jioguan.vue';
+import sfinesVue from '../../components/sfines/sfines.vue';
 import { exploreData, gridData, hotData, IndexesData, newestData, specialData } from '../../utils/type_data';
 import './home.scss'
 

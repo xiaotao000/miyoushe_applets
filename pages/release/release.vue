@@ -1,14 +1,14 @@
 <template>
 	<view class="reease-view">
 		<view class="upload">
-			<view class="posts">
+			<view @click="uploadArticle" class="posts">
 				<image src="/static/icon_add_mix_post.png" mode=""></image>
 				<view class="info">
 					<view class="title">帖子</view>
 					<view class="text">图片创作</view>
 				</view>
 			</view>
-			<view class="posts">
+			<view @click="uploadPicture" class="posts">
 				<image src="/static/icon_add_image_post.png" mode=""></image>
 				<view class="info">
 					<view class="title">图片创作</view>
@@ -23,6 +23,13 @@
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 
+const uploadArticle = () => {
+	uni.navigateTo({ url: '/subpkg/upload-posts/upload-posts' })
+}
+const uploadPicture = () => {
+	console.log(111)
+	uni.navigateTo({ url: '/subpkg/upload-picture/upload-picture' })
+}
 // 页面加载
 onLoad(message => {})
 
