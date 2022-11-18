@@ -1,11 +1,17 @@
 <template>
 	<view class="update-info">
 		<view class="upload">
-			<image @click="openImagePage" class="portrait" src="../../static/0.jpg" mode="" />
+			<image
+				@click="openImagePage"
+				class="portrait"
+				:src="avatar ? avatar : '/static/image/no-login.png'"
+				mode=""
+			/>
 			<view class="text">点击修改头像</view>
 		</view>
 		<form @submit="ooSubmit" class="form">
 			<van-field
+				:value="state.nickname"
 				@change="handleInput('nickname', $event)"
 				label="昵称"
 				placeholder="请输入昵称"
@@ -19,11 +25,14 @@
 				</van-radio-group>
 			</view>
 			<van-field
+				:value="state.autograph"
 				@change="handleInput('autograph', $event)"
 				label="个性签名"
 				placeholder="请输入个性签名"
 			/>
-			<van-button type="info" round block form-type="submit">保存</van-button>
+			<van-button type="info" round block form-type="submit"
+				>保存</van-button
+			>
 		</form>
 	</view>
 </template>
@@ -32,16 +41,32 @@
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 import { reactive, ref } from 'vue'
-const fileList = ref([])
+import { updateInfoApi } from '../../api/modules/user';
+import { UserStore } from '../../store/user';
+const userStore = UserStore()
+const avatar = ref('')
 
-const state = reactive({})
+const state = reactive({ autograph: '', gender: '', nickname: '' })
 
-const openImagePage =() => {
+const openImagePage = () => {
 	uni.chooseImage({
 		sizeType: 'compressed',
 		count: 1,
 		success: res => {
-			console.log(res)
+			const preview = res.tempFilePaths[0]
+			wx.uploadFile({
+				url: 'http://172.19.10.138:3000/my/update/avatar', // 仅为示例，非真实的接口地址
+				filePath: preview,
+				name: 'avatar',
+				header: {
+					Authorization: 'Bearer '+ uni.getStorageSync('TOKEN')
+				},
+				formData: { user: 'test' },
+				success(res) {
+					const { data } = JSON.parse(res.data)
+					avatar.value = 'http://172.19.10.138:3000' + data
+				}
+			})
 		}
 	})
 }
@@ -52,16 +77,23 @@ const handleInput = (name, e) => {
 }
 
 // 性别
-const selectChage = (e) => {
+const selectChage = e => {
 	state.gender = e.detail
 }
 
 // 保存
-const ooSubmit = () => {
-	console.log(state)
+const ooSubmit = async () => {
+	 await updateInfoApi(state)
+	 uni.$Toast('修改成功')
+	 userStore.getUserinfo()
 }
 // 页面加载
-onLoad(message => {})
+onLoad(message => {
+	state.autograph = userStore.info.autograph
+	state.nickname =  userStore.info.nickname
+	avatar.value = 'http://172.19.10.138:3000' + userStore.info.avatar
+	state.gender = userStore.info.gender
+})
 
 // 页面显示
 onShow(() => {})
