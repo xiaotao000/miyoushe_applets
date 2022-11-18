@@ -31,6 +31,10 @@ const _sfc_main = {
         }
       }
     };
+    const admines = (id) => {
+      console.log(id);
+      common_vendor.index.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` });
+    };
     const refresh = () => {
       state.hasMore = true;
       state.isRefresh = true;
@@ -63,7 +67,8 @@ const _sfc_main = {
             c: "http://172.19.10.138:3000" + item.avatar,
             d: common_vendor.t(item.author),
             e: common_vendor.t(item.count),
-            f: item.id
+            f: item.id,
+            g: common_vendor.o(($event) => admines(item.id), item.id)
           };
         }),
         b: common_vendor.o(loadMore),
@@ -73,5 +78,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/components/homograph/homograph.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/components/homograph/homograph.vue"]]);
 wx.createComponent(Component);

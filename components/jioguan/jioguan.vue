@@ -47,6 +47,7 @@
 				class="article-item"
 				v-for="item in artilceList"
 				:key="item.id"
+				@click="admines(item.id)"
 			>
 				<view class="aboes">
 					<!-- 头像 -->
@@ -141,7 +142,10 @@ watch(
 		refresh()
 	}
 )
-
+const admines =(id) =>{
+	console.log(id)
+	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
+}
 const init = async () => {
 	if (
 		articleStore.card == '酒馆' ||

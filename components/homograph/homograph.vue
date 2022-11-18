@@ -60,6 +60,7 @@
 					class="artice-item"
 					v-for="item in artilceList"
 					:key="item.id"
+					@click="admines(item.id)"
 				>
 					<image
 						class="cover"
@@ -126,7 +127,10 @@ const init = async () => {
 		}
 	}
 }
-
+const admines =(id) =>{
+	console.log(id)
+	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
+}
 // 下拉刷新
 const refresh = () => {
 	state.hasMore = true
