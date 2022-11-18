@@ -47,6 +47,7 @@
 				class="article-item"
 				v-for="item in artilceList"
 				:key="item.id"
+				@click="admines(item.id)"
 			>
 				<view class="aboes">
 					<!-- 头像 -->
@@ -54,7 +55,7 @@
 						<view class="l">
 							<img
 								class="l abo"
-								:src="'http://172.19.10.192:3000' + item.avatar"
+								:src="'http://172.19.10.138:3000' + item.avatar"
 								alt=""
 							/>
 							<view class="l modes">
@@ -74,7 +75,7 @@
 								v-if="item.cover[0].imgUrl"
 								class="abion2"
 								:src="
-									'http://172.19.10.192:3000' +
+									'http://172.19.10.138:3000' +
 										item.cover[0].imgUrl
 								"
 								alt=""
@@ -141,7 +142,10 @@ watch(
 		refresh()
 	}
 )
-
+const admines =(id) =>{
+	console.log(id)
+	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
+}
 const init = async () => {
 	if (
 		articleStore.card == '酒馆' ||

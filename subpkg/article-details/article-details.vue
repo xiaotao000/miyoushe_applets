@@ -4,7 +4,7 @@
 			<view class="info">
 				<image
 					class="portrait"
-					:src="'http://172.19.10.192:3000' + article.avatar"
+					:src="'http://172.19.10.138:3000' + article.avatar"
 					mode=""
 				></image>
 				<view class="author-box">
@@ -19,7 +19,7 @@
 		<view class="details">
 			<rich-text :nodes="article.introduce"></rich-text>
 			<template v-if="article.category === '同人图' || article.category === 'COS'">
-				<image @click="previewImage(i)" class="cover" v-for="item, i in article.cover" :src="'http://172.19.10.192:3000' + item.imgUrl" :key="i" mode=""></image>
+				<image @click="previewImage(i)" class="cover" v-for="item, i in article.cover" :src="'http://172.19.10.138:3000' + item.imgUrl" :key="i" mode=""></image>
 			</template>
 		</view>
 		<view class="browse">浏览量：{{ article.browse }}</view>
@@ -40,14 +40,14 @@ const state = reactive({ article: {} })
 import http from '../../api/index.js'
 
 const previewImage = (index) => {
-	const imageList = state.article.cover.map(item => 'http://172.19.10.192:3000'+ item.imgUrl)
+	const imageList = state.article.cover.map(item => 'http://172.19.10.138:3000'+ item.imgUrl)
 	uni.previewImage({
 		urls: imageList,
 		current: index
 	})
 }
-const init = async() => {
-	const { data } = await http.get('/api/home/articledDetails?id=345')
+const init = async(id) => {
+	const { data } = await http.get(`/api/home/articledDetails?id=${id}`)
 	data[0].introduce = imgTagAddStyle(
 		data[0].introduce,
 		'color: #111 !important; margin-bottom: 24rpx;'
@@ -57,7 +57,8 @@ const init = async() => {
 }
 // 页面加载
 onLoad( message => {
-	init()
+	const id = message.id
+	init(id)
 })
 
 // 页面显示

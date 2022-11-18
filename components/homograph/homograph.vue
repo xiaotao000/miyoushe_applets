@@ -60,10 +60,11 @@
 					class="artice-item"
 					v-for="item in artilceList"
 					:key="item.id"
+					@click="admines(item.id)"
 				>
 					<image
 						class="cover"
-						:src="'http://172.19.10.192:3000' + item.cover[0].imgUrl"
+						:src="'http://172.19.10.138:3000' + item.cover[0].imgUrl"
 						mode=""
 					></image>
 					<view class="title">{{ item.title }}</view>
@@ -71,7 +72,7 @@
 						<view class="left">
 							<image
 								class="head"
-								:src="'http://172.19.10.192:3000' + item.avatar"
+								:src="'http://172.19.10.138:3000' + item.avatar"
 								mode=""
 							></image>
 							<text class="author">{{ item.author }}</text>
@@ -126,7 +127,10 @@ const init = async () => {
 		}
 	}
 }
-
+const admines =(id) =>{
+	console.log(id)
+	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
+}
 // 下拉刷新
 const refresh = () => {
 	state.hasMore = true
