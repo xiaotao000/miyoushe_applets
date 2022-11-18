@@ -51,6 +51,74 @@
   color: #000;
   margin-right: 10rpx;
 }
+.aboes {
+  margin: 20rpx;
+  background-color: #fff;
+}
+.aboes .masto {
+  margin: 20rpx;
+}
+.aboes .masto .modvis {
+  height: 80rpx;
+}
+.aboes .masto .modvis .aose {
+  margin-top: 5rpx;
+  margin-left: 5rpx;
+  font-size: 12px;
+  color: #d2cccc;
+}
+.aboes .masto .modvis .modvis1-img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 40rpx;
+}
+.aboes .masto .modvis .modvis1-img .modvis1-img1 {
+  width: 100%;
+  height: 100%;
+}
+.aboes .masto .modvis .modvis1 {
+  margin-top: 20rpx;
+  padding: 0 10rpx;
+  border-radius: 4rpx;
+  font-size: 13px;
+  background-color: #f4f4f4;
+  color: #999;
+}
+.aboes .masto .abion1 {
+  height: 350rpx;
+  overflow: hidden;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+.aboes .masto .abion1 .abion2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
+.aboes .masto .abion {
+  font-size: 13px;
+  line-height: 18px;
+  margin-top: 8px;
+  color: #999;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.aboes .taoto {
+  height: 80rpx;
+}
+.aboes .modes {
+  font-size: 11px;
+}
+.aboes .modes .vines {
+  color: #d2cccc;
+}
+.aboes .abo {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
 .name {
   margin: 20rpx;
   padding-bottom: 40rpx;

@@ -79,9 +79,78 @@
 
 			<!-- tabs -->
 			<view class="dmxia">
-				<van-tabs sticky animated>
+				<van-tabs sticky >
 					<van-tab title="发布">
-						<view class="faobu">
+						<view v-if="state.bannerList.length >= 1">
+							<!-- 内容 -->
+							<view
+								class="article-item"
+								v-for="item in state.bannerList"
+								:key="item.id"
+								@click="admines(item.id)"
+							>
+								<view class="aboes">
+									<!-- 头像 -->
+									<view class="taoto">
+										<view class="l">
+											<view class="l modes">
+												<view>{{ item.author }}</view>
+												<view class="vines">{{ item.time }}</view>
+											</view>
+										</view>
+									</view>
+									<!-- 内容 -->
+									<view class="masto">
+										<view>{{ item.title }}</view>
+										<view class="abion van-ellipsis">
+											<rich-text :nodes="item.introduce"></rich-text>
+										</view>
+										<view class="abion1">
+											<img
+												v-if="item.cover[0].imgUrl"
+												class="abion2"
+												:src="
+													'http://172.19.10.138:3000' +
+														item.cover[0].imgUrl
+												"
+												alt=""
+											/>
+										</view>
+										<view class="modvis">
+											<view class="l modvis1">{{ item.section }}</view>
+											<view class="r">
+												<p class="r aose">{{ item.browse }}万</p>
+												<p class="modvis1-img r">
+													<image
+														class="modvis1-img1"
+														src="/static/mihoyoimg/icon_like_gray_60.png"
+														mode=""
+													></image>
+												</p>
+												<p class="r aose">{{ item.count }}</p>
+												<p class="modvis1-img r">
+													<image
+														class="modvis1-img1"
+														src="/static/mihoyoimg/ic_post_comment_60.png"
+														mode=""
+													></image>
+												</p>
+												<p class="r aose">{{ item.comment }}</p>
+												<p class="modvis1-img r">
+													<image
+														class="modvis1-img1"
+														src="/static/mihoyoimg/icon_post_card_view48.png"
+														mode=""
+													></image>
+												</p>
+											</view>
+										</view>
+									</view>
+								</view>
+								<view class="n"></view>
+							</view>
+						</view>
+						<view class="faobu" v-else>
 							<view class="njh"
 								><image
 									class="faobu1"
@@ -134,23 +203,36 @@
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 import { UserStore } from '../../store/user'
+import { reactive, ref, toRefs } from "vue";
 import { storeToRefs } from 'pinia'
+import { getArticleApi } from '../../api/modules/user';
 const userStore = UserStore()
 // 跳转登录
+const state = reactive({ bannerList: [] })
 const goLogin = () => {
 	uni.navigateTo({ url: '/subpkg/login/login' })
+}
+
+const admines =(id) =>{
+	console.log(id)
+	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
 }
 
 const admin = () => {
 	uni.navigateTo({ url: '/fainse/bjtpes/bjtpes' })
 }
 
+const init = async () => {
+	const { data } = await getArticleApi()
+	state.bannerList=data
+}
 // 页面加载
 onLoad(message => {})
 
 // 页面显示
 onShow(() => {
 	userStore.getUserinfo()
+	init()
 })
 
 // 页面隐藏
@@ -188,6 +270,74 @@ const { info } = storeToRefs(userStore)
 			color: #000;
 			margin-right: 10rpx;
 		}
+	}
+}
+.aboes {
+	margin: 20rpx;
+	background-color: #fff;
+	.masto {
+		margin: 20rpx;
+		.modvis {
+			height: 80rpx;
+			.aose {
+				margin-top: 5rpx;
+				margin-left: 5rpx;
+				font-size: 12px;
+				color: #d2cccc;
+			}
+			.modvis1-img {
+				width: 50rpx;
+				height: 50rpx;
+				margin-left: 40rpx;
+				.modvis1-img1 {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.modvis1 {
+				margin-top: 20rpx;
+				padding: 0 10rpx;
+				border-radius: 4rpx;
+				font-size: 13px;
+				background-color: #f4f4f4;
+				color: #999;
+			}
+		}
+		.abion1 {
+			height: 350rpx;
+			overflow: hidden;
+			border-radius: 7px;
+			margin: 0 auto;
+			.abion2 {
+				width: 100%;
+				height: 100%;
+				border-radius: 7px;
+			}
+		}
+		.abion {
+			font-size: 13px;
+			line-height: 18px;
+			margin-top: 8px;
+			color: #999;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+	.taoto {
+		height: 80rpx;
+	}
+	.modes {
+		font-size: 11px;
+		.vines {
+			color: #d2cccc;
+		}
+	}
+	.abo {
+		width: 80rpx;
+		height: 80rpx;
+		margin-right: 10rpx;
+		border-radius: 50%;
 	}
 }
 .name {
