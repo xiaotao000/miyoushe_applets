@@ -141,13 +141,19 @@ const ooSubmit = async () => {
 		uni.$Toast('发布失败')
 	}
 }
+const init = async (id) => {
+	uni.setNavigationBarTitle({
+		title: '修改帖子'
+	})
+	const { data } = await getDetailsApi({ id })
+	fileList.value = data[0].cover
+	state.article = data[0]
+}
 // 页面加载
 onLoad(async message => {
 	const { id } = message
-	const {data} = await getDetailsApi({id})
-	fileList.value = data[0].cover
-	state.article = data[0]
-	
+	if (!id) return
+	init(id)
 })
 
 // 页面显示
