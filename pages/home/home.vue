@@ -1,7 +1,7 @@
 <template>
 	<view class="home-view">
 		<!-- 搜索 -->
-		<view class="search">
+		<view class="search" @click="goSearch">
 			<image src="https://bbs.mihoyo.com/_nuxt/img/game-ys.dfc535b.jpg" mode=""></image>
 			<view class="serch-right">
 				<van-icon size="32rpx" name="search" />
@@ -190,6 +190,11 @@ const tabChage = (e) => {
 onLoad((message) => {
 	getBanner()
 })
+
+// 跳转搜索
+const goSearch = () => {
+	uni.navigateTo({ url: '/subpkg/search/search' })
+}
 
 // 页面显示
 onShow(() => {

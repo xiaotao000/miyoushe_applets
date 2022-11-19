@@ -78,5 +78,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/components/homograph/homograph.vue"]]);
+var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/2005/uni-app/miyoushe_applets/components/homograph/homograph.vue"]]);
 wx.createComponent(Component);

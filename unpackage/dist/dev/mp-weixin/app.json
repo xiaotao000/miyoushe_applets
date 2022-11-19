@@ -14,7 +14,8 @@
         "article-details/article-details",
         "upload-picture/upload-picture",
         "upload-posts/upload-posts",
-        "login/login"
+        "login/login",
+        "search/search"
       ]
     }
   ],
@@ -31,7 +32,8 @@
     "van-checkbox": "/wxcomponents/vant/checkbox/index",
     "van-radio": "/wxcomponents/vant/radio/index",
     "van-radio-group": "/wxcomponents/vant/radio-group/index",
-    "van-popup": "/wxcomponents/vant/popup/index"
+    "van-popup": "/wxcomponents/vant/popup/index",
+    "van-tag": "/wxcomponents/vant/tag/index"
   },
   "window": {
     "navigationBarTextStyle": "black",

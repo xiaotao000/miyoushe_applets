@@ -19,26 +19,9 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.27.2",
-  "appid": "wx0c70318e3aa59383",
+  "appid": "wx5f96f51bdf9d3676",
   "projectname": "miyoushe",
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "current": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": -1,
-      "list": []
-    }
-  },
+  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
