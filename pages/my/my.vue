@@ -15,7 +15,7 @@
 					<view class="maines1">
 						<image
 							class="maines1-img"
-							:src=" info.avatar ? 'http://172.19.10.138:3000' + info.avatar : '/static/image/no-login.png'"
+							:src=" info.avatar ? 'http://172.19.10.125:3000' + info.avatar : '/static/image/no-login.png'"
 						></image>
 					</view>
 				</view>
@@ -87,7 +87,6 @@
 								class="article-item"
 								v-for="item in state.bannerList"
 								:key="item.id"
-								@click="admines(item.id)"
 							>
 								<view class="aboes">
 									<!-- 头像 -->
@@ -98,9 +97,11 @@
 												<view class="vines">{{ item.time }}</view>
 											</view>
 										</view>
+										<view class="r modes1" @click="showPopup">...</view>
+										
 									</view>
 									<!-- 内容 -->
-									<view class="masto">
+									<view class="masto" @click="admines(item.id)">
 										<view>{{ item.title }}</view>
 										<view class="abion van-ellipsis">
 											<rich-text :nodes="item.introduce"></rich-text>
@@ -110,7 +111,7 @@
 												v-if="item.cover[0].imgUrl"
 												class="abion2"
 												:src="
-													'http://172.19.10.138:3000' +
+													'http://172.19.10.125:3000' +
 														item.cover[0].imgUrl
 												"
 												alt=""
@@ -159,6 +160,13 @@
 							></view>
 							<view class="faobu2">空空如也</view>
 						</view>
+						<van-popup
+						 v-show="bpin.show" 
+						 closeable
+						 position="bottom"
+						 custom-style="height: 20%"
+						 class="aboesit"
+						 @close="onClose">内容</van-popup>
 			  </van-tab>
 					<van-tab title="评论">
 						<view class="faobu">
@@ -209,10 +217,20 @@ import { getArticleApi } from '../../api/modules/user';
 const userStore = UserStore()
 // 跳转登录
 const state = reactive({ bannerList: [] })
+const bpin = reactive({ show: false })
 const goLogin = () => {
 	uni.navigateTo({ url: '/subpkg/login/login' })
 }
+const bondk = ()=>{
+	console.log(1)
+}
+const showPopup = () => {
+    bpin.show = true 
+}
 
+const onClose = () => {
+    bpin.show = false
+}
 const admines =(id) =>{
 	console.log(id)
 	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
@@ -332,6 +350,16 @@ const { info } = storeToRefs(userStore)
 		.vines {
 			color: #d2cccc;
 		}
+	}
+	.aboesit{
+		
+	}
+	.modes1{
+		text-align: center;
+		line-height: 40rpx;
+		color: #d2cccc;
+		width: 80rpx;
+		height: 40rpx;
 	}
 	.abo {
 		width: 80rpx;

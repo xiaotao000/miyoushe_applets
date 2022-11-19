@@ -14,5 +14,7 @@ export const getUserinfoApi  = () => http.get('/my/userinfo')
 
 // 修改用户信息
 export const updateInfoApi  = (data) => http.post('/my/update/userinfo', data)
-// 
+
+// 获取用户发布的帖子
 export const getArticleApi  = () => http.get('/my/user/article')
+// 

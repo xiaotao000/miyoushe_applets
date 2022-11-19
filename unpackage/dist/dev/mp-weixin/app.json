@@ -30,7 +30,8 @@
     "van-uploader": "/wxcomponents/vant/uploader/index",
     "van-checkbox": "/wxcomponents/vant/checkbox/index",
     "van-radio": "/wxcomponents/vant/radio/index",
-    "van-radio-group": "/wxcomponents/vant/radio-group/index"
+    "van-radio-group": "/wxcomponents/vant/radio-group/index",
+    "van-popup": "/wxcomponents/vant/popup/index"
   },
   "window": {
     "navigationBarTextStyle": "black",
