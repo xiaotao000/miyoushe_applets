@@ -3,7 +3,7 @@
 		<view class="upload">
 			<form @submit="ooSubmit">
 				<van-field
-					:value="state.title"
+					:value="state.article.title"
 					@change="handleInput('title', $event)"
 					required
 					maxlength="30"
@@ -11,7 +11,7 @@
 					placeholder="标题 (必填)"
 				/>
 				<van-field
-					:value="state.introduce"
+					:value="state.article.introduce"
 					@change="handleInput('introduce', $event)"
 					required
 					maxlength="3000"
@@ -46,14 +46,14 @@
 				</view>
 				<view class="category">
 					<view class="title">发布版块：</view>
-					<van-radio-group :value="state.category" @change="selectChage">
+					<van-radio-group :value="state.article.category" @change="selectChage">
 						<van-radio name="酒馆">酒馆</van-radio>
 						<van-radio name="攻略">攻略</van-radio>
 						<van-radio name="硬核">硬核</van-radio>
 					</van-radio-group>
 				</view>
 				<van-field
-					:value="state.section"
+					:value="state.article.section"
 					@change="handleInput('section', $event)"
 					required
 					maxlength="30"
@@ -69,14 +69,16 @@
 <script setup>
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
-import { uploadArticleApi } from '../../api/modules/article.js'
+import { getDetailsApi, updateArticleApi, uploadArticleApi } from '../../api/modules/article.js'
 import { reactive, ref } from 'vue'
 const fileList = ref([])
-const state = reactive({ title: '', introduce: '', section: '', category: '酒馆', cover:[] })
+const state = reactive({
+	article: { id: '', title: '', introduce: '', section: '', category: '酒馆', cover:[]}
+})
 
 const handleInput = (name, e) => {
 	const value = e.detail;
-	state[name] = value
+	state.article[name] = value
 }
 
 // 图片上传
@@ -119,31 +121,34 @@ const bindImg = index => {
 }
 
 const selectChage = (e) => {
-	state.category = e.detail
+	state.article.category = e.detail
 }
 
 const ooSubmit = async () => {
-	const { title, introduce, cover, section, category } = state
+	const { title, introduce, cover, section, category } = state.article
 	if (!title) return uni.$Toast('请输入标题')
 	if (!introduce) return uni.$Toast('请输入内容')
 	if (!cover) return uni.$Toast('请选择图片')
 	if (!section) return uni.$Toast('请输入话题')
-	console.log(fileList.value)
 	try{
 		const data = fileList.value.map(item => ({ imgUrl: item.imgUrl, name: item.name }))
-		state.cover = data
-		await uploadArticleApi(state)
-		uni.$Toast('新增成功')
-		uni.switchTab({
-			url: '/pages/home/home'
-		})
+		state.article.cover = data
+		state.article.id ? await updateArticleApi(state.article):  await uploadArticleApi(state.article)
+		uni.$Toast(state.article.id? '修改成功' : '新增成功')
+		state.article.id ? uni.switchTab({ url: '/pages/my/my' }) : uni.switchTab({ url: '/pages/home/home'})
 	}catch(e){
 		//TODO handle the exception
 		uni.$Toast('发布失败')
 	}
 }
 // 页面加载
-onLoad(message => {})
+onLoad(async message => {
+	const { id } = message
+	const {data} = await getDetailsApi({id})
+	fileList.value = data[0].cover
+	state.article = data[0]
+	
+})
 
 // 页面显示
 onShow(() => {})

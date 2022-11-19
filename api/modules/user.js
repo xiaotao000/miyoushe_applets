@@ -17,4 +17,6 @@ export const updateInfoApi  = (data) => http.post('/my/update/userinfo', data)
 
 // 获取用户发布的帖子
 export const getArticleApi  = () => http.get('/my/user/article')
-// 
+
+// 删除用户帖子
+export const removeArticleApi  = (id) => http.delete(`/my/user/removeArticle/${id}`)

@@ -15,18 +15,23 @@ const _sfc_main = {
   setup(__props) {
     const userStore = store_user.UserStore();
     const state = common_vendor.reactive({ bannerList: [] });
-    const bpin = common_vendor.reactive({ show: false });
+    const bpin = common_vendor.ref(false);
+    const category = common_vendor.ref("");
     const goLogin = () => {
       common_vendor.index.navigateTo({ url: "/subpkg/login/login" });
     };
-    const showPopup = () => {
-      bpin.show = true;
+    const removeId = common_vendor.ref();
+    const showPopup = (id, cate) => {
+      bpin.value = true;
+      removeId.value = id;
+      category.value = cate;
     };
     const onClose = () => {
-      bpin.show = false;
+      bpin.value = false;
+      removeId.value = "";
+      category.value = "";
     };
     const admines = (id) => {
-      console.log(id);
       common_vendor.index.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` });
     };
     const admin = () => {
@@ -35,6 +40,35 @@ const _sfc_main = {
     const init = async () => {
       const { data } = await api_modules_user.getArticleApi();
       state.bannerList = data;
+    };
+    const removeArtilce = () => {
+      common_vendor.index.showModal({
+        title: "\u63D0\u793A",
+        content: "\u4F60\u786E\u5B9A\u8981\u5220\u9664?",
+        cancelText: "\u5BB9\u6211\u60F3\u60F3",
+        confirmText: "\u72E0\u5FC3\u5220\u9664",
+        success: async ({ confirm }) => {
+          if (confirm) {
+            await api_modules_user.removeArticleApi(removeId.value);
+            bpin.value = false;
+            common_vendor.index.$Toast("\u64CD\u4F5C\u6210\u529F");
+            init();
+          }
+        }
+      });
+    };
+    const goUpdate = () => {
+      if (category.value === "\u9152\u9986" || category.value === "\u786C\u6838" || category.value === "\u653B\u7565") {
+        bpin.value = false;
+        common_vendor.index.navigateTo({
+          url: "/subpkg/upload-posts/upload-posts?id=" + removeId.value
+        });
+      } else {
+        bpin.value = false;
+        common_vendor.index.navigateTo({
+          url: "/subpkg/upload-picture/upload-picture?id=" + removeId.value
+        });
+      }
     };
     common_vendor.onLoad((message) => {
     });
@@ -66,29 +100,30 @@ const _sfc_main = {
           return common_vendor.e({
             a: common_vendor.t(item.author),
             b: common_vendor.t(item.time),
-            c: common_vendor.t(item.title),
-            d: item.introduce,
-            e: item.cover[0].imgUrl
-          }, item.cover[0].imgUrl ? {
-            f: "http://172.19.10.125:3000" + item.cover[0].imgUrl
+            c: common_vendor.o(($event) => showPopup(item.id, item.category)),
+            d: common_vendor.t(item.title),
+            e: item.introduce,
+            f: item.cover.length
+          }, item.cover.length ? {
+            g: "http://172.19.10.125:3000" + item.cover[0].imgUrl
           } : {}, {
-            g: common_vendor.t(item.section),
-            h: common_vendor.t(item.browse),
-            i: common_vendor.t(item.count),
-            j: common_vendor.t(item.comment),
-            k: common_vendor.o(($event) => admines(item.id)),
-            l: item.id
+            h: common_vendor.t(item.section),
+            i: common_vendor.t(item.browse),
+            j: common_vendor.t(item.count),
+            k: common_vendor.t(item.comment),
+            l: common_vendor.o(($event) => admines(item.id)),
+            m: item.id
           });
         }),
-        j: common_vendor.o(showPopup)
-      } : {}, {
-        k: bpin.show,
+        j: common_vendor.o(goUpdate),
+        k: common_vendor.o(removeArtilce),
         l: common_vendor.o(onClose),
         m: common_vendor.p({
-          closeable: true,
+          show: bpin.value,
           position: "bottom",
-          customStyle: "height: 20%"
-        }),
+          customStyle: "height: 20%;"
+        })
+      } : {}, {
         n: common_vendor.p({
           title: "\u53D1\u5E03"
         }),
@@ -108,6 +143,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/pages/my/my.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/my/my.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

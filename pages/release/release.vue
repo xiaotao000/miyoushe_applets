@@ -29,7 +29,7 @@ const uploadArticle = () => {
 			url: '/subpkg/login/login'
 		})
 	} else {
-		uni.navigateTo({ url: '/subpkg/upload-picture/upload-picture' })
+		uni.navigateTo({ url: '/subpkg/upload-posts/upload-posts' })
 	}
 }
 const uploadPicture = () => {

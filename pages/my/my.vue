@@ -15,7 +15,11 @@
 					<view class="maines1">
 						<image
 							class="maines1-img"
-							:src=" info.avatar ? 'http://172.19.10.125:3000' + info.avatar : '/static/image/no-login.png'"
+							:src="
+								info.avatar
+									? 'http://172.19.10.125:3000' + info.avatar
+									: '/static/image/no-login.png'
+							"
 						></image>
 					</view>
 				</view>
@@ -79,7 +83,7 @@
 
 			<!-- tabs -->
 			<view class="dmxia">
-				<van-tabs sticky >
+				<van-tabs sticky>
 					<van-tab title="发布">
 						<view v-if="state.bannerList.length >= 1">
 							<!-- 内容 -->
@@ -94,21 +98,31 @@
 										<view class="l">
 											<view class="l modes">
 												<view>{{ item.author }}</view>
-												<view class="vines">{{ item.time }}</view>
+												<view class="vines">{{
+													item.time
+												}}</view>
 											</view>
 										</view>
-										<view class="r modes1" @click="showPopup">...</view>
-										
+										<view
+											class="r modes1"
+											@click="showPopup(item.id, item.category)"
+											>...</view
+										>
 									</view>
 									<!-- 内容 -->
-									<view class="masto" @click="admines(item.id)">
+									<view
+										class="masto"
+										@click="admines(item.id)"
+									>
 										<view>{{ item.title }}</view>
 										<view class="abion van-ellipsis">
-											<rich-text :nodes="item.introduce"></rich-text>
+											<rich-text
+												:nodes="item.introduce"
+											></rich-text>
 										</view>
 										<view class="abion1">
 											<img
-												v-if="item.cover[0].imgUrl"
+												v-if="item.cover.length"
 												class="abion2"
 												:src="
 													'http://172.19.10.125:3000' +
@@ -118,9 +132,13 @@
 											/>
 										</view>
 										<view class="modvis">
-											<view class="l modvis1">{{ item.section }}</view>
+											<view class="l modvis1">{{
+												item.section
+											}}</view>
 											<view class="r">
-												<p class="r aose">{{ item.browse }}万</p>
+												<p class="r aose">
+													{{ item.browse }}万
+												</p>
 												<p class="modvis1-img r">
 													<image
 														class="modvis1-img1"
@@ -128,7 +146,9 @@
 														mode=""
 													></image>
 												</p>
-												<p class="r aose">{{ item.count }}</p>
+												<p class="r aose">
+													{{ item.count }}
+												</p>
 												<p class="modvis1-img r">
 													<image
 														class="modvis1-img1"
@@ -136,7 +156,9 @@
 														mode=""
 													></image>
 												</p>
-												<p class="r aose">{{ item.comment }}</p>
+												<p class="r aose">
+													{{ item.comment }}
+												</p>
 												<p class="modvis1-img r">
 													<image
 														class="modvis1-img1"
@@ -150,6 +172,27 @@
 								</view>
 								<view class="n"></view>
 							</view>
+							<van-popup
+								:show="bpin"
+								position="bottom"
+								custom-style="height: 20%;"
+								@close="onClose"
+							>
+							<view @click="goUpdate" class="edit">
+								<view class="left">
+									<image src="/static/9fe548b745380ddab7b423f089b1642.png" mode=""></image>
+									<text>编辑</text>
+								</view>
+								<view class="right"> > </view>
+							</view>
+							<view @click="removeArtilce" class="remove">
+								<view class="left">
+									<image src="/static/2e3b8888e2323d428dceb7dc6f317ed.png" mode=""></image>
+									<text>删除</text>
+								</view>
+								<view class="right"> > </view>
+							</view>
+							</van-popup>
 						</view>
 						<view class="faobu" v-else>
 							<view class="njh"
@@ -160,17 +203,10 @@
 							></view>
 							<view class="faobu2">空空如也</view>
 						</view>
-						<van-popup
-						 v-show="bpin.show" 
-						 closeable
-						 position="bottom"
-						 custom-style="height: 20%"
-						 class="aboesit"
-						 @close="onClose">内容</van-popup>
-			  </van-tab>
+					</van-tab>
 					<van-tab title="评论">
 						<view class="faobu">
-				 		<view class="njh"
+							<view class="njh"
 								><image
 									class="faobu1"
 									src="../../static/noData.png"
@@ -211,28 +247,30 @@
 // vue3小程序生命周期函数
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 import { UserStore } from '../../store/user'
-import { reactive, ref, toRefs } from "vue";
+import { reactive, ref, toRefs } from 'vue'
 import { storeToRefs } from 'pinia'
-import { getArticleApi } from '../../api/modules/user';
+import { getArticleApi, removeArticleApi } from '../../api/modules/user'
 const userStore = UserStore()
 // 跳转登录
 const state = reactive({ bannerList: [] })
-const bpin = reactive({ show: false })
+const bpin = ref(false)
+const category = ref('')
 const goLogin = () => {
 	uni.navigateTo({ url: '/subpkg/login/login' })
 }
-const bondk = ()=>{
-	console.log(1)
-}
-const showPopup = () => {
-    bpin.show = true 
+const removeId = ref()
+const showPopup = (id, cate) => {
+	bpin.value = true
+	removeId.value = id
+	category.value = cate
 }
 
 const onClose = () => {
-    bpin.show = false
+	bpin.value = false
+	removeId.value = ''
+	category.value = ''
 }
-const admines =(id) =>{
-	console.log(id)
+const admines = id => {
 	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
 }
 
@@ -242,10 +280,42 @@ const admin = () => {
 
 const init = async () => {
 	const { data } = await getArticleApi()
-	state.bannerList=data
+	state.bannerList = data
+}
+// 删除帖子
+const removeArtilce = () => {
+	uni.showModal({
+			title: '提示',
+			content: '你确定要删除?',
+			cancelText: '容我想想',
+			confirmText: '狠心删除',
+			success: async ({ confirm }) => {
+				if (confirm) {
+					await removeArticleApi(removeId.value)
+					bpin.value = false
+					uni.$Toast('操作成功')
+					init()
+				}
+			}
+		})
+	 
+}
+const goUpdate = () => {
+	if (category.value === '酒馆' || category.value === '硬核' || category.value === '攻略') {
+		bpin.value = false
+		uni.navigateTo({
+			url: '/subpkg/upload-posts/upload-posts?id='+ removeId.value
+		})
+	}else {
+		bpin.value = false
+		uni.navigateTo({
+			url: '/subpkg/upload-picture/upload-picture?id='+ removeId.value
+		})
+	}
 }
 // 页面加载
-onLoad(message => {})
+onLoad(message => {
+})
 
 // 页面显示
 onShow(() => {
@@ -262,6 +332,45 @@ const { info } = storeToRefs(userStore)
 </script>
 
 <style lang="scss">
+.van-popup {
+	padding: 32rpx;
+	box-sizing: border-box;
+	.edit {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 24rpx;
+		.left {
+			image {
+				width: 32rpx;
+				height: 32rpx;
+			}
+			text {
+				margin-left: 32rpx;
+			}
+		}
+		.right {
+			color: #BFBFBF;
+		}
+	}
+	.remove {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.left {
+			image {
+				width: 32rpx;
+				height: 32rpx;
+			}
+			text {
+				margin-left: 32rpx;
+			}
+		}
+		.right {
+			color: #BFBFBF;
+		}
+	}
+}
 .l {
 	float: left;
 }
@@ -351,10 +460,9 @@ const { info } = storeToRefs(userStore)
 			color: #d2cccc;
 		}
 	}
-	.aboesit{
-		
+	.aboesit {
 	}
-	.modes1{
+	.modes1 {
 		text-align: center;
 		line-height: 40rpx;
 		color: #d2cccc;

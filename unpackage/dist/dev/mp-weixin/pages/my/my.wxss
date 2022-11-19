@@ -23,6 +23,41 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.van-popup {
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+.van-popup .edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+.van-popup .edit .left image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.van-popup .edit .left text {
+  margin-left: 32rpx;
+}
+.van-popup .edit .right {
+  color: #BFBFBF;
+}
+.van-popup .remove {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.van-popup .remove .left image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.van-popup .remove .left text {
+  margin-left: 32rpx;
+}
+.van-popup .remove .right {
+  color: #BFBFBF;
+}
 .l {
   float: left;
 }
