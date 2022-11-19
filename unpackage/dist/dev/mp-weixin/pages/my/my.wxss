@@ -113,6 +113,13 @@
 .aboes .modes .vines {
   color: #d2cccc;
 }
+.aboes .modes1 {
+  text-align: center;
+  line-height: 40rpx;
+  color: #d2cccc;
+  width: 80rpx;
+  height: 40rpx;
+}
 .aboes .abo {
   width: 80rpx;
   height: 80rpx;

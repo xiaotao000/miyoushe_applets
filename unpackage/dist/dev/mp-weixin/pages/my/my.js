@@ -5,17 +5,25 @@ var api_modules_user = require("../../api/modules/user.js");
 require("../../api/index.js");
 require("../../utils/request.js");
 if (!Array) {
+  const _component_van_popup = common_vendor.resolveComponent("van-popup");
   const _component_van_tab = common_vendor.resolveComponent("van-tab");
   const _component_van_tabs = common_vendor.resolveComponent("van-tabs");
-  (_component_van_tab + _component_van_tabs)();
+  (_component_van_popup + _component_van_tab + _component_van_tabs)();
 }
 const _sfc_main = {
   __name: "my",
   setup(__props) {
     const userStore = store_user.UserStore();
     const state = common_vendor.reactive({ bannerList: [] });
+    const bpin = common_vendor.reactive({ show: false });
     const goLogin = () => {
       common_vendor.index.navigateTo({ url: "/subpkg/login/login" });
+    };
+    const showPopup = () => {
+      bpin.show = true;
+    };
+    const onClose = () => {
+      bpin.show = false;
     };
     const admines = (id) => {
       console.log(id);
@@ -43,7 +51,7 @@ const _sfc_main = {
       return common_vendor.e({
         a: common_vendor.unref(info).id
       }, common_vendor.unref(info).id ? {
-        b: common_vendor.unref(info).avatar ? "http://172.19.10.138:3000" + common_vendor.unref(info).avatar : "/static/image/no-login.png",
+        b: common_vendor.unref(info).avatar ? "http://172.19.10.125:3000" + common_vendor.unref(info).avatar : "/static/image/no-login.png",
         c: common_vendor.o(admin),
         d: common_vendor.t(common_vendor.unref(info).nickname),
         e: common_vendor.t(common_vendor.unref(info).autograph ? common_vendor.unref(info).autograph : "\u7CFB\u7EDF\u539F\u88C5\u7B7E\u540D\uFF0C\u9001\u7ED9\u6BCF\u4E00\u4F4D\u5C0F\u53EF\u7231~")
@@ -62,36 +70,44 @@ const _sfc_main = {
             d: item.introduce,
             e: item.cover[0].imgUrl
           }, item.cover[0].imgUrl ? {
-            f: "http://172.19.10.138:3000" + item.cover[0].imgUrl
+            f: "http://172.19.10.125:3000" + item.cover[0].imgUrl
           } : {}, {
             g: common_vendor.t(item.section),
             h: common_vendor.t(item.browse),
             i: common_vendor.t(item.count),
             j: common_vendor.t(item.comment),
-            k: item.id,
-            l: common_vendor.o(($event) => admines(item.id), item.id)
+            k: common_vendor.o(($event) => admines(item.id)),
+            l: item.id
           });
-        })
+        }),
+        j: common_vendor.o(showPopup)
       } : {}, {
-        j: common_vendor.p({
-          title: "\u53D1\u5E03"
-        }),
-        k: common_vendor.p({
-          title: "\u8BC4\u8BBA"
-        }),
-        l: common_vendor.p({
-          title: "\u6536\u85CF"
-        }),
+        k: bpin.show,
+        l: common_vendor.o(onClose),
         m: common_vendor.p({
-          title: "\u5408\u96C6"
+          closeable: true,
+          position: "bottom",
+          customStyle: "height: 20%"
         }),
         n: common_vendor.p({
+          title: "\u53D1\u5E03"
+        }),
+        o: common_vendor.p({
+          title: "\u8BC4\u8BBA"
+        }),
+        p: common_vendor.p({
+          title: "\u6536\u85CF"
+        }),
+        q: common_vendor.p({
+          title: "\u5408\u96C6"
+        }),
+        r: common_vendor.p({
           sticky: true
         })
       }) : {});
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/my/my.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/pages/my/my.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);
