@@ -6634,6 +6634,7 @@ exports.defineStore = defineStore;
 exports.e = e;
 exports.f = f;
 exports.index = index;
+exports.isRef = isRef;
 exports.o = o;
 exports.onHide = onHide;
 exports.onLoad = onLoad;

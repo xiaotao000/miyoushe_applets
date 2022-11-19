@@ -33,6 +33,9 @@ const _sfc_main = {
     common_vendor.onLoad((message) => {
       getBanner();
     });
+    const goSearch = () => {
+      common_vendor.index.navigateTo({ url: "/subpkg/search/search" });
+    };
     common_vendor.onShow(() => {
     });
     common_vendor.onHide(() => {
@@ -47,65 +50,66 @@ const _sfc_main = {
           size: "32rpx",
           name: "search"
         }),
-        b: common_vendor.p({
+        b: common_vendor.o(goSearch),
+        c: common_vendor.p({
           title: "\u89C2\u6D4B\u67A2",
           name: "\u89C2\u6D4B\u67A2"
         }),
-        c: common_vendor.p({
+        d: common_vendor.p({
           title: "\u53D1\u73B0",
           name: "\u53D1\u73B0"
         }),
-        d: common_vendor.p({
+        e: common_vendor.p({
           title: "\u9152\u9986",
           name: "\u9152\u9986"
         }),
-        e: common_vendor.p({
+        f: common_vendor.p({
           title: "\u653B\u7565",
           name: "\u653B\u7565"
         }),
-        f: common_vendor.p({
+        g: common_vendor.p({
           title: "\u540C\u4EBA\u56FE",
           name: "\u540C\u4EBA\u56FE"
         }),
-        g: common_vendor.p({
+        h: common_vendor.p({
           title: "cos",
           name: "cos"
         }),
-        h: common_vendor.p({
+        i: common_vendor.p({
           title: "\u786C\u6838",
           name: "\u786C\u6838"
         }),
-        i: common_vendor.o(tabChage),
-        j: common_vendor.p({
+        j: common_vendor.o(tabChage),
+        k: common_vendor.p({
           titleActiveColor: "#1B1B1D",
           titleInactiveColor: "#C1C1C3",
           color: "#3FA6F3"
         }),
-        k: common_vendor.unref(card) === "\u89C2\u6D4B\u67A2"
+        l: common_vendor.unref(card) === "\u89C2\u6D4B\u67A2"
       }, common_vendor.unref(card) === "\u89C2\u6D4B\u67A2" ? {
-        l: common_vendor.f(common_vendor.unref(bannerList), (item, k0, i0) => {
+        m: common_vendor.f(common_vendor.unref(bannerList), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: item.id
           };
         }),
-        m: common_vendor.f(common_vendor.unref(utils_type_data.gridData), (item, k0, i0) => {
+        n: common_vendor.f(common_vendor.unref(utils_type_data.gridData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.name),
             c: item.gridId
           };
         }),
-        n: common_vendor.f(common_vendor.unref(utils_type_data.hotData), (item, k0, i0) => {
+        o: common_vendor.f(common_vendor.unref(utils_type_data.hotData), (item, k0, i0) => {
           return {
             a: common_vendor.t(item.name),
             b: item.hotId
           };
         }),
-        o: common_vendor.p({
+        p: common_vendor.p({
           name: "arrow"
         }),
-        p: common_vendor.f(common_vendor.unref(utils_type_data.exploreData), (item, k0, i0) => {
+        q: common_vendor.f(common_vendor.unref(utils_type_data.exploreData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.title),
@@ -118,10 +122,10 @@ const _sfc_main = {
             d: item.id
           };
         }),
-        q: common_vendor.p({
+        r: common_vendor.p({
           name: "arrow"
         }),
-        r: common_vendor.f(common_vendor.unref(utils_type_data.newestData), (item, k0, i0) => {
+        s: common_vendor.f(common_vendor.unref(utils_type_data.newestData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.title),
@@ -131,7 +135,7 @@ const _sfc_main = {
             f: item.newestId
           };
         }),
-        s: common_vendor.f(common_vendor.unref(utils_type_data.specialData), (item, k0, i0) => {
+        t: common_vendor.f(common_vendor.unref(utils_type_data.specialData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.title),
@@ -139,7 +143,7 @@ const _sfc_main = {
             d: item.specialId
           };
         }),
-        t: common_vendor.f(common_vendor.unref(utils_type_data.IndexesData), (item, k0, i0) => {
+        v: common_vendor.f(common_vendor.unref(utils_type_data.IndexesData), (item, k0, i0) => {
           return {
             a: item.imgUrl,
             b: common_vendor.t(item.name),
@@ -147,11 +151,11 @@ const _sfc_main = {
           };
         })
       } : {}, {
-        v: common_vendor.unref(card) === "\u53D1\u73B0"
+        w: common_vendor.unref(card) === "\u53D1\u73B0"
       }, common_vendor.unref(card) === "\u53D1\u73B0" ? {} : {}, {
-        w: common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos"
+        x: common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos"
       }, common_vendor.unref(card) === "\u540C\u4EBA\u56FE" || common_vendor.unref(card) === "cos" ? {} : {}, {
-        x: common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565"
+        y: common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565"
       }, common_vendor.unref(card) === "\u9152\u9986" || common_vendor.unref(card) === "\u786C\u6838" || common_vendor.unref(card) === "\u653B\u7565" ? {} : {});
     };
   }

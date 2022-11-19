@@ -13,6 +13,7 @@ if (!Math) {
   "./subpkg/upload-picture/upload-picture.js";
   "./subpkg/upload-posts/upload-posts.js";
   "./subpkg/login/login.js";
+  "./subpkg/search/search.js";
 }
 const _sfc_main = {
   onLaunch: function() {
