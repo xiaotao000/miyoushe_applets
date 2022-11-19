@@ -17,7 +17,7 @@
 				<!-- 作者 -->
 				<view class="author">
 					<view class="author-left">
-						<image src="/static/0.jpg" mode=""></image>
+						<image :src="'http://172.19.10.125:3000' + item.avatar" mode=""></image>
 						<text>{{ item.author }}</text>
 					</view>
 					<view class="time">{{ item.time }} 原神</view>
@@ -28,10 +28,12 @@
 					<!-- 标题 -->
 					<view class="title">{{ item.title }}</view>
 					<!-- 介绍 -->
-					<view class="introduce">{{ item.introduce }}</view>
+					<view class="introduce">
+						<rich-text :nodes="item.introduce"></rich-text>
+					</view>
 					<!-- 图片 -->
 					<view class="img">
-						<image v-for="item in 3" :key="item" src="../../static/0.jpg" mode=""></image>
+						<image v-for="item2,i in item.cover" :key="i" :src="'http://172.19.10.125:3000' + item.cover[0].imgUrl" mode=""></image>
 					</view>
 					<!-- 浏览量 -->
 					<view class="desc">
@@ -238,6 +240,7 @@ page {
 					image {
 						width: 33.3%;
 						height: 100%;
+						margin-right: 12rpx;
 					}
 				}
 				.desc {
