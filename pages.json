@@ -73,15 +73,12 @@
 				"path": "login/login",
 				"style": {
 					"navigationBarTitleText": "登录",
-<<<<<<< HEAD
-=======
 					"enablePullDownRefresh": false
 				}
 			}, {
 				"path": "search/search",
 				"style": {
 					"navigationBarTitleText": "搜索",
->>>>>>> d0f8374ad0b61d860180b43441a12964fa57602a
 					"enablePullDownRefresh": false
 				}
 			}
