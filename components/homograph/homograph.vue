@@ -128,7 +128,6 @@ const init = async () => {
 	}
 }
 const admines =(id) =>{
-	console.log(id)
 	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
 }
 // 下拉刷新

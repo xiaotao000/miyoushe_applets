@@ -37,33 +37,27 @@
 					</view>
 				</view>
 			</view>
-
 			<!-- 内容 -->
-			<view
-				class="article-item"
-				v-for="item in artilceList"
-				:key="item.id"
-				@click="admines(item.id)"
-			>
+			<view @click="admines(item.id)" v-for="item in artilceList" :key="item.id">
 				<view class="aboes">
 					<!-- 头像 -->
 					<view class="taoto">
 						<view class="l">
-							<img
-								class="l abo"
-								:src="'http://172.19.10.125:3000' + item.avatar"
-								alt=""
-							/>
+							<img class="l abo" :src="'http://172.19.10.125:3000' + item.avatar" alt="">
 							<view class="l modes">
 								<view>{{ item.author }}</view>
 								<view class="vines">{{ item.time }}</view>
 							</view>
 						</view>
+						<view class="r zhu">
+							<view class="r">...</view>
+							<view class="r guan">+ 关注</view>
+						</view>
 					</view>
 					<!-- 内容 -->
 					<view class="masto">
 						<view>{{ item.title }}</view>
-						<view class="abion van-ellipsis">
+						<view class="abion">
 							<rich-text :nodes="item.introduce"></rich-text>
 						</view>
 						<view class="abion1">
@@ -82,27 +76,15 @@
 							<view class="r">
 								<p class="r aose">{{ item.browse }}万</p>
 								<p class="modvis1-img r">
-									<image
-										class="modvis1-img1"
-										src="/static/mihoyoimg/icon_like_gray_60.png"
-										mode=""
-									></image>
+									<image class="modvis1-img1" src="/static/mihoyoimg/icon_like_gray_60.png" mode="" ></image>
 								</p>
 								<p class="r aose">{{ item.count }}</p>
 								<p class="modvis1-img r">
-									<image
-										class="modvis1-img1"
-										src="/static/mihoyoimg/ic_post_comment_60.png"
-										mode=""
-									></image>
+									<image class="modvis1-img1" src="/static/mihoyoimg/ic_post_comment_60.png" mode="" ></image>
 								</p>
 								<p class="r aose">{{ item.comment }}</p>
 								<p class="modvis1-img r">
-									<image
-										class="modvis1-img1"
-										src="/static/mihoyoimg/icon_post_card_view48.png"
-										mode=""
-									></image>
+									<image class="modvis1-img1" src="/static/mihoyoimg/icon_post_card_view48.png" mode="" ></image>
 								</p>
 							</view>
 						</view>
@@ -129,8 +111,7 @@ const state = reactive({
 	hasMore: true,
 	loading: false
 })
-const admines =(id) =>{
-	console.log(id)
+const admines = id => {
 	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
 }
 watch(
@@ -143,21 +124,18 @@ watch(
 const init = async () => {
 	state.loading = true
 	const { data } = await cardArticleApi({ pagenum: state.page })
-	console.log(data)
 	state.artilceList = state.artilceList.concat(data.data)
 	// 关闭上拉刷新
 	state.isRefresh = false
 	state.loading = false
 	// 判断是否还有数据
 	if (state.page >= data.totalPage) {
-		console.log(state.hasMore)
 		state.hasMore = false
 	}
 }
 
 // 下拉刷新
 const refresh = () => {
-	console.log(11)
 	state.isRefresh = true
 	state.hasMore = true
 	state.page = 1

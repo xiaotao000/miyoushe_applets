@@ -24,11 +24,22 @@
 import { onShareAppMessage, onLoad, onShow, onHide } from '@dcloudio/uni-app'
 
 const uploadArticle = () => {
-	uni.navigateTo({ url: '/subpkg/upload-posts/upload-posts' })
+	if (!uni.getStorageSync('TOKEN')) {
+		uni.navigateTo({
+			url: '/subpkg/login/login'
+		})
+	} else {
+		uni.navigateTo({ url: '/subpkg/upload-picture/upload-picture' })
+	}
 }
 const uploadPicture = () => {
-	console.log(111)
-	uni.navigateTo({ url: '/subpkg/upload-picture/upload-picture' })
+	if (!uni.getStorageSync('TOKEN')) {
+		uni.navigateTo({
+			url: '/subpkg/login/login'
+		})
+	} else {
+		uni.navigateTo({ url: '/subpkg/upload-picture/upload-picture' })
+	}
 }
 // 页面加载
 onLoad(message => {})
@@ -73,7 +84,7 @@ page {
 			}
 			.text {
 				font-size: 28rpx;
-				color: #B8B8B8;
+				color: #b8b8b8;
 			}
 		}
 	}

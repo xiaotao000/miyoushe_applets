@@ -138,12 +138,10 @@ const state = reactive({
 watch(
 	() => articleStore.card,
 	() => {
-		console.log(articleStore.card);
 		refresh()
 	}
 )
 const admines =(id) =>{
-	console.log(id)
 	uni.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` })
 }
 const init = async () => {
@@ -157,14 +155,12 @@ const init = async () => {
 			category: articleStore.card,
 			pagenum: state.page
 		})
-		console.log(data)
 		state.artilceList = state.artilceList.concat(data.data)
 		// 关闭上拉刷新
 		state.isRefresh = false
 		state.loading = false
 		// 判断是否还有数据
 		if (state.page >= data.totalPage) {
-			console.log(state.hasMore)
 			state.hasMore = false
 		}
 	}

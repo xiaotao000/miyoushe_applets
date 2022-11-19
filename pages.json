@@ -51,20 +51,20 @@
 			{
 				"path": "article-details/article-details",
 				"style": {
-					"navigationBarTitleText": "",
+					"navigationBarTitleText": "详情",
 					"enablePullDownRefresh": false
 				}
 			}, {
 				"path": "upload-picture/upload-picture",
 				"style": {
-					"navigationBarTitleText": "",
+					"navigationBarTitleText": "新增图片",
 					"enablePullDownRefresh": false
 				}
 
 			}, {
 				"path": "upload-posts/upload-posts",
 				"style": {
-					"navigationBarTitleText": "",
+					"navigationBarTitleText": "新增帖子",
 					"enablePullDownRefresh": false
 				}
 
@@ -72,7 +72,7 @@
 			{
 				"path": "login/login",
 				"style": {
-					"navigationBarTitleText": "",
+					"navigationBarTitleText": "登录",
 					"enablePullDownRefresh": false
 				}
 			}

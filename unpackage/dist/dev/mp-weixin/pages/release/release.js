@@ -4,11 +4,22 @@ const _sfc_main = {
   __name: "release",
   setup(__props) {
     const uploadArticle = () => {
-      common_vendor.index.navigateTo({ url: "/subpkg/upload-posts/upload-posts" });
+      if (!common_vendor.index.getStorageSync("TOKEN")) {
+        common_vendor.index.navigateTo({
+          url: "/subpkg/login/login"
+        });
+      } else {
+        common_vendor.index.navigateTo({ url: "/subpkg/upload-picture/upload-picture" });
+      }
     };
     const uploadPicture = () => {
-      console.log(111);
-      common_vendor.index.navigateTo({ url: "/subpkg/upload-picture/upload-picture" });
+      if (!common_vendor.index.getStorageSync("TOKEN")) {
+        common_vendor.index.navigateTo({
+          url: "/subpkg/login/login"
+        });
+      } else {
+        common_vendor.index.navigateTo({ url: "/subpkg/upload-picture/upload-picture" });
+      }
     };
     common_vendor.onLoad((message) => {
     });

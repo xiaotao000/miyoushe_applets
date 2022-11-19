@@ -55,5 +55,5 @@ page {
 }
 .upload .posts .info .text {
   font-size: 28rpx;
-  color: #B8B8B8;
+  color: #b8b8b8;
 }

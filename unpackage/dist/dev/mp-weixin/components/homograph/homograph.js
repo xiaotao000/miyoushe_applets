@@ -32,7 +32,6 @@ const _sfc_main = {
       }
     };
     const admines = (id) => {
-      console.log(id);
       common_vendor.index.navigateTo({ url: `/subpkg/article-details/article-details?id=${id}` });
     };
     const refresh = () => {
