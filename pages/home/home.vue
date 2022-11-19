@@ -2,7 +2,7 @@
 	<view class="home-view">
 		<!-- 搜索 -->
 		<view class="search">
-			<image src="/static/0.jpg" mode=""></image>
+			<image src="https://bbs.mihoyo.com/_nuxt/img/game-ys.dfc535b.jpg" mode=""></image>
 			<view class="serch-right">
 				<van-icon size="32rpx" name="search" />
 				<input class="serch-input" placeholder="虚空鼓动，劫火高扬" type="text">

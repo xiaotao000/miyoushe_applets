@@ -15,7 +15,7 @@
 					<view class="maines1">
 						<image
 							class="maines1-img"
-							:src="'http://172.19.10.138:3000' + info.avatar"
+							:src=" info.avatar ? 'http://172.19.10.138:3000' + info.avatar : '/static/image/no-login.png'"
 						></image>
 					</view>
 				</view>
@@ -65,13 +65,13 @@
 			<!-- 粉丝数 -->
 			<view class="finrse">
 				<view class="finrse1 l">
-					<view class="l fbg">386</view> <view class="l">粉丝</view>
+					<view class="l fbg">0</view> <view class="l">粉丝</view>
 				</view>
 				<view class="finrse1 l">
 					<view class="l fbg">0</view> <view class="l">关注</view>
 				</view>
 				<view class="finrse1 l">
-					<view class="l fbg">1386</view> <view class="l">获赞</view>
+					<view class="l fbg">0</view> <view class="l">获赞</view>
 				</view>
 			</view>
 			<!-- 分割线 -->

@@ -34,7 +34,7 @@
 							:key="i"
 							class="add_img_item"
 						>
-							<image @click="bindImg(i)" :src=" 'http://172.19.10.138:3000'+ item.imgUrl"></image>
+							<image @click="bindImg(i)" :src=" 'http://172.19.10.125:3000'+ item.imgUrl"></image>
 							<image
 								@click="deleteImg(i)"
 								class="add_close"
@@ -87,13 +87,13 @@ const openImagePage = e => {
 		success: res => {
 			const preview = res.tempFilePaths[0]
 			wx.uploadFile({
-				url: 'http://172.19.10.138:3000/api/cover', // 仅为示例，非真实的接口地址
+				url: 'http://172.19.10.125:3000/api/cover', // 仅为示例，非真实的接口地址
 				filePath: preview,
 				name: 'cover',
 				formData: { user: 'test' },
 				success(res) {
 					const { data } = JSON.parse(res.data)
-					// 'http://172.19.10.138:3000' + data[0].imgUrl
+					// 'http://172.19.10.125:3000' + data[0].imgUrl
 					fileList.value.push({imgUrl: data[0].imgUrl, name: data[0].name})
 				}
 			})

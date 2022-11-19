@@ -8,7 +8,7 @@ const _sfc_main = {
   setup(__props) {
     const state = common_vendor.reactive({ article: {} });
     const previewImage = (index) => {
-      const imageList = state.article.cover.map((item) => "http://172.19.10.138:3000" + item.imgUrl);
+      const imageList = state.article.cover.map((item) => "http://172.19.10.125:3000" + item.imgUrl);
       common_vendor.index.previewImage({
         urls: imageList,
         current: index
@@ -18,7 +18,9 @@ const _sfc_main = {
       const { data } = await utils_request.$http.get(`/api/home/articledDetails?id=${id}`);
       data[0].introduce = utils_index.imgTagAddStyle(data[0].introduce, "color: #111 !important; margin-bottom: 24rpx;");
       state.article = data[0];
-      console.log(data[0]);
+      common_vendor.index.setNavigationBarTitle({
+        title: "\u539F\u795E- " + state.article.category
+      });
     };
     common_vendor.onLoad((message) => {
       const id = message.id;
@@ -33,7 +35,7 @@ const _sfc_main = {
     const { article } = common_vendor.toRefs(state);
     return (_ctx, _cache) => {
       return common_vendor.e({
-        a: "http://172.19.10.138:3000" + common_vendor.unref(article).avatar,
+        a: "http://172.19.10.125:3000" + common_vendor.unref(article).avatar,
         b: common_vendor.t(common_vendor.unref(article).author),
         c: common_vendor.t(common_vendor.unref(article).autograph),
         d: common_vendor.t(common_vendor.unref(article).title),
@@ -44,7 +46,7 @@ const _sfc_main = {
         h: common_vendor.f(common_vendor.unref(article).cover, (item, i, i0) => {
           return {
             a: common_vendor.o(($event) => previewImage(i), i),
-            b: "http://172.19.10.138:3000" + item.imgUrl,
+            b: "http://172.19.10.125:3000" + item.imgUrl,
             c: i
           };
         })
@@ -55,6 +57,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/subpkg/article-details/article-details.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/subpkg/article-details/article-details.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

@@ -42,7 +42,7 @@
 }
 .search .serch-right {
   width: 90%;
-  height: 84rpx;
+  height: 72rpx;
   margin-left: 24rpx;
   background-color: #111;
   opacity: 0.5;

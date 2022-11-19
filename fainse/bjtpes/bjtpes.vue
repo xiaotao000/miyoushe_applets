@@ -91,7 +91,7 @@ const ooSubmit = async () => {
 onLoad(message => {
 	state.autograph = userStore.info.autograph
 	state.nickname =  userStore.info.nickname
-	avatar.value = 'http://172.19.10.138:3000' + userStore.info.avatar
+	avatar.value = userStore.info.avatar ? 'http://172.19.10.138:3000' + userStore.info.avatar: ''
 	state.gender = userStore.info.gender
 })
 

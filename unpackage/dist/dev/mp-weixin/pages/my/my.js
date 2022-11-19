@@ -43,7 +43,7 @@ const _sfc_main = {
       return common_vendor.e({
         a: common_vendor.unref(info).id
       }, common_vendor.unref(info).id ? {
-        b: "http://172.19.10.138:3000" + common_vendor.unref(info).avatar,
+        b: common_vendor.unref(info).avatar ? "http://172.19.10.138:3000" + common_vendor.unref(info).avatar : "/static/image/no-login.png",
         c: common_vendor.o(admin),
         d: common_vendor.t(common_vendor.unref(info).nickname),
         e: common_vendor.t(common_vendor.unref(info).autograph ? common_vendor.unref(info).autograph : "\u7CFB\u7EDF\u539F\u88C5\u7B7E\u540D\uFF0C\u9001\u7ED9\u6BCF\u4E00\u4F4D\u5C0F\u53EF\u7231~")
@@ -92,6 +92,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/Administrator/Desktop/\u65B0\u5EFA\u6587\u4EF6\u5939 (5)/miyoushe_applets/pages/my/my.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/my/my.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);
