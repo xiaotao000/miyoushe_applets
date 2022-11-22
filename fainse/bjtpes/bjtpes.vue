@@ -55,16 +55,16 @@ const openImagePage = () => {
 		success: res => {
 			const preview = res.tempFilePaths[0]
 			wx.uploadFile({
-				url: 'http://172.19.10.138:3000/my/update/avatar', // 仅为示例，非真实的接口地址
+				url: 'http://172.16.9.93:3000/my/update/avatar', // 仅为示例，非真实的接口地址
 				filePath: preview,
 				name: 'avatar',
 				header: {
 					Authorization: 'Bearer '+ uni.getStorageSync('TOKEN')
 				},
-				formData: { user: 'test' },
 				success(res) {
 					const { data } = JSON.parse(res.data)
-					avatar.value = 'http://172.19.10.138:3000' + data
+					console.log(res, data)
+					avatar.value = 'http://172.16.9.93:3000' + data
 				}
 			})
 		}
@@ -91,7 +91,7 @@ const ooSubmit = async () => {
 onLoad(message => {
 	state.autograph = userStore.info.autograph
 	state.nickname =  userStore.info.nickname
-	avatar.value = userStore.info.avatar ? 'http://172.19.10.138:3000' + userStore.info.avatar: ''
+	avatar.value = userStore.info.avatar ? 'http://172.16.9.93:3000' + userStore.info.avatar: ''
 	state.gender = userStore.info.gender
 })
 

@@ -61,9 +61,9 @@ const _sfc_main = {
       return {
         a: common_vendor.f(common_vendor.unref(artilceList), (item, k0, i0) => {
           return {
-            a: "http://172.19.10.125:3000" + item.cover[0].imgUrl,
+            a: "http://172.16.9.93:3000" + item.cover[0].imgUrl,
             b: common_vendor.t(item.title),
-            c: "http://172.19.10.125:3000" + item.avatar,
+            c: "http://172.16.9.93:3000" + item.avatar,
             d: common_vendor.t(item.author),
             e: common_vendor.t(item.count),
             f: item.id,

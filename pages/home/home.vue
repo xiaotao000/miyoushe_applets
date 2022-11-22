@@ -30,7 +30,7 @@
 				<view class="banner">
 					<swiper :indicator-dots="true" :circular="true" :autoplay="true" :interval="2000" :duration="500">
 						<swiper-item v-for="item in bannerList" :key="item.id">
-							<image :src="item.imgUrl" mode=""></image>
+							<image :src="'http://172.16.9.93:3000'+ item.imgUrl" mode=""></image>
 						</swiper-item>
 					</swiper>
 				</view>
@@ -216,7 +216,4 @@ const { card } =  storeToRefs(articleStore)
 </script>
 
 <style lang="scss" scoped>
-.scroll-center {
-	// height: calc(100vh - 120rpx - 44rpx);
-}
 </style>

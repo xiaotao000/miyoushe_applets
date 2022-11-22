@@ -17,7 +17,7 @@
 				<!-- 作者 -->
 				<view class="author">
 					<view class="author-left">
-						<image :src="'http://172.19.10.125:3000' + item.avatar" mode=""></image>
+						<image :src="'http://172.16.9.93:3000' + item.avatar" mode=""></image>
 						<text>{{ item.author }}</text>
 					</view>
 					<view class="time">{{ item.time }} 原神</view>
@@ -33,7 +33,7 @@
 					</view>
 					<!-- 图片 -->
 					<view class="img">
-						<image v-for="item2,i in item.cover" :key="i" :src="'http://172.19.10.125:3000' + item.cover[0].imgUrl" mode=""></image>
+						<image v-for="item2,i in item.cover" :key="i" :src="'http://172.16.9.93:3000' + item.cover[0].imgUrl" mode=""></image>
 					</view>
 					<!-- 浏览量 -->
 					<view class="desc">

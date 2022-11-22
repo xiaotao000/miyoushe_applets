@@ -64,7 +64,7 @@
 				>
 					<image
 						class="cover"
-						:src="'http://172.19.10.125:3000' + item.cover[0].imgUrl"
+						:src="'http://172.16.9.93:3000' + item.cover[0].imgUrl"
 						mode=""
 					></image>
 					<view class="title">{{ item.title }}</view>
@@ -72,7 +72,7 @@
 						<view class="left">
 							<image
 								class="head"
-								:src="'http://172.19.10.125:3000' + item.avatar"
+								:src="'http://172.16.9.93:3000' + item.avatar"
 								mode=""
 							></image>
 							<text class="author">{{ item.author }}</text>

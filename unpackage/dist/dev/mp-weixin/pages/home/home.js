@@ -89,7 +89,7 @@ const _sfc_main = {
       }, common_vendor.unref(card) === "\u89C2\u6D4B\u67A2" ? {
         m: common_vendor.f(common_vendor.unref(bannerList), (item, k0, i0) => {
           return {
-            a: item.imgUrl,
+            a: "http://172.16.9.93:3000" + item.imgUrl,
             b: item.id
           };
         }),
@@ -160,6 +160,6 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-92bb8f34"], ["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/home/home.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F/miyoushe/pages/home/home.vue"]]);
 _sfc_main.__runtimeHooks = 2;
 wx.createPage(MiniProgramPage);

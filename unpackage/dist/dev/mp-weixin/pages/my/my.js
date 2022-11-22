@@ -85,7 +85,7 @@ const _sfc_main = {
       return common_vendor.e({
         a: common_vendor.unref(info).id
       }, common_vendor.unref(info).id ? {
-        b: common_vendor.unref(info).avatar ? "http://172.19.10.125:3000" + common_vendor.unref(info).avatar : "/static/image/no-login.png",
+        b: common_vendor.unref(info).avatar ? "http://172.16.9.93:3000" + common_vendor.unref(info).avatar : "/static/image/no-login.png",
         c: common_vendor.o(admin),
         d: common_vendor.t(common_vendor.unref(info).nickname),
         e: common_vendor.t(common_vendor.unref(info).autograph ? common_vendor.unref(info).autograph : "\u7CFB\u7EDF\u539F\u88C5\u7B7E\u540D\uFF0C\u9001\u7ED9\u6BCF\u4E00\u4F4D\u5C0F\u53EF\u7231~")
@@ -105,7 +105,7 @@ const _sfc_main = {
             e: item.introduce,
             f: item.cover.length
           }, item.cover.length ? {
-            g: "http://172.19.10.125:3000" + item.cover[0].imgUrl
+            g: "http://172.16.9.93:3000" + item.cover[0].imgUrl
           } : {}, {
             h: common_vendor.t(item.section),
             i: common_vendor.t(item.browse),

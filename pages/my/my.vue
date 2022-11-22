@@ -17,7 +17,7 @@
 							class="maines1-img"
 							:src="
 								info.avatar
-									? 'http://172.19.10.125:3000' + info.avatar
+									? 'http://172.16.9.93:3000' + info.avatar
 									: '/static/image/no-login.png'
 							"
 						></image>
@@ -125,7 +125,7 @@
 												v-if="item.cover.length"
 												class="abion2"
 												:src="
-													'http://172.19.10.125:3000' +
+													'http://172.16.9.93:3000' +
 														item.cover[0].imgUrl
 												"
 												alt=""
